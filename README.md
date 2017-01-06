@@ -46,6 +46,7 @@ These content guidelines should give writers and reviewers confidence that we ca
 * Don’t write anything that would violate our code of conduct
 * Don’t make Signavio look bad
 * Spellcheck your text
+* No stock photos
 
 ### Blog post outline
 
