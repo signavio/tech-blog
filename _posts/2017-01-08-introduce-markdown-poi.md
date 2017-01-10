@@ -26,7 +26,7 @@ As you might know, in Microsoft Word formatting text like this have extra button
 ## Why transform Markdown to a Word document?
 In an workflow management system like [Signavio Workflow](http://www.signavio.com/products/workflow/) we face the frontier of digital and non-digital age quite often. As we try to do everything digital, Markdown is our best friend when it comes to formatting text online, espacially in a workflow management system. However in everyday life we are working with a lot of non-techy guys who love using office products like the office suite provided by Microsoft or Google.
 Sometimes these two worlds collide and in the event of clashing there should be a solution suitable for both worlds, leading directly into a markdown to docx transformer. 
-## Transform simple markdown text to a word document 
+## Transform simple markdown text to a Word document 
 As mentioned in the introduction, the goal of this article shoule be to transform this:
 
 `
@@ -69,4 +69,16 @@ Parsing this piece of HTML will result in a tree like this:
         - strikethrough
       - #text: .
      
-As we got this, we are ready to use Apache POI to create a docx document
+As we got this, we are ready to use Apache POI to create a docx document, but first lets have a look at the structure of a docx document as used by POI for this simple example.
+
+A document contains multiple pargraphs which can contain multiple runs. A paragraph defines the styling of one part of the document, a good example might be a quote, which can have a grey background to outline the quote visually but also basic text is seperated in pargraphs. 
+
+A run is defined by the same styling of words. In the earlier mentioned example the complete sentence is one paragraph (In the HTML part, this is marked by the `<p>` tag), while stylings made to the text itselfs becomes a run. So one could say a run is a group of words which have the same styling. The following scheme shows what I just described:
+
+![docx scheme](../2017/document-scheme-with-legend.png)
+
+Following this schema leads to the following code:
+
+```java
+
+```
