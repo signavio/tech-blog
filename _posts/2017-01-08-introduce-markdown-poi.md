@@ -68,23 +68,23 @@ while this is <del>strikethrough</del>.</p>
 
 Parsing this piece of HTML will result in a tree like this:
 ```
-.
-├── HTML
-    └── HEAD
-        └── #text
-    └── BODY
-        ├── #text
-        └── P
-            ├── #text: This text is
-            ├── STRONG 
-                └── #text: bold
-            ├── #text: and this is 
-            ├── EM
-                └── #text: italic
-            ├── #text: , while this is 
-            ├── DEL 
-                └── #text: strikethrough
-            └── #text: .
+/
+├─ HTML
+   └─ HEAD
+   |  └─ #text
+   └─ BODY
+      ├─ #text
+      └─ P
+         ├─ #text: This text is
+         ├─ STRONG 
+         |  └─ #text: bold
+         ├─ #text: and this is 
+         ├─ EM
+         |  └─ #text: italic
+         ├─ #text: , while this is 
+         ├─ DEL 
+         |  └─ #text: strikethrough
+         └─ #text: .
 ```
 As we got this far, we are ready to use Apache POI to create a docx document, but first let’s have a look at the structure of a docx document as used by POI for this simple example.
 
@@ -99,7 +99,7 @@ The following scheme shows what I just described:
 
 ![docx scheme](../2017/document-scheme-with-legend.png)
 
-This scheme leads to the following code which covers steps 1 and 2:
+This scheme leads to the following code which covers generating HTML from the Markdown and then parsing the generated HTML:
 
 ```java
 public class DocxTransformer {
@@ -159,7 +159,7 @@ Whatever approach you prefer, at some point you will need to create _paragraphs_
  }
 ```
 
-This code creates a paragraph and passes it to the `evaluateNode` method which passes every child.
+This code creates a paragraph and passes it to the `evaluateNode` method which passes every child. A child can be a `Node` or an `Element` which are the JSoup API types for the HTML nodes. An HTML node is either an HTML tag, or text content.
 Every time there is styling, it is added to the current run until the method faces a text node.
 At this point it sets the text to the run.
 Since there are methods for creating a paragraph and a run on its parent, there is no need to set the paragraph/run directly on the document.
