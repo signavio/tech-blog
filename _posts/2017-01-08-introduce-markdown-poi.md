@@ -69,9 +69,9 @@ Parsing this piece of HTML will result in a tree like this:
         - strikethrough
       - #text: .
      
-### Generating a Word document     
 As we got this, we are ready to use Apache POI to create a docx document, but first lets have a look at the structure of a docx document as used by POI for this simple example.
 
+### Generating a Word document 
 A document contains multiple paragraphs which can contain multiple runs. A paragraph defines the styling of one part of the document, a good example might be a quote, which can have a grey background to outline the quote visually but also basic text is separated in paragraphs. 
 
 A run is defined by the same styling of words. In the earlier mentioned example the complete sentence is one paragraph (In the HTML part, this is marked by the `<p>` tag), while stylings made to the text itself becomes a run. So one could say a run is a group of words which have the same styling. The following scheme shows what I just described:
