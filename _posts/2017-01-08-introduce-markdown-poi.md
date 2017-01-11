@@ -77,8 +77,45 @@ A run is defined by the same styling of words. In the earlier mentioned example 
 
 ![docx scheme](../2017/document-scheme-with-legend.png)
 
-Following this schema leads to the following code:
+This scheme leads to the following code which covers step 1 and 2:
 
 ```java
+public class DocxTransformer {
 
+   public XWPFDocument transformMarkdownToDocx(String markdown) throws DocumentException {
+     XWPFDocument document = new XWPFDocument();
+     String markdownToHtml = new PegDownProcessor.markdownToHtml(markdown); // step 1
+     Elements body = parseHtmlAndGetBody(markdownToHtml); // step 2
+     Document html = Jsoup.parse(markdownToHtml); 
+     Elements body = html.getElementsByTag("body");
+     return writeFromBody(body, document); // step 3      
+  }
+  
+  private XWPFDocument writeFromBody(Elements body, XWPFDocument document) {
+    // actual implementation
+  }
+}
+```
+From this point on there are different approaches to follow. One way is to go through the tree by recursivly calling a method which identifies every node and does something with the identified result. Another one would be to follow the [visitor pattern](https://en.wikipedia.org/wiki/Visitor_pattern). Whatever approach you prefer at some point you will need to create `paragraphs` and `runs` which can be done like this:
+
+```java
+  private XWPFDocument writeParagraphConent(Element paragraphNode, XWPFDocument document) {
+    // find the paragraph node 
+    XWPFParagraph paragraph = document.createParagraph();
+    paragraph.setStyle("BodyText"); //set styling, this could be any predefined style
+    // find child nodes ...
+    paragraphNode.childNodes().forEach(child -> evaluateNode(child));
+    XWPFRun run = paragraph.createRun();
+    // set prefered styling 
+    run.setBold(true); 
+    run.setItalic(true);
+    run.setStrikethrough(true);
+  }
+  
+  private void evaluateNode(Node child) {
+    switch (child.getTagName()) {
+      case ""
+    }
+  }
+  
 ```
