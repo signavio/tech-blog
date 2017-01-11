@@ -139,4 +139,4 @@ The approach I showed in this article is a basic setup for creating Word documen
 
 There are a lot of things that Markdown can do which I did not even mention, like creating lists or tables. But tables, lists and basic formatted text have one thing in common: the approach keeps the same: first parse the Markdown and create HTML from it, then take this HTML and build a tree which is the base for creating the Word document. 
 
-The downside of the shown approach is that the code used to parse through all nodes of the tree is kind of ugly because I always need to check if the is a tag or a text node, there might be a better solution for that. 
+The downside of the shown approach is that the code used to parse through all nodes of the tree is kind of ugly because I always need to check if the element passed is a tag or a text node, there might be a better solution for that. 
