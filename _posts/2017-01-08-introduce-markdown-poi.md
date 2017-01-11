@@ -103,19 +103,23 @@ From this point on there are different approaches to follow. One way is to go th
     // find the paragraph node 
     XWPFParagraph paragraph = document.createParagraph();
     paragraph.setStyle("BodyText"); //set styling, this could be any predefined style
-    // find child nodes ...
-    paragraphNode.childNodes().forEach(child -> evaluateNode(child));
-    XWPFRun run = paragraph.createRun();
-    // set prefered styling 
-    run.setBold(true); 
-    run.setItalic(true);
-    run.setStrikethrough(true);
+    // find child nodes 
+    paragraphNode.childNodes().forEach(child -> evaluateNode(child, paragraph, null));
+    // add more stuff to document
   }
   
-  private void evaluateNode(Node child) {
-    switch (child.getTagName()) {
-      case ""
+  private void evaluateNode(Node child, XWPFParagraph paragraph, XWPFRun run) {
+    if(run == null) {
+      XWPFRun run = paragraph.createRun();
     }
+    switch (child.getTagName()) {
+      case "strong": run.setBold(true);
+                     break;
+      case "em"    : run.setItalic(true);
+                     break;
+      case "del"   : run.setStrikethrough(true);
+                     break;
+    }
+   child.forEach(node -> evaluateNode(node, paragraph, run));
   }
-  
 ```
