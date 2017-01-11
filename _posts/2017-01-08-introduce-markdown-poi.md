@@ -60,10 +60,12 @@ I used [Pegdown](https://github.com/sirthias/pegdown) for step 1 and [JSoup](htt
 There is not really anything special to mention for these steps, so I will focus on explaining the structure of the outcome and how to use [Apache POI](https://poi.apache.org/document/).
 
 Libraries like Pegdown will create HTML like this:
+
 ```html
 <p>This text is <strong>bold</strong> and this is <em>italic</em>,
 while this is <del>strikethrough</del>.</p>
 ```
+
 Parsing this piece of HTML will result in a tree like this:
 
 - HTML
