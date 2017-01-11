@@ -35,7 +35,7 @@ This text is **bold** and this is *italic*, while this is ~~strikethrough~~.
 
 into this:
 
-![docx simple text](../2017/DocxText.png)
+![docx simple text](../2017/word-basic-text-formats.png)
 
 We need to take three steps from Markdown to docx:
 
@@ -135,6 +135,8 @@ From this point on there are different approaches to follow. One way is to go th
 
 This code creates a paragraph and passes it to the `evaluateNode` method which passes every child. Everytime there is a styling, it is added to the current run until the method faces a text node. At this point it sets the text to the run. Since there are methods for creating a paragraph and a run on its parent there is no need to set the paragraph / run directly to the document. 
 ## Conclusion
-The approach I showed in this article is a basic setup for creating Word documents it shows how to transform formatted text. But of cause there is more. There are a lot of things that Markdown can do which I did not even mention, like creating lists or tables. But tables, lists and basic formatted text have one thing in common: the approach keeps the same: first parse the Markdown and create HTML from it, then take this HTML and build a tree which is the base for creating the Word document. 
+The approach I showed in this article is a basic setup for creating Word documents it shows how to transform formatted text. But of cause there is more. 
+
+There are a lot of things that Markdown can do which I did not even mention, like creating lists or tables. But tables, lists and basic formatted text have one thing in common: the approach keeps the same: first parse the Markdown and create HTML from it, then take this HTML and build a tree which is the base for creating the Word document. 
 
 The downside of the shown approach is that the code used to parse through all nodes of the tree is kind of ugly because I always need to check if the is a tag or a text node, there might be a better solution for that. 
