@@ -127,7 +127,7 @@ Another one would be to follow the [visitor pattern](https://en.wikipedia.org/wi
 Whatever approach you prefer, at some point you will need to create _paragraphs_ and _runs_ which can be done like this:
 
 ```java
- private XWPFDocument writeParagraphConent(Element paragraphNode, XWPFDocument document) {
+ private XWPFDocument writeParagraphContent(Element paragraphNode, XWPFDocument document) {
   // find the paragraph node
   XWPFParagraph paragraph = document.createParagraph();
   paragraph.setStyle("BodyText"); //set styling, this could be any predefined style
