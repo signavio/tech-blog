@@ -8,9 +8,12 @@ tags:
 ---
 
 
-We develop an application that consist of multiple micro services that communicate through Apache Kafka. This is awesome but is really annoying when developing. Our production system uses `kubernetes` and `docker`, so why can we not use the same setup when developing?
+We develop an application that consist of multiple micro services that communicate through Apache Kafka.
+This is awesome but is really annoying when developing.
+Our production system uses `kubernetes` and `docker`, so why can we not use the same setup when developing?
 Well for one you would have to rebuild the image after changes and restart the cluster.
-Gladly there is this nice server called `nginx` (pronounced: 'engine-x', for those like me that didn't know). This server, as a docker image allows us to link our locally running dev server for one service with the other services and Apache Kafka inside docker.
+Gladly there is this nice server called `nginx` (pronounced: 'engine-x', for those like me that didn't know).
+This server, as a docker image allows us to link our locally running dev server for one service with the other services and Apache Kafka inside docker.
 
 Problem solved!
 
