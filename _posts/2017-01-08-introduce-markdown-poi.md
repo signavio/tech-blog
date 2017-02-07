@@ -2,7 +2,11 @@
 title: Transform Markdown
 description: Introduction to Markdown and Apache POI XWPF
 tags: document, data transformation, Microsoft Word, Apache POI, JSoup, Pegdown
+author: Peter Hilton (please change this)
 layout: article
+image:
+  feature: ../2017/word-basic-text-formats.png
+  alt: Cover image
 ---
 
 ## Introducing a way to transform Markdown to a Word document
@@ -76,13 +80,13 @@ Parsing this piece of HTML will result in a tree like this:
       ├─ #text
       └─ P
          ├─ #text: This text is
-         ├─ STRONG 
+         ├─ STRONG
          |  └─ #text: bold
-         ├─ #text: and this is 
+         ├─ #text: and this is
          ├─ EM
          |  └─ #text: italic
-         ├─ #text: , while this is 
-         ├─ DEL 
+         ├─ #text: , while this is
+         ├─ DEL
          |  └─ #text: strikethrough
          └─ #text: .
 ```
