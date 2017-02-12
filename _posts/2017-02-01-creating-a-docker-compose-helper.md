@@ -1,5 +1,5 @@
 ---
-title: How to orchestrate microservices with Apacha Kafka in a development environment?
+title: How to orchestrate microservices with Apache Kafka in a development environment?
 description: Pros and cons to create a docker management tool
 tags:
   - docker
