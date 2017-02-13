@@ -5,7 +5,7 @@ tags: Docker, docker-compose, Node.js
 ---
 
 
-We develop an application that consists of multiple microservices that communicate through [Apache Kafka](https://kafka.apache.org).
+Signavio Process Intelligence is an application that consists of multiple microservices that communicate through [Apache Kafka](https://kafka.apache.org).
 We build and deploy our services as [Docker](https://www.docker.com) images and use [Kubernetes](https://www.kubernetes.io/) to manage our production system.
 For someone that has not yet worked on this kind of architecture, this is awesome.
 You can update one service and don't need to think about how you can integrate the new version, as Kubernetes (mostly) takes care of it.
@@ -27,34 +27,8 @@ To connect a locally running service into the Docker cluster we use a simple `ng
 The next question would be how to chose if a service or a proxy should be run.
 
 The first approach was using different `docker-compose.yml` files.
-We would have different files per services, one where the actual Docker image was used and another one, where a `nginx` proxy with the correct name and ports was defined:
-
-`docker-compose.service-1.dev.yml`
-
-```
-version: '2'
-services:
-  service-1:
-    image: <docker-repo-url>/service-1:latest
-    ports:
-      - "8082:8080"
-    environment:
-      - <some configuration>
-```
-
-`docker-compose.service-1.proxy.yml`
-
-```
-version: '2'
-services:
-  service-1:
-    build: nginx/
-    environment:
-      - DEV_HOST=${HOST_IP}
-      - DEV_PORT=8082
-    ports:
-      - "8082:8080"
-```
+We would have different files per services, one where the actual Docker image was used and another one, where a `nginx` proxy with the correct name and ports was defined.
+([Normal](#docker-compose-service-1-dev-yml) vs [proxy](#docker-compose-service-1-proxy-yml) configuration)
 
 Problem solved!
 
@@ -86,7 +60,62 @@ In this file you can easily overwrite service configurations from the `docker-co
 This way saves a lot of files in SCM as we only need the `docker-compose.yml` and the `docker-compose.override.yml`.
 
 The `override` file contains all the proxy definitions, so a developer can just comment out services that should be run normally and has an very simple way of starting his work environment.
+([override](#docker-compose-override-yml) configuration)
 
 ## Conclusion
 
 It was a lot of fun experimenting with a `docker-compose` wrapper but in the end the built-in way was a better approach to solve this problem.
+The only issue we still have is the annoyance of commenting in the `override` file.
+Although this is a very simple approach and changes are always visible, it is still annoying to use another file.
+In my opinion we still haven't found the perfect solution for our problem.
+
+## config files:
+
+#### `docker-compose.service-1.dev.yml`
+
+```
+version: '2'
+services:
+  service-1:
+    image: <docker-repo-url>/service-1:latest
+    ports:
+      - "8082:8080"
+    environment:
+      - <some configuration>
+```
+
+#### `docker-compose.service-1.proxy.yml`
+
+```
+version: '2'
+services:
+  service-1:
+    build: nginx/
+    environment:
+      - DEV_HOST=${HOST_IP}
+      - DEV_PORT=8082
+    ports:
+      - "8082:8080"
+```
+
+#### `docker-compose.override.yml`
+
+```
+version: '2'
+services:
+#  service-1:
+#    image: nginx
+#    volumes:
+#      - ./nginx/default.conf.template:/etc/nginx/conf.d/default.conf.template
+#    environment:
+#     - DEV_HOST=${HOST_IP}
+#     - DEV_PORT=${PORT}
+#
+  service-2:
+    image: nginx
+    volumes:
+      - ./nginx/default.conf.template:/etc/nginx/conf.d/default.conf.template
+    environment:
+      - DEV_HOST=${HOST_IP}
+      - DEV_PORT=${PORT}
+```
