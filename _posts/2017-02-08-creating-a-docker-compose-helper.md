@@ -28,7 +28,7 @@ The next question would be how to chose if a service or a proxy should be run.
 
 The first approach was using different `docker-compose.yml` files.
 We would have different files per services, one where the actual Docker image was used and another one, where a `nginx` proxy with the correct name and ports was defined.
-([Normal](#docker-compose-service-1-dev-yml) vs [proxy](#docker-compose-service-1-proxy-yml) configuration)
+([Normal](#docker-composeservice-1devyml) vs [proxy](#docker-composeservice-1proxyyml) configuration)
 
 Problem solved!
 
@@ -60,7 +60,7 @@ In this file you can easily overwrite service configurations from the `docker-co
 This way saves a lot of files in SCM as we only need the `docker-compose.yml` and the `docker-compose.override.yml`.
 
 The `override` file contains all the proxy definitions, so a developer can just comment out services that should be run normally and has an very simple way of starting his work environment.
-([override](#docker-compose-override-yml) configuration)
+([override](#docker-composeoverrideyml) configuration)
 
 ## Conclusion
 
