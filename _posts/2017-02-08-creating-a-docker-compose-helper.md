@@ -5,7 +5,7 @@ tags: Docker, docker-compose, Node.js
 ---
 
 
-Signavio Process Intelligence is an application that consists of multiple microservices that communicate through [Apache Kafka](https://kafka.apache.org).
+[Signavio Process Intelligence](https://www.signavio.com/products/process-intelligence/) is an application that consists of multiple microservices that communicate through [Apache Kafka](https://kafka.apache.org).
 We build and deploy our services as [Docker](https://www.docker.com) images and use [Kubernetes](https://www.kubernetes.io/) to manage our production system.
 For someone that has not yet worked on this kind of architecture, this is awesome.
 You can update one service and don't need to think about how you can integrate the new version, as Kubernetes (mostly) takes care of it.
@@ -69,11 +69,11 @@ The only issue we still have is the annoyance of commenting in the `override` fi
 Although this is a very simple approach and changes are always visible, it is still annoying to use another file.
 In my opinion we still haven't found the perfect solution for our problem.
 
-## config files:
+## Configuration files
 
 #### `docker-compose.service-1.dev.yml`
 
-```
+```YAML
 version: '2'
 services:
   service-1:
@@ -84,9 +84,9 @@ services:
       - <some configuration>
 ```
 
-#### `docker-compose.service-1.proxy.yml`
+### `docker-compose.service-1.proxy.yml`
 
-```
+```YAML
 version: '2'
 services:
   service-1:
@@ -98,9 +98,9 @@ services:
       - "${PORT}:8080"
 ```
 
-#### `docker-compose.override.yml`
+### `docker-compose.override.yml`
 
-```
+```YAML
 version: '2'
 services:
 #  service-1:
