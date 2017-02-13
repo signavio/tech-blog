@@ -1,5 +1,5 @@
 ---
-title: How to orchestrate microservices with Apache Kafka in a development environment?
+title: Orchestrating microservices with Apache Kafka in a development environment
 description: Pros and cons of creating a Docker management tool
 tags: Docker, docker-compose, Node.js
 ---
