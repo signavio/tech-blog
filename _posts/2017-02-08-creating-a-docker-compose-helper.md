@@ -79,7 +79,7 @@ services:
   service-1:
     image: <docker-repo-url>/service-1:latest
     ports:
-      - "8082:8080"
+      - "${PORT}:8080"
     environment:
       - <some configuration>
 ```
@@ -93,9 +93,9 @@ services:
     build: nginx/
     environment:
       - DEV_HOST=${HOST_IP}
-      - DEV_PORT=8082
+      - DEV_PORT=${PORT}
     ports:
-      - "8082:8080"
+      - "${PORT}:8080"
 ```
 
 #### `docker-compose.override.yml`
