@@ -10,17 +10,17 @@ layout: article
 Hey there!
 I'm Phil and I'm the Product Manager for Signavio Workflow.
 To boost my credebility I'd like to mention that I started out as a frontend developer and still add my 2 cents in the Wolf Pack.
-As a Product Manager I want my product to be top-notch with and up-to-date stack so that:
+As a Product Manager I want my product to be top-notch with an up-to-date stack so that:
 
 - Developers are happy
 - We can deliver the best quality possible to our customers
 
-However it turns out that constantily delivering new features and improvements can conflict with refactorings when they are approached in the wrong way.
-The most commons problem we face is that refactorings become too large, thus take up many resources and block feature development for a longer period of time.
+However, it turns out that constantily delivering new features and improvements can conflict with refactorings when they are approached in the wrong way.
+The most common problem we face is that refactorings become too large, thus take up many resources and block feature development for a longer period of time.
 Obviously this is a no-go from my point of view.
 In this blog post I want to show you how we deal with constant change and the legacy code it produces.
 
-# What is legacy?
+# What is legacy code?
 
 Over time I've come to the realisation that different people have a different understanding what _legacy code_ actually means.
 In general I think legacy code is not inherently bad but just something that is part of every code base that lives long enough (read: longer than a month).
@@ -29,7 +29,7 @@ In general I think legacy code is not inherently bad but just something that is 
 
 When I think of legacy code I mean one of the following:
 
-- Dead code (code that isn't just in your application anymore)
+- Dead code (code that isn't used in your application anymore)
 - "Finished" code: features that change so little that they are not being refactored in a long time
 - Too complex code that is very hard to change and therefore isn't changed
 - Good, refactored code that needs to change because you
@@ -40,7 +40,7 @@ When I think of legacy code I mean one of the following:
 
 What helped me a lot when planning changes was to think of the application as a tree-like structure.
 For instance Signavio Workflow is made up of different parts as the following image shows.
-Here it is not important to understand exactly what each of these parts does but that every application is made up of different parts.
+It is not important to understand exactly what each of these compoennts do but that every application is made up of different parts.
 
 ![Applications are structured as a tree](../2017/application-tree.png)
 
@@ -100,7 +100,7 @@ If yes, leave the component as-is. If no, refactor the component.
 In general I would recommend this approach to everyone working on larger software projects.
 It helped us migrate from Backbone views to React.
 It is currently helping us to move from Backbone models to [Redux](http://redux.js.org/).
-The need to tackle large refactoring by coming up with a simple rule helped us slice work - if we cannot come up with a good rule, we question the task.
+The need to tackle large refactorings by coming up with a simple rule helped us slice work - if we cannot come up with a good rule, we question the task.
 However, with each approach there are some pros and some cons.
 
 ## Pros
