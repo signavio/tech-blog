@@ -1,0 +1,24 @@
+<footer>
+	<div class="container">
+		<ul class="footer-menu">
+			<li><a href="" title="">About the Blog</a></li>
+			<li><a href="" title="">Jobs</a></li>
+			<li><a href="" title="">Contact</a></li>
+			<li><a href="" title="">Legal Information</a></li>
+			<li><a href="" title="">Data Protection</a></li>
+		</ul>
+	</div>
+</footer>
+<script
+src="https://code.jquery.com/jquery-3.1.1.min.js"
+integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+crossorigin="anonymous"></script>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script type="text/javascript">
+	$('.grid').masonry({
+		itemSelector: '.grid-item',
+		columnWidth: '.grid-item-sizer',
+		percentPosition: true,
+		gutter: '.grid-item-margin'
+	});
+</script>

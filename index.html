@@ -1,0 +1,27 @@
+---
+layout: default
+---
+<div class="container">
+	<div class="blog-intro">
+		<h1>Signavio Tech Blog</h1>
+		<p>Some short explanation about this blog</p>
+	</div>
+	<div class="grid">
+		<div class="grid-item-sizer"></div>
+		<div class="grid-item-margin"></div>
+		{% for page in site.posts %}
+		<div class="grid-item">
+			{% if page.image.feature %}
+			<div class="featured"><img src="{{ page.image.feature }}" alt="{{ page.image.alt }}"></div>
+			{% endif %}
+			<div class="content">
+				<h3 class="title"><a href="{{ page.url | replace:'.html','' }}">{{ page.title }}</a></h3>
+				<div class="meta">{{ page.author }} - {{ page.date | date_to_long_string }}</div>
+				<div class="description">
+					<p>{{ page.description }}</p>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
