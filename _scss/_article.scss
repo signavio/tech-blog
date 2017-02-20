@@ -1,0 +1,121 @@
+.article {
+	main {
+		.featured {
+			img {
+				width: 100%;
+			}
+		}
+		.title-content {
+			@include span(9);
+			h1 {
+				color: $bromberry-base;
+				font-size: 2.25em;
+				font-weight: 300;
+				line-height: 1.2em;
+				margin: 1em 0;
+			}
+			.meta {
+				border-left: 2px solid $bromberry-base;
+				font-size: .75em;
+				font-weight: 600;
+				line-height: 1.125em;
+				padding: .25rem 0 .25rem .5rem;
+				margin-bottom: 16px;
+				margin-left: -.5rem;
+			}
+		}
+		.main-content {
+			padding-bottom: 3rem;
+			@include span(9);
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				font-weight: 300;
+			}
+			h2 {
+				font-size: 1.5em;
+			}
+			h3 {
+				color: $bromberry-base;
+				font-size: 1.25em;
+			}
+			p {
+				font-size: 1em;
+				line-height: 1.5em;
+			}
+			img {
+				margin: 0 auto;
+			}
+			.excerpt {
+				font-size: 1.125em;
+				line-height: 1.4em;
+			}
+			.content {
+				.highlight {
+					background-color: $gray-u-light;
+					font-size: .875em;
+					line-height: 1.5em;
+					padding: 0;
+					td:first-child {
+						background-color: $gray-x-light;
+						border-right: 1px solid $gray-middle;
+						padding-left: 1em;
+					}
+				}
+				ul {
+					line-height: 1.5em;
+					list-style: none;
+					padding-left: 1rem;
+					li {
+						&:before {
+							@extend %icon;
+							color: $bromberry-base;
+							content: "\e000";
+							font-size: 24px;
+							position: relative;
+							top: 2px;
+						}
+					}
+				}
+				ol {
+					counter-reset:li;
+					line-height: 1.5em;
+					list-style: none;
+					padding-left: 22px;
+					> li:before {
+						color: $bromberry-base;
+						content: counter(li)".";
+						counter-increment: li;
+						font-size: 16px;
+						margin-right: 5px;
+					}
+				}
+			}
+		}
+		.side-content {
+			@include span(3 last);
+			button.btn {
+				@include span(full);
+			}
+		}
+		.btn {
+			border: 1px solid $bromberry-base;
+			color: $white;
+			background-color: $bromberry-base;
+			font-family: $open-sans;
+			font-size: 20px;
+			font-weight: 300;
+			margin: 0 auto;
+			padding: 10px;
+			text-align: center;
+			text-decoration: none;
+			&:hover {
+				background-color: $bromberry-dark;
+				cursor: pointer;
+			}
+		}
+	}
+}

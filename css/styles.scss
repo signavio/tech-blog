@@ -1,0 +1,177 @@
+---
+---
+@import 'fonts';
+@import 'settings';
+@import 'vars';
+@import 'mixins';
+@import 'normalize';
+@import 'syntax';
+
+// Some responsive standard code
+
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+html, body {
+	height: 100%;
+	min-height: 100%;
+	position: relative;
+	width: 100%;
+}
+body * {
+	// font-family: $open-sans, sans-serif;
+}
+body {
+	background-color: $white;
+	color: $gray-base;
+	font-family: $open-sans, sans-serif;
+	font-size: 1em;
+}
+a {
+	color: $bromberry-base;
+}
+.container {
+	@include container(1200px);
+	height: 100%;
+	padding: 0 16px;
+}
+%icon {
+	font-family: $signavicons;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	// Enable Ligatures
+	letter-spacing: 0;
+	-webkit-font-feature-settings: "liga";
+	-moz-font-feature-settings: "liga=1";
+	-moz-font-feature-settings: "liga";
+	-ms-font-feature-settings: "liga" 1;
+	-o-font-feature-settings: "liga";
+	font-feature-settings: "liga";
+
+	// Better Font Rendering
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+header {
+	@include span(full);
+	.header {
+		@include span(full);
+		background-color: $gray-dark;
+		height: 96px;
+		.tech-blog-logo {
+			@include span(2);
+			background-image: url('../assets/img/logo-techblog.svg');
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: contain;
+			height: 100%;
+			max-width: 100%;
+		}
+		.signavio-brand-logo {
+			@include span(2 last);
+			background-image: $signavio-logo;
+			background-position: left center;
+			background-repeat: no-repeat;
+			background-size: contain;
+			height: 100%;
+			max-width: 100%;
+		}
+	}
+}
+main {
+	.blog-intro {
+		@include span(full);
+		h1 {
+			color: $bromberry-base;
+			font-size: 2.625em;
+			font-weight: 300;
+			line-height: 3rem;
+			margin-bottom: 1rem;
+			margin-top: 3rem;
+		}
+		p {
+			font-size: 1.25em;
+			line-height: 1.75em;
+			margin-bottom: 3rem;
+		}
+	}
+	.grid {
+		@include span(full);
+		padding-bottom: 3rem;
+		.grid-item {
+			@include span(4 no-gutter);
+			border: 1px solid $gray-light;
+			margin-bottom: 16px;
+			&:hover {
+				border: 1px solid $bromberry-base;
+			}
+			.featured {
+				border-bottom: 1px solid $gray-light;
+			}
+			.content {
+				padding: 1.5em;
+				.title {
+					margin-bottom: 16px;
+					a {
+						color: $bromberry-base;
+						font-size: 1.25em;
+						text-decoration: none;
+						&:hover {
+							text-decoration: underline;
+						}
+					}
+				}
+				.meta {
+					border-left: 2px solid $bromberry-base;
+					font-size: .75em;
+					font-weight: 600;
+					line-height: 1.125em;
+					padding: .25rem 0 .25rem .5rem;
+					margin-bottom: 16px;
+					margin-left: -.5rem;
+				}
+				.description {
+					line-height: 1.5em;
+				}
+			}
+		}
+		.grid-item-sizer {
+			box-sizing: border-box;
+			width: 32.20339%;
+		}
+		.grid-item-margin {
+			width: 1.69492%;
+		}
+	}
+}
+@include sticky-footer(96px);
+footer {
+	background-color: $gray-dark;
+	.footer-menu {
+		@include span(full);
+		height: 36px;
+		margin: 30px 0;
+		li {
+			border-right: 1px solid $white;
+			display: inline-block;
+			padding: .5em 1em;
+			a {
+				color: $white;
+				font-size: 1em;
+				font-weight: 300;
+				text-decoration: none;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
+@import 'article';
