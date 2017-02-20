@@ -1,8 +1,12 @@
 ---
-title: Transform Markdown
-description: Introduction to Markdown and Apache POI XWPF
+title: Test post
+description: This post is just meant to test all the styles. This post is just meant to test all the styles. This post is just meant to test all the styles.
 tags: document, data transformation, Microsoft Word, Apache POI, JSoup, Pegdown
+author: Cesare Rinaldi (please change this)
 layout: article
+image:
+  feature: ../2017/word-basic-text-formats.png
+  alt: Cover image
 ---
 
 ## Introducing a way to transform Markdown to a Word document
@@ -37,7 +41,7 @@ As we try to do everything digitally, Markdown is our best friend when it comes 
 However in everyday life we are working with a lot of non-techy people who love using office products like the office suites provided by Microsoft and Google.
 Sometimes these two worlds collide and in the event of clashing there should be a solution suitable for both worlds, leading directly into a Markdown to docx transformer.
 
-## Transform simple Markdown text to a Word document
+### Transform simple Markdown text to a Word document
 
 As mentioned in the introduction, the goal of this article should be to transform this:
 
@@ -54,6 +58,12 @@ We need to take three steps from Markdown to docx:
 1. Parse the Markdown and create HTML
 2. Parse the HTML
 3. Create a document from parsed HTML
+
+This is an unordered list:
+
+* Parse the Markdown and create HTML
+* Parse the HTML
+* Create a document from parsed HTML
 
 Luckily the first two steps can quickly be done by using existing libraries.
 I used [Pegdown](https://github.com/sirthias/pegdown) for step 1 and [JSoup](https://jsoup.org/) for step 2.
