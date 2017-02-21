@@ -113,7 +113,7 @@
 					border-spacing: 1px;
 					max-width: span(8 no-gutter);
 					th {
-						background-color: $gray-x-light;
+						background-color: $white;
 						padding: .5em 1em;
 						border-bottom: 2px solid $bromberry-base;
 						.highlighter-rouge {
@@ -121,13 +121,18 @@
 						}
 					}
 					tr {
-						background-color: $gray-u-light;
+						background-color: $white;
+						&:last-child {
+							td {
+								border-bottom: none;
+							}
+						}
 					}
 					td {
 						padding: .5em 1em;
+						border-bottom: 1px solid $gray-light;
 					}
 				}
-
 			}
 		}
 		.side-content {
