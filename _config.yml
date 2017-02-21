@@ -4,21 +4,8 @@ future: false
 permalink: ":year/:title.html"
 timezone: Europe/Berlin
 title: Signavio Tech Blog
-markdown: kramdown
 highlighter: rouge
-# Options › http://kramdown.gettalong.org/options.html
-kramdown:
-  input:          GFM
-  syntax_highlighter: rouge
-  # Rouge Highlighter in Kramdown › http://kramdown.gettalong.org/syntax_highlighter/rouge.html
-  syntax_highlighter_opts:
-    # Rouge Options › https://github.com/jneen/rouge#full-options
-    css_class: 'highlight'
-    span:
-      line_numbers: false
-    block:
-      line_numbers: true
-      start_line: 1
+
 sass:
   sass_dir: _scss
   style: compressed

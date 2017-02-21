@@ -182,6 +182,8 @@ GEM
     sawyer (0.8.1)
       addressable (>= 2.3.5, < 2.6)
       faraday (~> 0.8, < 1.0)
+    susy (2.2.12)
+      sass (>= 3.3.0, < 3.5)
     terminal-table (1.7.3)
       unicode-display_width (~> 1.1.1)
     thread_safe (0.3.5)
@@ -196,6 +198,7 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
+  susy
 
 BUNDLED WITH
    1.14.3
