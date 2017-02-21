@@ -1,6 +1,6 @@
 ---
-title: 6 bad ways to add type information to JSON
-description: Pros and cons of different ways to indicate JSON types
+title: "6 bad ways to add type information to JSON"
+description: "Pros and cons of different ways to indicate JSON types"
 author: Peter Hilton
 tags: JSON, data types
 layout: article

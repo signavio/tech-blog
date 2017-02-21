@@ -1,6 +1,6 @@
 ---
-title: How to transform Markdown to a Word document with Apache POI
-description: Using Pegdown and JSoup to generate Apache POI’s XWPF format
+title: "How to transform Markdown to a Word document with Apache POI"
+description: "Using Pegdown and JSoup to generate Apache POI’s XWPF format"
 author: Stefan Herz
 tags: document, data transformation, Microsoft Word, Apache POI, JSoup, Pegdown
 layout: article
@@ -77,13 +77,13 @@ Parsing this piece of HTML will result in a tree like this:
       ├─ #text
       └─ P
          ├─ #text: This text is
-         ├─ STRONG 
+         ├─ STRONG
          |  └─ #text: bold
-         ├─ #text: and this is 
+         ├─ #text: and this is
          ├─ EM
          |  └─ #text: italic
-         ├─ #text: , while this is 
-         ├─ DEL 
+         ├─ #text: , while this is
+         ├─ DEL
          |  └─ #text: strikethrough
          └─ #text: .
 ```

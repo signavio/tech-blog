@@ -1,6 +1,6 @@
 ---
-title: Orchestrating microservices with Apache Kafka
-description: Pros and cons of creating a Docker management tool for your development environment
+title: "Orchestrating microservices with Apache Kafka"
+description: "Pros and cons of creating a Docker management tool for your development environment"
 author: Julius Breckel
 tags: Docker, docker-compose, Node.js
 layout: article
