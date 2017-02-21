@@ -124,4 +124,4 @@ However, this might even save you some time because the next re-factoring makes 
 
 - [Ryan Florence - Don’t Rewrite, React!](https://www.youtube.com/watch?v=BF58ZJ1ZQxY)
 - [The Mikado Method](https://mikadomethod.wordpress.com/)
-- https://pragprog.com/magazines/2010-06/the-mikado-method
+- <https://pragprog.com/magazines/2010-06/the-mikado-method>
