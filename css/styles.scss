@@ -162,7 +162,8 @@ footer {
 		li {
 			border-right: 1px solid $white;
 			display: inline-block;
-			padding: .5em 1em;
+			padding: 2px 1em;
+			margin: 6px auto;
 			&:first-child {
 				padding-left: 0;
 			}
@@ -182,3 +183,4 @@ footer {
 	}
 }
 @import 'article';
+@import 'responsive';

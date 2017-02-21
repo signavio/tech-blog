@@ -54,38 +54,42 @@
 				line-height: 1.4em;
 			}
 			.content {
-				.highlight {
-					background-color: $gray-u-light;
-					font-size: .875rem;
-					line-height: 1.5em;
-					overflow-x: auto;
-					padding: 0;
-					td:first-child {
-						background-color: $gray-x-light;
-						border-right: 1px solid $gray-middle;
-						padding-left: 1em;
-					}
-					pre {
-						word-break: normal;
-						word-wrap: normal;
-					}
-				}
 				.highlighter-rouge {
 					background-color: $gray-u-light;
-					font-size: .875rem;
+					font-size: 1em;
 					line-height: 1.5em;
+				}
+				code.highlighter-rouge {
 					padding: .125rem .25em;
+				}
+				div.highlighter-rouge {
+					padding: .125rem 0;
+					.highlight {
+						margin: 0;
+						padding: .25rem .75em;
+						overflow-x: auto;
+						td:first-child {
+							background-color: $gray-x-light;
+							border-right: 1px solid $gray-middle;
+							padding-left: 1em;
+						}
+						pre {
+							word-break: normal;
+							word-wrap: normal;
+						}
+					}
 				}
 				ul {
 					line-height: 1.5em;
 					list-style: none;
-					padding-left: 1rem;
+					padding-left: 40px;
 					li {
 						&:before {
 							@extend %icon;
 							color: $bromberry-base;
 							content: "\e000";
 							font-size: 24px;
+							margin-left: -24px;
 							position: relative;
 							top: 2px;
 						}
@@ -95,15 +99,35 @@
 					counter-reset:li;
 					line-height: 1.5em;
 					list-style: none;
-					padding-left: 22px;
+					padding-left: 46px;
 					> li:before {
 						color: $bromberry-base;
 						content: counter(li)".";
 						counter-increment: li;
 						font-size: 16px;
+						margin-left: -24px;
 						margin-right: 5px;
 					}
 				}
+				table {
+					border-spacing: 1px;
+					max-width: span(8 no-gutter);
+					th {
+						background-color: $gray-x-light;
+						padding: .5em 1em;
+						border-bottom: 2px solid $bromberry-base;
+						.highlighter-rouge {
+							background-color: inherit;
+						}
+					}
+					tr {
+						background-color: $gray-u-light;
+					}
+					td {
+						padding: .5em 1em;
+					}
+				}
+
 			}
 		}
 		.side-content {
