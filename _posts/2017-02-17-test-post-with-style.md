@@ -77,6 +77,7 @@ while this is <del>strikethrough</del>.</p>
 ```
 
 Parsing this piece of HTML will result in a tree like this:
+
 ```
 /
 ├─ HTML
@@ -96,6 +97,7 @@ Parsing this piece of HTML will result in a tree like this:
          |  └─ #text: strikethrough
          └─ #text: .
 ```
+
 As we got this far, we are ready to use Apache POI to create a docx document, but first let’s have a look at the structure of a docx document as used by POI for this simple example.
 
 ### Generating a Word document

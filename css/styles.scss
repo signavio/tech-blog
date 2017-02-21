@@ -4,7 +4,7 @@
 @import 'settings';
 @import 'vars';
 @import 'mixins';
-@import 'normalize';
+// @import 'normalize';
 @import 'syntax';
 
 // Some responsive standard code
@@ -158,10 +158,17 @@ footer {
 		@include span(full);
 		height: 36px;
 		margin: 30px 0;
+		padding-left: 0;
 		li {
 			border-right: 1px solid $white;
 			display: inline-block;
 			padding: .5em 1em;
+			&:first-child {
+				padding-left: 0;
+			}
+			&:last-child {
+				border-right: none;
+			}
 			a {
 				color: $white;
 				font-size: 1em;

@@ -56,14 +56,25 @@
 			.content {
 				.highlight {
 					background-color: $gray-u-light;
-					font-size: .875em;
+					font-size: .875rem;
 					line-height: 1.5em;
+					overflow-x: auto;
 					padding: 0;
 					td:first-child {
 						background-color: $gray-x-light;
 						border-right: 1px solid $gray-middle;
 						padding-left: 1em;
 					}
+					pre {
+						word-break: normal;
+						word-wrap: normal;
+					}
+				}
+				.highlighter-rouge {
+					background-color: $gray-u-light;
+					font-size: .875rem;
+					line-height: 1.5em;
+					padding: .125rem .25em;
 				}
 				ul {
 					line-height: 1.5em;
