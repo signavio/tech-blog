@@ -104,7 +104,7 @@ We should only increase this if we get a backlog of more than four or five unpub
 1. Pick a planned publication date at least one week after the previous post’s date
 1. Create a new branch in the repo, named `post/short-title`
 1. Add a file `_posts/yyyy-mm-dd-short-title.md` with the planned publication date
-1. Add a [YAML front matter](https://jekyllrb.com/docs/frontmatter/) block, with a `title`, `description` and `tags`
+1. Add a [YAML front matter](https://jekyllrb.com/docs/frontmatter/) block, with a `title`, `description` and `tags`. Also, set the `author` variable to your full name. Wrap the `title` and `description` values in quotes.
 1. Write the blog post in Markdown
 1. Build the site by [running Jekyll locally](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/)
 1. Commit, push to your branch, and create a pull request

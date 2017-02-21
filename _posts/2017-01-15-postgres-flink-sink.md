@@ -1,7 +1,8 @@
 ---
-title: Writing to PostgreSQL from Apache Flink®
-description:
-tags: Apache Flink®, PostgreSQL
+title: "Writing to PostgreSQL from Apache Flink"
+description: "How to write a custom data sink"
+author: Kathleen Sharp
+tags: Apache Flink, PostgreSQL
 layout: article
 ---
 
