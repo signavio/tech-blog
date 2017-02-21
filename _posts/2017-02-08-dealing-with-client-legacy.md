@@ -8,7 +8,7 @@ layout: article
 
 # Introduction
 Hey there!
-I'm Phil and I'm the Product Manager for Signavio Workflow.
+I’m Phil and I’m the Product Manager for Signavio Workflow.
 To boost my credibility I'd like to mention that I started out as a front-end developer and still add my 2 cents in the my team.
 As a Product Manager I want my product to be top-notch with an up-to-date stack so that:
 
@@ -69,7 +69,7 @@ What happened?
 
 ## The Good Way™
 
-You might already see where I'm going with this.
+You might already see where I’m going with this.
 Instead of starting at the top of the tree, start at the bottom.
 
 ![Progressively introduce changes](../2017/good-refactoring.png)
