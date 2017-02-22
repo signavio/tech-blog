@@ -119,6 +119,7 @@ main {
 				padding: 1.5em;
 				.title {
 					margin-bottom: 16px;
+					margin-top: 0;
 					a {
 						color: $bromberry-base;
 						font-size: 1.25em;
@@ -129,6 +130,7 @@ main {
 					}
 				}
 				.meta {
+					color: $gray-base;
 					border-left: 2px solid $bromberry-base;
 					font-size: .75em;
 					font-weight: 600;
@@ -138,6 +140,7 @@ main {
 					margin-left: -.5rem;
 				}
 				.description {
+					color: $gray-base;
 					line-height: 1.5em;
 				}
 			}
@@ -162,8 +165,8 @@ footer {
 		li {
 			border-right: 1px solid $white;
 			display: inline-block;
-			padding: 2px 1em;
-			margin: 6px auto;
+			padding: 0 1em;
+			margin: .5rem auto;
 			&:first-child {
 				padding-left: 0;
 			}

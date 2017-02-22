@@ -25,6 +25,11 @@
 		.side-content {
 			@include span(full);
 		}
+		.title-content {
+			h1 {
+				font-size: 2em;
+			}
+		}
 		.main-content {
 			.content {
 				table {
@@ -47,6 +52,16 @@
 			}
 			.signavio-brand-logo {
 				@include span (4 last);
+			}
+		}
+	}
+	main {
+		.blog-intro {
+			h1 {
+				font-size: 2.25em;
+			}
+			p {
+				font-size: 1.125em;
 			}
 		}
 	}
