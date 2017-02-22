@@ -104,10 +104,12 @@ For the next step you can specify each JSON object’s type in a special inline 
 You can probably avoid name clashes by using an underscore prefix, calling it `_type`.
 
 ```json
-"price" : {
-  "_type" : "Money",
-  "currency" : "EUR",
-  "amount" : 10.00
+{
+  "price" : {
+    "_type" : "Money",
+    "currency" : "EUR",
+    "amount" : 10.00
+  }
 }
 ```
 
@@ -122,11 +124,13 @@ You can keep your serialisation code relatively clean by separating the object�
 This also allows the parser to read the type before reading the value using a type-specific parser.
 
 ```json
-"price" : {
-  "type" : "Money",
-  "value" : {
-    "currency" : "EUR",
-    "amount" : 10.00
+{
+  "price" : {
+    "type" : "Money",
+    "value" : {
+      "currency" : "EUR",
+      "amount" : 10.00
+    }
   }
 }
 ```
@@ -139,13 +143,15 @@ Instead of using the type and value name as a property name and object value, yo
 In this approach, the array holds the same pair of values as the object in the previous approach, but transforms the `type` and `value` properties to anonymous array items.
 
 ```json
-"price" : [
-  "@Money",
-  {
-    "currency" : "EUR",
-    "amount" : 10.00
-  }
-]
+{
+  "price" : [
+    "@Money",
+    {
+      "currency" : "EUR",
+      "amount" : 10.00
+    }
+  ]
+}
 ```
 
 This probably only makes sense if you use a programming language with tuples, and you’re used to pairs of values.
@@ -158,10 +164,12 @@ You can separate the type name and object value more neatly by using the type na
 This example uses a `@` prefix for the type name, to make the JSON more human-readable.
 
 ```json
-"price" : {
-  "@Money" : {
-    "currency" : "EUR",
-    "amount" : 10.00
+{
+  "price" : {
+    "@Money" : {
+      "currency" : "EUR",
+      "amount" : 10.00
+    }
   }
 }
 ```
@@ -174,12 +182,14 @@ You can extend the previous approach by mixing multiple types, so you can repres
 This example represents the same model, with the addition that `Money` subclasses (extends) `Number`.
 
 ```json
-"price" : {
-  "@Number" : {
-    "amount" : 10.00
-  },
-  "@Money" : {
-    "currency" : "EUR",
+{
+  "price" : {
+    "@Number" : {
+      "amount" : 10.00
+    },
+    "@Money" : {
+      "currency" : "EUR"
+    }
   }
 }
 ```
