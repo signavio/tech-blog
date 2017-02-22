@@ -4,6 +4,9 @@ description: "Pros and cons of different ways to indicate JSON types"
 author: Peter Hilton
 tags: JSON, data types
 layout: article
+image:
+  feature: /2017/json.png
+  alt: "Representing typed data in JSON format"
 ---
 
 [JSON](https://en.wikipedia.org/wiki/JSON), specified by [RFC7159](https://tools.ietf.org/html/rfc7159) has taken over from [XML](https://en.wikipedia.org/wiki/XML) as data format of choice for web service [API](https://en.wikipedia.org/wiki/Application_programming_interface)s.
