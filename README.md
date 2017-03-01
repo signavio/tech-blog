@@ -90,7 +90,7 @@ When you don’t know what to write, pick a different section.
 
 ### Review guidelines
 
-Blog posts require review before publication,
+Blog posts require review before publication. We conduct these reviews on GitHub.
 
 ### Content schedule
 
