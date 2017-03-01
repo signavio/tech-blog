@@ -159,7 +159,7 @@ JDBCOutputFormat jdbcOutput = JDBCOutputFormat.buildJDBCOutputFormat()
      .setDrivername("org.postgresql.Driver")
      .setDBUrl("jdbc:postgresql://localhost:1234/test?user=xxx&password=xxx")
      .setQuery(query)
-     .setSqlTypes(new int[] { Types.VARCHAR, Types.VARCHAR, TypEs.VARCHAR }) //set the types
+     .setSqlTypes(new int[] { Types.VARCHAR, Types.VARCHAR, Types.VARCHAR }) //set the types
      .finish();
 ```
 
