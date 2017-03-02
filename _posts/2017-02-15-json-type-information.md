@@ -58,7 +58,7 @@ The default way to serialise something like an invoice to JSON is not to include
       }
     }
   ],
-  "price" : {
+  "total" : {
     "currency" : "EUR",
     "amount" : 500.00
   }
