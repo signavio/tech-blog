@@ -65,4 +65,21 @@
 			}
 		}
 	}
+	footer {
+		.container {
+			padding: 0;
+		}
+		height: auto;
+		.footer-menu {
+			height: auto;
+			margin: 12px 0;
+			li {
+				border-right: none;
+				display: block;
+				padding: .75em 0;
+				margin: 0;
+				text-align: center;
+			}
+		}
+	}
 }
