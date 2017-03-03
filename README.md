@@ -18,11 +18,11 @@ In practice, this is likely to be one of:
 
 More topic ideas:
 
-* Annoucement for a forthcoming Signavio Tech Talk meet-up
+* Announcement for a forthcoming Signavio Tech Talk meet-up
 * Presentation slides or photos of the previous Signavio Tech Talk meet-up
 * Book review
 * Masters thesis summary
-* Review of a Berlin tech meetup event
+* Review of a tech meet-up event or conference
 * Experiences with a technology Signavio doesn’t use (hobby project or previous job)
 
 Everyone has something to write about!
