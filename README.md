@@ -16,6 +16,15 @@ In practice, this is likely to be one of:
 * Fun tech ideas you talked about over beers
 * A demo of something cool, however pointless
 
+More topic ideas:
+
+* Annoucement for a forthcoming Signavio Tech Talk meet-up
+* Presentation slides or photos of the previous Signavio Tech Talk meet-up
+* Book review
+* Masters thesis summary
+* Review of a Berlin tech meetup event
+* Experiences with a technology Signavio doesn’t use (hobby project or previous job)
+
 Everyone has something to write about!
 See [How To Brainstorm Talk Ideas](http://missgeeky.com/2016/11/21/how-to-brainstorm-talk-ideas/), which mostly applies to blogging as well as presenting.
 
