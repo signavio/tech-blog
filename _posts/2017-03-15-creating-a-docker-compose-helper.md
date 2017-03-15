@@ -1,5 +1,5 @@
 ---
-title: "Microservice orchestration with Apache Kafka"
+title: "Microservice orchestration with Docker Compose"
 description: "Pros and cons of creating a Docker management tool for your development environment"
 author: Julius Breckel
 tags: Docker, docker-compose, Node.js
