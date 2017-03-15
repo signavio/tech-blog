@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="{{ page.description }}">
 <meta name="keywords" content="{% if page.tags %}{{ page.tags }}{% else %}software development, writing, tech{% endif %}">
-<meta name="twitter:card" content="summary" />
+<meta name="twitter:card" content="{% if page.image.feature %}summary_large_image{% else %}summary{% endif %}" />
 <meta name="twitter:site" content="@Signavio" />
 <meta name="twitter:title" content="{% if page.title %}{{ page.title }} - {% endif %}Signavio Tech Blog" />
 <meta name="twitter:description" content="{{ page.description }}" />
