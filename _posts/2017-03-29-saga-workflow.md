@@ -4,6 +4,9 @@ description: "Sagas are not well known but provide inspiration for using workflo
 tags: saga, workflow, transactions
 author: Tom Baeyens
 layout: article
+image:
+  feature: /2017/viking-longboat.jpg
+  alt: A Viking longboat - from the other kind of saga
 ---
 
 Comparing sagas to workflow helps to clarify the more subtle and hidden features of workflows
