@@ -30,22 +30,25 @@ You can even open the stack trace to locate the execution in your code, so you c
 The list of executed queries combined with the execution count helps to identify anti-patterns like the N+1 Query Problem, where you have a high execution count but a low number of returned rows per statement.
 The anti-pattern of loading several rows by ID in a loop can be replaced with one query with an `in` statement in the `where` clause taking multiple parameters.
 
-Look at this simplified example where we want to get 10 rows in our result set.
-The latency to the database server is 1 ms. This time is added to each SQL statement to create a connection between the application server and the database.
+Consider a simplified example where we want to get 10 rows in our result set.
+The latency to the database server is 1 ms.
+This time is added to each SQL statement to create a connection between the application server and the database.
 The actual SQL query to find one row by ID needs 2 ms to get the result.
-This makes 30 ms (10 * 1 + 10 * 2) to get the complete result set of 10 rows for the row based query in a loop.
+This makes _10 × 1 ms + 10 × 2 ms = 30 ms_ to get the complete result set of 10 rows for the row-based query in a loop.
 
-The `in` based query in our example needs also 2 ms for each returned row.
-This makes 21 ms (1 * 1 + 1 * (10 * 2)) for the complete result set of the `in` based query. The latency is only applied once as all rows are returned by one query.
-The `in` based query needs 70% of the time compared to the time that the row based queries would need.
+The `in`-based query in our example needs also 2 ms for each returned row.
+This makes _1 ms + 10 × 2 ms = 21 ms_ for the complete result set of the `in`-based query.
+The latency is only applied once as all rows are returned by one query.
+The `in`-based query needs 70 per cent of the time compared to the time that the row-based queries would need.
 
 If we scale the example to expect 100 rows you you get a feeling where this is going to in production.
-The row based queries needs 300 ms ( 100 * 1 + 100 * 2) to get the complete result set where the `in` based query only needs 101 ms (1 * 1 + 1 * (10 * 2)).
-The `in` based query now only needs 34% of the time that the row based query would need.
-In reality the execution time for the `in` based query would normally not grow linear to the number of requested IDs.
-Because the sql server can optimize the query and profit from an index the execution time would be even better than in our example.
+The row-based queries needs _100 × 1 ms + 100 × 2 ms = 300 ms_ to get the complete result set where the `in`-based query only needs _1 ms + 10 × 2 ms = 21 ms_.
+The `in`-based query now only needs 7 per cent of the time that the row-based query would need.
+In reality the execution time for the `in`-based query would normally not grow linearly with the number of requested IDs.
+Because the SQL server can optimize the query and profit from an index the execution time would be even better than in our example.
 
-The second query in the picture is executed thirteen times and the `where` clause is restricted by one ID. It should be replaced with an `in` statement.
+The second query in the picture is executed thirteen times and the `where` clause is restricted by one ID.
+It should be replaced with an `in` statement.
 
 
 ## Using Sniffy in your own application
