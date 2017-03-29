@@ -44,7 +44,7 @@ The `in`-based query needs 70 per cent of the time compared to the time that the
 If we scale the example to expect 100 rows you get a feeling where this is going to in production.
 The row-based queries needs _100 × 1 ms + 100 × 2 ms = 300 ms_ to get the complete result set where the `in`-based query only needs _1 ms + 100 × 2 ms = 201 ms_.
 The `in`-based query now needs 67 per cent of the time that the row-based query would need.
-In the first example the `in`-based query finishes 9 ms earlier, but in the second example the `in`-based query need 99 ms less time in total.
+In the first example the `in`-based query finishes 9 ms earlier, but in the second example the `in`-based query needs 99 ms less time in total.
 In reality the execution time for the `in`-based query would normally not grow linearly with the number of requested IDs.
 Because the SQL server can optimize the query and profit from an index the execution time would be even better than in our example.
 
