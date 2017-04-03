@@ -4,6 +4,7 @@
 			<li><a href="https://www.signavio.com/jobs/?utm_campaign=TechBlog" title="Career Opportunities at Signavio">Jobs</a></li>
 			<li><a href="mailto:techblog@signavio.com{% if page.title %}?subject={{ page.title | cgi_escape | replace: '+', '%20' }}{% endif %}" title="E-mail the editor">Contact/Feedback</a></li>
 			<li><a href="https://www.signavio.com/legal-info/">Legal Information</a></li>
+			<li><a href="https://www.signavio.com/privacy/">Privacy</a></li>
 			<!-- <li><a href="" title="">Data Protection</a></li> -->
 		</ul>
 	</div>
@@ -21,3 +22,4 @@ crossorigin="anonymous"></script>
 		gutter: '.grid-item-margin'
 	});
 </script>
+{% include ga.html %}
