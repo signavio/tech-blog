@@ -9,12 +9,13 @@ layout: article
 Hi, my name is Gisa and I am a front-end developer for Signavio Workflow Accelerator.
 In this blog post I want to share some of the findings I made during my bachelor thesis in Business Computing at HTW Berlin.
 Let’s start with a short intro about the topic and my approach to it.
+
 The original title of the thesis "Anforderungsermittlung und Evaluation für die Neugestaltung der Benutzerschnittstelle für die Modellierungskomponente in Signavio Workflow" translates to "Requirement identification and evaluation for the re-design of the user interface of the modelling component in Signavio Workflow". Handy right?
 In other words the thesis focused on analysing the current user interface in our process automation tool Signavio Workflow Accelerator.
 To be more specific, evaluating the user interface in the process modeler in Workflow Accelerator regarding our users’ needs and requirements.
 This was done in order to discover potential weaknesses and develop solutions for alternative and improved interfaces.
 
-![Current interface of the process modeler in Workflow Accelerator](../2017/signavio-workflow crop.png)
+![Current interface of the process modeler in Workflow Accelerator](../2017/signavio-workflow-editor.png)
 
 ## Define – Find your (inner) user
 
