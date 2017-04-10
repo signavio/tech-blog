@@ -86,3 +86,8 @@ If you only remember one thing from this post, make it this one: Make sure to te
 These are the people that will eventually buy and use your product and should therefore be a solid component in development activities.
 
 Happy testing!
+
+
+## Recommended read
+
+- [Jakob Nielsen - Why You Only Need to Test with 5 Users](https://www.nngroup.com/articles/why-you-only-need-to-test-with-5-users/)
