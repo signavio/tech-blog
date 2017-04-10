@@ -67,8 +67,8 @@ It certainly fits the saying ‘You eat with your eyes first’.
 
 ## Improve – matching your users’ needs
 
-So these findings let me to develop a couple of prototypes and mock-ups that are targeted to solve the interface’s weaknesses.
-You can find a couple of those prototypes below. 
+So these findings let me to develop a couple of prototypes and mock-ups that are targeted to solve the interface’s weaknesses. 
+The screenshots of the prototypes below show examples of a Process Manager inspired menu, a customizable set of BPMN elements, graphic trigger elements and many further functionalities, e.g. support for aesthetic arrangements. 
 
 ![Prototype holding the BPMN elements in a side menu, and additional toolbar](../2017/signavio-workflow-prototype-side-menu.png)
 
@@ -76,7 +76,7 @@ For the review I asked the same test users to meet me again.
 The new designs of the interface were overall perceived very positively.
 The feedback I got was again thoroughly valuable and will definitely be incorporated in iterative enhancements.
 
-![Prototype holding the BPMN elements in a MS Word inspired ribbon menu](../2017/signavio-workflow-prototype-ribbon-menu.png)
+![Prototype holding the BPMN elements in a ribbon menu](../2017/signavio-workflow-prototype-ribbon-menu.png)
 
 
 ## Conclusion
