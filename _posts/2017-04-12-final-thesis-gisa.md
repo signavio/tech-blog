@@ -61,7 +61,7 @@ It certainly fits the saying ‘You eat with your eyes first’.
 So these findings let me to develop a couple of prototypes and mock-ups that are targeted to solve the interface’s weaknesses.
 You can find a couple of those prototypes below. 
 
-![Prototype holding the BPMN elements in a side menu](../2017/signavio-workflow-prototype-side-menu.png)
+![Prototype holding the BPMN elements in a side menu, and additional toolbar](../2017/signavio-workflow-prototype-side-menu.png)
 
 For the review I asked the same test users to meet me again.
 The new designs of the interface were overall perceived very positively.
