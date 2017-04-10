@@ -17,15 +17,18 @@ Let’s start with a short intro about the topic and my approach to it, which co
 
 The original title of the thesis "Anforderungsermittlung und Evaluation für die Neugestaltung der Benutzerschnittstelle für die Modellierungskomponente in Signavio Workflow" translates to "Requirement identification and evaluation for the re-design of the user interface of the modelling component in Signavio Workflow". Handy right?
 In other words the thesis focused on analysing the current user interface in our process automation tool Signavio Workflow Accelerator.
-To be more specific, evaluating the user interface in the process modeler in Workflow Accelerator regarding our users’ needs and requirements.
-This was done in order to discover potential weaknesses and develop solutions for alternative and improved interfaces.
+
+To be more specific, I evaluated the user interface in the process modeler in Workflow Accelerator regarding our users’ needs and requirements.
+I did this to discover potential weaknesses and develop solutions for alternative and improved interfaces.
 
 ![Current interface of the process modeler in Workflow Accelerator](../2017/signavio-workflow-editor.png)
 
 ## Define – find your (inner) user
 
 To evaluate the current solution I started off by defining three different user types: the *Novice*, the *Expert* and the *Process Manager User*.
-It is obvious that the first two mainly differ in their level of experience with the application.
+It is obvious that the first two mainly differ in their level of experience with the modeler's interface. 
+The Novice covers the behaviour users like Free-Trial-Users, students or basically anybody that just started to use Workflow Accelerator to model processes. 
+Whereas the Expert uses the application on a frequent basis, such as process owners and modellers. 
 But you might ask yourself where the Process Manager User comes in.
 
 Well, the Process Manager, one of Signavio’s other great products, and Workflow Accelerator share quite a few functionalities for related yet distinct purposes.
@@ -36,7 +39,8 @@ Thus the user type Process Manager User stands for all users that a primarily fa
 
 ## Observe – find out what you usually miss
 
-For each of the three user types I then found five real human representatives who took part in individual test session where they let me observe them while working on simple modelling tasks I had given them to solve in Workflow Accelerator.
+For each of the three user types I then found five real human representatives.
+They each took part in individual test session where they let me observe them while working on simple modelling tasks I had given them to solve in Workflow Accelerator.
 Thus I was able to observe their approach and interactions with the application in a pure manner and gather a ton of valuable conscious and unconscious feedback.
 
 Without going too much into detail I want to share some of the seemingly obvious yet lacking findings I made during these test sessions.
