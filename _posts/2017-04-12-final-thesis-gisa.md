@@ -8,6 +8,7 @@ layout: article
 
 Hi, my name is Gisa and I am a front-end developer for Signavio Workflow Accelerator.
 In this blog post I want to share some of the findings I made during my final thesis.
+In this blog post I want to share some of the findings I made during my bachelor thesis in Business Computing at HTW Berlin.
 Let’s start with a short intro about the topic and my approach to it.
 The topic of the thesis was to evaluate the current user interface in our process automation tool Signavio Workflow Accelerator.
 To be more specific, evaluating the user interface in the process modeler in Workflow Accelerator regarding our users’ needs and requirements.
