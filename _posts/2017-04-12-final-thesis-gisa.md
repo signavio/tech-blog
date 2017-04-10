@@ -59,14 +59,20 @@ It certainly fits the saying ‘You eat with your eyes first’.
 ## Improve – matching your users’ needs
 
 So these findings let me to develop a couple of prototypes and mock-ups that are targeted to solve the interface’s weaknesses.
+You can find a couple of those prototypes below. 
+
+![Prototype holding the BPMN elements in a side menu](../2017/signavio-workflow-prototype-side-menu.png)
+
 For the review I asked the same test users to meet me again.
 The new designs of the interface were overall perceived very positively.
 The feedback I got was again thoroughly valuable and will definitely be incorporated in iterative enhancements.
 
+![Prototype holding the BPMN elements in a MS Word inspired ribbon menu](../2017/signavio-workflow-prototype-ribbon-menu.png)
+
 
 ## Conclusion
 
-So that wraps up the short resume of my thesis.
+So that wraps up the short summary of my thesis.
 If you only remember one thing from this post, make it this one: Make sure to test your application, interfaces, and even features with people who meet your target group criteria.
 These are the people that will eventually buy and use your product and should therefore be a solid component in development activities.
 
