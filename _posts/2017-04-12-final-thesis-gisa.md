@@ -6,7 +6,7 @@ author: Gisa Klement
 layout: article
 ---
 
-Hi, my name is Gisa and I am a front-end developer for Signavio Workflow Accelerator.
+Hi, my name is Gisa and I am a front-end developer for [Signavio Workflow Accelerator](https://www.signavio.com/products/workflow/). 
 In this blog post I want to share some of the findings I made during my bachelor thesis in Business Computing at HTW Berlin.
 Let’s start with a short intro about the topic and my approach to it, which consists of four steps: 
 
@@ -31,7 +31,7 @@ The Novice covers the behaviour users like Free-Trial-Users, students or basical
 Whereas the Expert uses the application on a frequent basis, such as process owners and modellers. 
 But you might ask yourself where the Process Manager User comes in.
 
-Well, the Process Manager, one of Signavio’s other great products, and Workflow Accelerator share quite a few functionalities for related yet distinct purposes.
+Well, the [Process Manager](https://www.signavio.com/products/process-editor/), one of Signavio’s other great products, and Workflow Accelerator share quite a few functionalities for related yet distinct purposes.
 What they also share is a part of their customer base.
 Often customers buy the Process Manager first and afterwards extend their licences to Workflow Accelerator.
 Thus the user type Process Manager User stands for all users that a primarily familiar with Process Manager’s interface and its behaviour.
