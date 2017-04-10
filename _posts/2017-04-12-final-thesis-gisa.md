@@ -1,5 +1,5 @@
 ---
-title: "Application improvement through the eyes of the user"
+title: "Application usability improvements through the eyes of the user"
 description: "Taking a closer look at the user interface in Signavio Workflow Accelerator"
 tags: usability, user observation
 author: Gisa Klement
