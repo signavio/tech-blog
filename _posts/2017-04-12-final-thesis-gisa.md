@@ -6,16 +6,17 @@ author: Gisa Klement
 layout: article
 ---
 
-Hi, my name is Gisa and I am a front-end developer for [Signavio Workflow Accelerator](https://www.signavio.com/products/workflow/). 
+Hi, my name is Gisa and I am a front-end developer for [Signavio Workflow Accelerator](https://www.signavio.com/products/workflow/).
 In this blog post I want to share some of the findings I made during my bachelor thesis in Business Computing at HTW Berlin.
-Let’s start with a short intro about the topic and my approach to it, which consists of four steps: 
+Let’s start with a short intro about the topic and my approach to it, which consists of four steps:
 
 1. Define
 2. Observe
 3. Report
 4. Improve
 
-The original title of the thesis "Anforderungsermittlung und Evaluation für die Neugestaltung der Benutzerschnittstelle für die Modellierungskomponente in Signavio Workflow" translates to "Requirement identification and evaluation for the re-design of the user interface of the modelling component in Signavio Workflow". Handy right?
+The original title of the thesis _Anforderungsermittlung und Evaluation für die Neugestaltung der Benutzerschnittstelle für die Modellierungskomponente in Signavio Workflow_ translates to _Requirement identification and evaluation for the re-design of the user interface of the modelling component in Signavio Workflow_.
+Handy, right?
 In other words the thesis focused on analysing the current user interface in our process automation tool Signavio Workflow Accelerator.
 
 To be more specific, I evaluated the user interface in the process modeler in Workflow Accelerator regarding our users’ needs and requirements.
@@ -26,9 +27,9 @@ I did this to discover potential weaknesses and develop solutions for alternativ
 ## Define – find your (inner) user
 
 To evaluate the current solution I started off by defining three different user types: the *Novice*, the *Expert* and the *Process Manager User*.
-It is obvious that the first two mainly differ in their level of experience with the modeler's interface. 
-The Novice covers the behaviour users like Free-Trial-Users, students or basically anybody that just started to use Workflow Accelerator to model processes. 
-Whereas the Expert uses the application on a frequent basis, such as process owners and modellers. 
+It is obvious that the first two mainly differ in their level of experience with the modeler's interface.
+The Novice covers the behaviour users like Free-Trial-Users, students or basically anybody that just started to use Workflow Accelerator to model processes.
+Whereas the Expert uses the application on a frequent basis, such as process owners and modellers.
 But you might ask yourself where the Process Manager User comes in.
 
 Well, the [Process Manager](https://www.signavio.com/products/process-editor/), one of Signavio’s other great products, and Workflow Accelerator share quite a few functionalities for related yet distinct purposes.
@@ -67,8 +68,8 @@ It certainly fits the saying ‘You eat with your eyes first’.
 
 ## Improve – matching your users’ needs
 
-So these findings let me to develop a couple of prototypes and mock-ups that are targeted to solve the interface’s weaknesses. 
-The screenshots of the prototypes below show examples of a Process Manager inspired menu, a customizable set of BPMN elements, graphic trigger elements and many further functionalities, e.g. support for aesthetic arrangements. 
+So these findings let me to develop a couple of prototypes and mock-ups that are targeted to solve the interface’s weaknesses.
+The screenshots of the prototypes below show examples of a Process Manager inspired menu, a customizable set of BPMN elements, graphic trigger elements and many further functionalities, e.g. support for aesthetic arrangements.
 
 ![Prototype holding the BPMN elements in a side menu, and additional toolbar](../2017/signavio-workflow-prototype-side-menu.png)
 
@@ -88,6 +89,6 @@ These are the people that will eventually buy and use your product and should th
 Happy testing!
 
 
-## Recommended read
+## Recommended reading
 
-- [Jakob Nielsen - Why You Only Need to Test with 5 Users](https://www.nngroup.com/articles/why-you-only-need-to-test-with-5-users/)
+[Jakob Nielsen - Why You Only Need to Test with 5 Users](https://www.nngroup.com/articles/why-you-only-need-to-test-with-5-users/)
