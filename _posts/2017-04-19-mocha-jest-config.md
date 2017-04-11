@@ -151,8 +151,6 @@ Same as before, the coverage report will come up with the following result:
 
 After working for quite some time with Mocha, Jest became too good to be true and very productive when testing UI components. Not just because I could remove the boilerplate code around the tests on every new project I was working on, but also the test syntax was still the same or maybe very similar the one I'm already comfortable with. Change is always welcome as long as everyone can get a great benefit on that.
 
-Afterwards, configuration got easier and test experience remains the same. However, it's also important to notice that Jest is a bit slower in performance when compared to Mocha due to the automocking feature. Obviously, please keep in mind that only installation and setup should not be a final call to decide whether choose test framework A B or C.
-
 Afterwards, configuration got easier and test experience remains the same. However, it's also important to notice that Jest is a bit slower in performance when compared to Mocha due to the automocking feature. Obviously, please keep in mind that only installation and setup should not be a final call to decide between frameworks X, Y or Z.
 
 Still, there isn't the right tool for the job. Most important than that is to choose the right tool for your team, so everyone can the get the most out of it.
