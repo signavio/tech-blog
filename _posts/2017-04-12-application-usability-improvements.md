@@ -19,6 +19,8 @@ The original title of the thesis _Anforderungsermittlung und Evaluation für die
 Handy, right?
 In other words the thesis focused on analysing the current user interface in our process automation tool Signavio Workflow Accelerator.
 
+![Usability challenges on a daily basis](../2017/usability-undefined.jpg) ![Nobody cares. Nice hat.](../2017/ux-nobody-cares.jpg)
+
 To be more specific, I evaluated the user interface in the process modeler in Workflow Accelerator regarding our users’ needs and requirements.
 I did this to discover potential weaknesses and develop solutions for alternative and improved interfaces.
 
