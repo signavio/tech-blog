@@ -59,7 +59,7 @@ It is essential for him to easily switch between views of the entire process mod
 There is also a noticeable need and desire for customizability, e.g. assembling a personal set of frequently used BPMN elements.
 
 And ultimately the Process Manager User - he, as you might have guessed already, wants to be able to apply his knowledge and habits from the Process Manager to Workflow Accelerator.
-That is absolutely comprehensible, especially since Signavio keeps growing more and more into a platform rather than hosting individual software products.
+That is absolutely understandable, especially since Signavio software keeps growing more and more into a platform rather than hosting individual software products.
 
 But there are also findings that I was able to observe for all of the user types and that is how important the aesthetic appearance of a process model can be to the user.
 More or less every test user I observed spent a noticeable amount of their time in rearranging and aligning the BPMN elements.
@@ -69,7 +69,7 @@ It certainly fits the saying ‘You eat with your eyes first’.
 ## Improve – matching your users’ needs
 
 So these findings let me to develop a couple of prototypes and mock-ups that are targeted to solve the interface’s weaknesses.
-The screenshots of the prototypes below show examples of a Process Manager inspired menu, a customizable set of BPMN elements, graphic trigger elements and many further functionalities, e.g. support for aesthetic arrangements.
+The screenshots of the prototypes below show examples of a Process Manager inspired menu, a customizable set of BPMN elements, graphic trigger elements and much more functionality, e.g. support for aesthetic arrangements.
 
 ![Prototype holding the BPMN elements in a side menu, and additional toolbar](../2017/signavio-workflow-prototype-side-menu.png)
 
