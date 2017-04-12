@@ -1,6 +1,6 @@
 ---
 title: "Mocha x Jest - Configuration Guide"
-description: "Comparison between configurations of Mocha and Jest to test UI compoents"
+description: "Comparing configurations between Mocha and Jest to test UI components"
 tags: test, mocha, jest, configuration, test runner, test coverage
 author: Hemerson Carlin
 layout: article
@@ -26,6 +26,8 @@ const Input = ({ onChange, type = 'text', ...rest }) => (
 export default Input
 ```
 
+Code samples I used in this blog post are available [here](https://github.com/mersocarlin/testing-with-jest-and-mocha).
+
 ## Mocha
 
 Setting up Mocha itself is extremely easy. The flexibility it brings with different types of assertion libraries and the chance of working with [BDD](https://en.wikipedia.org/wiki/Behavior-driven_development) (Behavior Driven Development) definitely worth to mention here. Once it's installed, the first test is really simple to write and assert:
@@ -38,29 +40,20 @@ import assert from 'assert'
 import { Input } from '../../src'
 
 describe('Input', () => {
-  var component
-
-  beforeEach(() => {
-    component = shallow(<Input />)
-  })
-
   it('should render default Input component', () => {
+    const component = shallow(<Input />)
     assert(component.html(), '<input type="text"/>')
   })
 })
 ```
 
-The hard part starts when we attempt to write the test in a real world fashion. Why? Mocha does not have mock, stubs nor a straightforward test coverage reporting tool. Also, it would be nice to write our tests in a friendly manner just like [chai](http://chaijs.com/) does for example. Hopefully, its [wiki](https://github.com/mochajs/mocha/wiki) provides us a big help so then we can start using the following add-ons:
+The hard part starts when we attempt to write the test in a real world fashion. Why? Mocha does not have mock, stubs nor a straightforward test coverage reporting tool. Also, it would be nice to write our tests in a friendly manner just like [chai](http://chaijs.com/) does for example. Hopefully, its [wiki](https://github.com/mochajs/mocha/wiki) provides us a big help so we can start using the following add-ons:
 
 1. babel-core and write ES6 syntax
 2. chai as assertion library (feel free to use others)
 3. [SinonJS](http://sinonjs.org/) to mock or stub extra dependencies
 4. [Istanbul](https://github.com/gotwarlost/istanbul), [blanket](https://github.com/alex-seville/blanket), [mochify.js](https://github.com/mantoni/mochify.js) or any other tool for test coverage
 5. [sinon-chai](https://github.com/domenic/sinon-chai) in case you want a nice experience when asserting event handlers
-
-```bash
-yarn add --dev mocha babel-core chai sinon istanbul sinon-chai
-```
 
 And the test will look like this:
 
@@ -86,15 +79,11 @@ describe('Input', () => {
   it('should handle onChange event', () => {
     const handleChange = spy()
 
-    component.setProps({
-      onChange: handleChange,
-    })
-
+    component.setProps({ onChange: handleChange })
     expect(handleChange).to.not.have.been.called
 
     const changeEvent = { target: { value: '123' } }
     component.simulate('change', changeEvent)
-
     expect(handleChange).to.have.been.called
     expect(handleChange).to.have.been.calledWith('123', changeEvent)
   })
@@ -104,7 +93,7 @@ describe('Input', () => {
 
 ### Coverage Report
 
-Istanbul is also easy to install & use. We only need to tell it to run the report over Mocha and your report it's ready:
+Istanbul is also easy to install & use. We only need to tell it to run the report over Mocha and the report is ready:
 
 ![Istanbul Coverage Report](../2017/istanbul-coverage-report.png)
 
@@ -125,15 +114,11 @@ describe('Input', () => {
   it('should handle onChange event', () => {
     const handleChange = jest.fn()
 
-    component.setProps({
-      onChange: handleChange,
-    })
-
+    component.setProps({ onChange: handleChange })
     expect(handleChange).not.toHaveBeenCalled()
 
     const changeEvent = { target: { value: '123' } }
     component.simulate('change', changeEvent)
-
     expect(handleChange).toHaveBeenCalledTimes(1)
     expect(handleChange).toHaveBeenCalledWith('123', changeEvent)
   })
@@ -151,7 +136,7 @@ Same as before, the coverage report will come up with the following result:
 
 After working for quite some time with Mocha, Jest became too good to be true and very productive when testing UI components. Not just because I could remove the boilerplate code around the tests on every new project I was working on, but also the test syntax was still the same or maybe very similar the one I'm already comfortable with. Change is always welcome as long as everyone can get a great benefit on that.
 
-Afterwards, configuration got easier and test experience remains the same. However, it's also important to notice that Jest is a bit slower in performance when compared to Mocha due to the automocking feature. Obviously, please keep in mind that only installation and setup should not be a final call to decide between frameworks X, Y or Z.
+Afterwards, configuration got easier and test experience remains the same. However, it's also important to notice that Jest is a bit slower in performance when compared to Mocha due to the automocking feature. Please keep in mind that only installation and setup should not be a final call to decide between frameworks X, Y or Z.
 
 Still, there isn't the right tool for the job. Most important than that is to choose the right tool for your team, so everyone can the get the most out of it.
 
