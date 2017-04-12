@@ -11,7 +11,7 @@ Not so easy though is to choose the test assertion tool.
 Depending on the library you get, the more noisy dependencies you will eventually have to carry on along side your project in order to run, integrate and keep your tests passing.
 
 As an example, I'm going to compare configuration, assertions and test coverage with [Mocha](https://mochajs.org/) and [Jest](https://facebook.github.io/jest/).
-The first one is currently known as simple, flexible and fun whereas the second got its popularity by becoming a painless JavaScript testing.
+The first one is currently known as simple, flexible and fun whereas the second got its popularity for painless JavaScript testing.
 
 Also, I'm going to write some tests to the following (and yet simple) React component:
 
@@ -29,11 +29,16 @@ const Input = ({ onChange, type = 'text', ...rest }) => (
 export default Input
 ```
 
-Code samples I used in this blog post are available [here](https://github.com/mersocarlin/testing-with-jest-and-mocha).
+Code samples I used in this blog post are available on [Github](https://github.com/mersocarlin/testing-with-jest-and-mocha).
 
 ## Mocha
 
-Setting up Mocha itself is extremely easy.
+Setting up Mocha doesn't require so many steps:
+
+1. `npm install --save-dev mocha` or `yarn install --dev mocha`
+2. Create a `test` folder in your project's root directory
+3. Start writing your tests
+
 The flexibility it brings with different types of assertion libraries and the chance of working with [BDD](https://en.wikipedia.org/wiki/Behavior-driven_development) (Behavior Driven Development) definitely worth to mention here.
 Once it's installed, the first test is really simple to write and assert:
 
@@ -99,9 +104,10 @@ describe('Input', () => {
 })
 ```
 
-### Coverage Report
+### Coverage report
 
-Istanbul is also easy to install & use. We only need to tell it to run the report over Mocha and the report is ready:
+Istanbul is a JavaScript coverage tool which works efficiently with Mocha.
+To do so, we only have to tell it to run the report over Mocha and the report is ready:
 
 ![Istanbul Coverage Report](../2017/istanbul-coverage-report.png)
 
@@ -136,7 +142,7 @@ describe('Input', () => {
 })
 ```
 
-### Coverage Report
+### Coverage report
 
 Same as before, the coverage report will come up with the following result:
 
@@ -151,7 +157,7 @@ Change is always welcome as long as everyone can get a great benefit on that.
 Afterwards, configuration got easier and test experience remains the same.
 However, please keep in mind that only installation and setup should not be a final call to decide between frameworks X, Y or Z.
 
-Still, there isn't the right tool for the job.
+Still, there isn't only one right tool for the job.
 Most important than that is to choose the right tool for your team, so everyone can the get the most out of it.
 
 > Systems that aren't testable aren't verifiable. Arguably, a system that cannot be verified should never be deployed.
