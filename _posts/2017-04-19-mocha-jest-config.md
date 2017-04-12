@@ -1,7 +1,7 @@
 ---
 title: "Mocha x Jest - Configuration Guide"
-description: "Comparing configurations between Mocha and Jest to test UI components"
-tags: test, mocha, jest, configuration, test runner, test coverage
+description: "Comparing configuration between Mocha and Jest to test UI components"
+tags: test, mocha, jest, configuration, test runner, test coverage, chai, sinonjs, istanbul
 author: Hemerson Carlin
 layout: article
 ---
@@ -47,13 +47,13 @@ describe('Input', () => {
 })
 ```
 
-The hard part starts when we attempt to write the test in a real world fashion. Why? Mocha does not have mock, stubs nor a straightforward test coverage reporting tool. Also, it would be nice to write our tests in a friendly manner just like [chai](http://chaijs.com/) does for example. Hopefully, its [wiki](https://github.com/mochajs/mocha/wiki) provides us a big help so we can start using the following add-ons:
+The hard part starts when we attempt to write the test in a real world fashion. Why? Mocha does not have mock, stubs nor a straightforward test coverage reporting tool. Also, it would be nice to write our tests in a friendly manner just like [Chai](http://chaijs.com/) does for example. Hopefully, its [wiki](https://github.com/mochajs/mocha/wiki) provides us a big help so we can start using the following add-ons:
 
 1. babel-core and write ES6 syntax
-2. chai as assertion library (feel free to use others)
+2. Chai as assertion library (feel free to use others)
 3. [SinonJS](http://sinonjs.org/) to mock or stub extra dependencies
 4. [Istanbul](https://github.com/gotwarlost/istanbul), [blanket](https://github.com/alex-seville/blanket), [mochify.js](https://github.com/mantoni/mochify.js) or any other tool for test coverage
-5. [sinon-chai](https://github.com/domenic/sinon-chai) in case you want a nice experience when asserting event handlers
+5. [Sinon–Chai](https://github.com/domenic/sinon-chai) in case you want a nice experience when asserting event handlers
 
 And the test will look like this:
 
@@ -99,7 +99,7 @@ Istanbul is also easy to install & use. We only need to tell it to run the repor
 
 ## Jest
 
-Jest on the other hand is even easier to setup and furthermore less painful. In this case there's no need of chai, SinonJs, istanbul or any other extra additions to it, unless you need them of course. And as a plus it also includes the built-in [snapshot](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html) testing.
+Jest on the other hand is even easier to setup and furthermore less painful. In this case there's no need of Chai, SinonJs, Istanbul or any other extra additions to it, unless you need them of course. And as a plus it also includes the built-in [snapshot](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html) testing.
 
 The test assertions for the same component won't change that much:
 
