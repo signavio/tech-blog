@@ -35,7 +35,7 @@ Code samples I used in this blog post are available on [Github](https://github.c
 
 Setting up Mocha doesn't require so many steps:
 
-1. `npm install --save-dev mocha` or `yarn install --dev mocha`
+1. `npm install --save-dev mocha` or `yarn add --dev mocha`
 2. Create a `test` folder in your project's root directory
 3. Start writing your tests
 
