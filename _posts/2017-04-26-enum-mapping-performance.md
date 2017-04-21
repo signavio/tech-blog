@@ -61,10 +61,10 @@ Let the numbers speak for themselves.
 
 |Query execution time in ms|100,000 entries|300,000 entries|
 |--------------------------|--------------:|--------------:|
-|String  without index     |         53.684|        174.796|
-|Ordinal without index     |         51.368|        160.708|
-|String  with index        |         27.099|         90.033|
-|Ordinal with index        |         23.501|         75.218|
+|String  without index     |           53.7|          174.8|
+|Ordinal without index     |           51.4|          160.7|
+|String  with index        |           27.1|           90.0|
+|Ordinal with index        |           23.5|           75.2|
 
 Without an index on the column the ordinal persistence is about 5-8% faster to select depending on the size of the table.
 With an index added both strategies return their results fast, as expected.
@@ -89,12 +89,11 @@ This means more operations to load and compare the value from the column in the 
 
 As we have seen, the ordinal mapping of enums results in a better read performance (and also not measured better write performance as less bytes need to be stored) on the SQL database.
 But the ordinal representation has also a big drawback.
-Whenever you add new values to your enum, these values must be appended at the end.
-Otherwise you change the mapping of already persisted values when they are loaded from the database,
-because on the ordinal position in the enum you may added a new value and shifted all existing values one position downwards.
-In this way the enum cannot reflect a logical order of all values for the developer after adding additional values after the first release.
+Whenever you add new values to your enum, these values must be appended at the end, if you do not want to migrate existing values.
+Otherwise you change the mapping of already persisted values when they are loaded from the database, because on the ordinal position in the enum you may added a new value and shifted all existing values one position downwards.
+In this way the enum cannot reflect a logical order of all values for the developer after adding additional values after the first release, without the overhead of a migration of existing values.
 
-When using the string mapping you can add values and rearrange their order at any time, because the full string representation of the enum is written to the database.
+When using the string mapping you can add values and rearrange their order at any time, without the need for a migration, because the full string representation of the enum is written to the database.
 This makes it also easier to understand the values in your database if you ever access your table without the mapping of your enum by hand.
 On the other hand you can easily rename an ordinal mapped enum value as long as you do not change the order, because the database stores only the position and not the name.
 If you rename a value of a string mapped enum, you need to migrate your existing values in the database, otherwise they cannot be mapped back to an enum because their representation was removed.
