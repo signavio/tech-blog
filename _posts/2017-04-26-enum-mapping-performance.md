@@ -17,6 +17,9 @@ The JPA standard provides two options to persist an enum as string or ordinal. T
 An enum typed attribute of a class must be annotated with `@Enumerated(EnumType.STRING)` to store the `EnumValue.name()` string representation of the enum in the database
 or use `@Enumerated(EnumType.ORDINAL)` to store the `EnumValue.ordinal()` ordinal integer representation of the enum.
 `@Enumerated` without a specific value will default to `@Enumerated(EnumType.ORDINAL)`.
+E.g. we have an enum with the values `VALUE_A, VALUE_B, VALUE_C` and an object holding the value `VALUE_B` in an attribute.
+The `VALUE_B` of the object could be mapped as string `VALUE_B` or ordinal `1` (indexed based enumerating starts by 0) to the database.
+Both values will be mapped back to the `VALUE_B` of the enum when loaded from the database.
 
 
 # The test setup
@@ -73,8 +76,12 @@ The observed effect can be explained based on the used implementation in the dat
 The ordinal representation is mapped by default to an `int(11)` column using four bytes to store one value.
 The string representation is mapped by default to a `varchar(255)` column using up to three bytes per character to store the value depending on the character set (UTF-8 in our setup).
 You can read more about the size needed to store a value in the different data types in the [MySQL Reference Manual](https://dev.mysql.com/doc/refman/5.7/en/data-types.html).
-For selecting the rows the values in the column need to be compared.
 
+The column length definition could be shortened for both mapping strategies.
+E.g. `@Column(length = 32)` allowing 32 characters for the string mapping or `@Column(columnDefinition = "TINYINT(1)")` allowing one byte worth 127 values for the ordinal mapping.
+But this has a minimal effect on the execution runtime, because this describes only the maximum allowed size to store one value and has a minor impact on the actual used size that is already optimized based on the actual value.
+
+For selecting the rows the values in the column need to be compared.
 You can see that the string representation needs far more bytes to store the same enum representation than the integer representation needs, because the whole string is stored instead of just one number.
 This means more operations to load and compare the value from the column in the CPU and this results in more time needed to execute the string based query.
 
