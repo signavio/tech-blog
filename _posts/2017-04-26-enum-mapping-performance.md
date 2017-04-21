@@ -69,7 +69,7 @@ But the ordinal representation benefits even more from the usage of an index as 
 # The explanation
 
 The observed effect can be explained based on the used implementation in the database.
-The ordinal representation is mapped by default to an `integer(11)` column using four bytes to store one value.
+The ordinal representation is mapped by default to an `int(11)` column using four bytes to store one value.
 The String representation is mapped by default to a `varchar(255)` column using up to three bytes per character to store the value depending on the character set (UTF-8 in our setup).
 You can read more about the size needed to store a value in the different data types in the [MySQL Reference Manual](https://dev.mysql.com/doc/refman/5.7/en/data-types.html).
 For selecting the rows the values in the column need to be compared.
