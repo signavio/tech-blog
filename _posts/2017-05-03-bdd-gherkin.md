@@ -9,8 +9,9 @@ image:
   alt: Across London City to the Gherkin, Early Morning, December, 2010
 ---
 
-At the [ACCU 2017](https://conference.accu.org/) conference last week, [Seb Rose](https://twitter.com/sebrose) presented a Behaviour-Driven Development (BDD) workshop on [Writing good BDD scenarios](https://conference.accu.org/site/stories/2017/sessions.html#XWritinggoodBDDscenarios).
-This blog summarises what I learned from this workshop.
+At the [ACCU 2017](https://conference.accu.org/) conference last week, [Seb Rose](https://twitter.com/sebrose) presented a 90-minute Behaviour-Driven Development (BDD) workshop on [Writing good BDD scenarios](https://conference.accu.org/site/stories/2017/sessions.html#XWritinggoodBDDscenarios).
+This workshop was a great example of the excellent in-depth sessions from experts that I enjoyed attending at ACCU 2017.
+This blog summarises what I learned.
 
 ## Video
 
