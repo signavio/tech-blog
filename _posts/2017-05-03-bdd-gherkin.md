@@ -4,6 +4,9 @@ description: "Using the Gherkin language to get started with Behaviour-Driven De
 tags: BDD, Gherkin
 author: Peter Hilton
 layout: article
+image:
+  feature: /2017/gherkin.jpg
+  alt: Across London City to the Gherkin, Early Morning, December, 2010
 ---
 
 At the [ACCU 2017](https://conference.accu.org/) conference last week, [Seb Rose](https://twitter.com/sebrose) presented a Behaviour-Driven Development (BDD) workshop on [Writing good BDD scenarios](https://conference.accu.org/site/stories/2017/sessions.html#XWritinggoodBDDscenarios).
@@ -93,7 +96,9 @@ Towards the end of the workshop, I was getting more curious about [Cucumber](htt
 As far as I can tell, Cucumber is a tool for executing Gherkin scenarios in the form of automated tests.
 It turns out that Seb co-wrote a book about Cucumber - [The Cucumber for Java Book](https://pragprog.com/book/srjcuc/the-cucumber-for-java-book), so I guess I know what I have to do next.
 
-[ ![The Cucumber for Java Book](cucumber-for-java-book.jpg) ](https://pragprog.com/book/srjcuc/the-cucumber-for-java-book)
+<a title="The Cucumber for Java Book" href="https://pragprog.com/book/srjcuc/the-cucumber-for-java-book"><img style="border:1px solid #ccc" src="cucumber-for-java-book.jpg"></a>
 
 One more thing: at one point during the workshop, we encountered the suggestion that you can also use Gherkin to describe and test an API, rather than user-facing application functionality.
 That sounds like a big topic all by itself that deserves further investigation.
+
+_Photo: [Andy G](https://www.flickr.com/photos/andyg/5300333934) / [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/)_
