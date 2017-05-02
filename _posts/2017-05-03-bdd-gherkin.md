@@ -6,14 +6,14 @@ author: Peter Hilton
 layout: article
 ---
 
-At the [ACCU 2017](https://conference.accu.org/) conference last week, [Seb Rose](https://twitter.com/sebrose) presented an [Intro to TDD and BDD](https://conference.accu.org/site/stories/2017/sessions.html#XIntrotoTDDandBDD) workshop.
-This blog summarises the key lessons I learned from this workshop.
+At the [ACCU 2017](https://conference.accu.org/) conference last week, [Seb Rose](https://twitter.com/sebrose) presented a Behaviour-Driven Development (BDD) workshop on [Writing good BDD scenarios](https://conference.accu.org/site/stories/2017/sessions.html#XWritinggoodBDDscenarios).
+This blog summarises what I learned from this workshop.
 
 ## Video
 
-The video of this 90-minute session is not yet available, at the time of writing, but will likely soon appear on the [ACCU Conference YouTube channel](https://www.youtube.com/channel/UCJhay24LTpO1s4bIZxuIqKw).
+The video of this 90-minute session is not yet available, at the time of writing, but should appear soon on the [ACCU Conference YouTube channel](https://www.youtube.com/channel/UCJhay24LTpO1s4bIZxuIqKw).
 
-## Gherkin
+## Feature scenarios
 
 We started the workshop with two examples of feature scenarios.
 The first scenario described an end-to-end cash withdrawal:
@@ -43,32 +43,57 @@ Scenario: Dispense $50 cash in multiple denominations
     | 1     | $10          |
 ```
 
-Our first lesson, after attempting to describe pros and cons for each version of the scenario was that the second style is better.
-The end-to-end scenario includes lots of other details that are best described in separate scenarios.
+For the first exercise, we discussed the pros and cons for each version of the scenario.
+Seb then cleverly tricked us into listing the benefits and disadvantages of each version, after which he explained why all of our observations about the long version were really disadvantages.
+Our observations about the short version all turned out to be advantages.
 
-The second lesson was that even such a simple scenario lead to a lively group _conversation_ while we _explored_ the scenario.
+Our first lesson was that feature scenarios that focus on a single business rule are better than end-to-end scenarios.
+The latter include details that are best described in separate scenarios.
+
+The second lesson was that even such a simple scenario leads to a lively group _conversation_ while we _explored_ the scenario.
+This was even more clear when we attempted to discuss another example, based on borrowing books from a public library.
 It turns out that having a conversation about concrete examples is a key BDD technique.
 
-## Behaviour-Driven Development (BDD)
+## The Three Amigos
 
-… three amigos meeting
+In BDD, _The Three Amigos_ refers to a conversation between a product owner, a developer and a tester about a feature.
+(Apparently, the name comes from the 1986 American film [Three Amigos](https://en.wikipedia.org/wiki/Three_Amigos), which Seb assured us is terrible.)
+This conversation should explore concrete examples in order to distill feature scenarios like the _Dispense $50 cash in multiple denominations_ scenario we had just looked at.
 
-… benefit of this discussion before starting to write code
+The benefit of this meeting, as we had just learned by actually doing, is that having this kind of conversation about a feature quickly unearths many different scenarios.
+Even in the workshop setting, we understood that this identified scenarios far more quickly than if a developer had just started coding.
 
-## Gerkin language
+The third lesson was therefore that a short up-front conversation that includes business, implementation and QA perspectives can quickly identify functional scope, and any likely problems or areas that the business do not yet fully understand.
+We also saw how you can write up the result of this discussion as scenarios using the _Given-When-Then_ structure that we recognise from unit tests, which is equivalent to _Arrange-Act-Assert_.
+It turns out that this language is called _Gherkin_.
 
-… we also learned that the scenario syntax, using given-when-then, is a language called Gherkin
+## Gherkin language
+
+[Gherkin](https://github.com/cucumber/cucumber/wiki/Gherkin) is a simple language for describing features and test scenarios.
+The _Given-When-Then_ encourages a structured approach to writing feature scenarios that all three amigos can understand.
+
+Intriguingly, Gherkin’s grammar supports other [spoken languages](https://github.com/cucumber/cucumber/blob/master/gherkin/gherkin-languages.json), so you can also write _Given-When-Then_ as _Angenommen-Wenn-Dann_ or _Soit-Quand-Alors_ (or dozens of others).
+The key point is that this is business language, which leads to the more important insight that Gherkin is designed to elicit that holy grail of Domain-Driven Design: the [ubiquitous language](https://en.wikipedia.org/wiki/Domain-driven_design#Building_blocks).
+
+More broadly, Gherkin seems to be one of those ‘technologies’ whose low-tech simplicity hides its clever choices that make it so useful: in this case how it works for the business people.
 
 ## Gherkin tips
 
+Another workshop exercise had us write scenarios in Gherkin for the public library example.
+Writing Gherkin feature descriptions turns out to be harder than it might look, given the simplicity of the result.
+At this point, Seb’s _Gherkin tips_ made a lot more sense:
 
+![Gherkin tips](gherkin-tips.jpg)
+
+As always, the thorny issue of naming appears, hence the first tip to use _Friends episode_ naming: _The one where the ATM dispenses cash_ or something.
 
 ## Next steps
 
-… test automation… Cucumeber
+Towards the end of the workshop, I was getting more curious about [Cucumber](https://github.com/cucumber/cucumber), which it had become clear that we weren’t going to cover.
+As far as I can tell, Cucumber is a tool for executing Gherkin scenarios in the form of automated tests.
+It turns out that Seb co-wrote a book about Cucumber - [The Cucumber for Java Book](https://pragprog.com/book/srjcuc/the-cucumber-for-java-book), so I guess I know what I have to do next.
 
-… it turns out that Seb co-wrote a book about Cucumber…
+[ ![The Cucumber for Java Book](cucumber-for-java-book.jpg) ](https://pragprog.com/book/srjcuc/the-cucumber-for-java-book)
 
-… API documentation
-
-## Conclusion
+One more thing: at one point during the workshop, we encountered the suggestion that you can also use Gherkin to describe and test an API, rather than user-facing application functionality.
+That sounds like a big topic all by itself that deserves further investigation.
