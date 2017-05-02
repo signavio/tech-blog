@@ -18,7 +18,7 @@ The video of this 90-minute session is not yet available, at the time of writing
 
 ## Feature scenarios
 
-We started the workshop with two examples of feature scenarios.
+We started the workshop with two examples of feature scenarios, written in what we later learned to be a language called _Gherkin_.
 The first scenario described an end-to-end cash withdrawal:
 
 ```gherkin
@@ -48,10 +48,13 @@ Scenario: Dispense $50 cash in multiple denominations
 
 For the first exercise, we discussed the pros and cons for each version of the scenario.
 Seb then cleverly tricked us into listing the benefits and disadvantages of each version, after which he explained why all of our observations about the long version were really disadvantages.
-Our observations about the short version all turned out to be advantages.
+For example, we liked how the scenario included pre-conditions such as having enough money in the account, and how it describes a complete user interaction.
+However, we learned that there are always more preconditions than you want to include, such as there being power to the ATM, so these are properly the subject of separate scenarios.
+Similarly, our observations about the short version all turned out to be advantages.
 
 Our first lesson was that feature scenarios that focus on a single business rule are better than end-to-end scenarios.
 The latter include details that are best described in separate scenarios.
+What wasn’t yet clear was how a single _feature_ description generally includes many independent _scenarios_.
 
 The second lesson was that even such a simple scenario leads to a lively group _conversation_ while we _explored_ the scenario.
 This was even more clear when we attempted to discuss another example, based on borrowing books from a public library.
@@ -88,7 +91,7 @@ At this point, Seb’s _Gherkin tips_ made a lot more sense:
 
 ![Gherkin tips](../2017/gherkin-tips.jpg)
 
-As always, the thorny issue of naming appears, hence the first tip to use _Friends episode_ naming: _The one where the ATM dispenses cash_ or something.
+As always, the thorny issue of naming appears, hence the first tip to use _Friends episode_ (television series) naming: _The one where the ATM dispenses cash_ or something.
 
 ## Next steps
 
@@ -98,7 +101,7 @@ It turns out that Seb co-wrote a book about Cucumber - [The Cucumber for Java Bo
 
 <a title="The Cucumber for Java Book" href="https://pragprog.com/book/srjcuc/the-cucumber-for-java-book"><img style="border:1px solid #ccc" src="../2017/cucumber-for-java-book.jpg"></a>
 
-One more thing: at one point during the workshop, we encountered the suggestion that you can also use Gherkin to describe and test an API, rather than user-facing application functionality.
+One more thing: at one point, Seb told us that you can also use Gherkin to describe and test an API, rather than user-facing application functionality.
 That sounds like a big topic all by itself that deserves further investigation.
 
 _Photo: [Andy G](https://www.flickr.com/photos/andyg/5300333934) / [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/)_
