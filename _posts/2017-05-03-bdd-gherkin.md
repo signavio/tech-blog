@@ -86,7 +86,7 @@ Another workshop exercise had us write scenarios in Gherkin for the public libra
 Writing Gherkin feature descriptions turns out to be harder than it might look, given the simplicity of the result.
 At this point, Seb’s _Gherkin tips_ made a lot more sense:
 
-![Gherkin tips](gherkin-tips.jpg)
+![Gherkin tips](../2017/gherkin-tips.jpg)
 
 As always, the thorny issue of naming appears, hence the first tip to use _Friends episode_ naming: _The one where the ATM dispenses cash_ or something.
 
@@ -96,7 +96,7 @@ Towards the end of the workshop, I was getting more curious about [Cucumber](htt
 As far as I can tell, Cucumber is a tool for executing Gherkin scenarios in the form of automated tests.
 It turns out that Seb co-wrote a book about Cucumber - [The Cucumber for Java Book](https://pragprog.com/book/srjcuc/the-cucumber-for-java-book), so I guess I know what I have to do next.
 
-<a title="The Cucumber for Java Book" href="https://pragprog.com/book/srjcuc/the-cucumber-for-java-book"><img style="border:1px solid #ccc" src="cucumber-for-java-book.jpg"></a>
+<a title="The Cucumber for Java Book" href="https://pragprog.com/book/srjcuc/the-cucumber-for-java-book"><img style="border:1px solid #ccc" src="../2017/cucumber-for-java-book.jpg"></a>
 
 One more thing: at one point during the workshop, we encountered the suggestion that you can also use Gherkin to describe and test an API, rather than user-facing application functionality.
 That sounds like a big topic all by itself that deserves further investigation.
