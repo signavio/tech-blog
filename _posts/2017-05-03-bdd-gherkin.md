@@ -13,10 +13,6 @@ At the [ACCU 2017](https://conference.accu.org/) conference last week, [Seb Rose
 This workshop was a great example of the excellent in-depth sessions from experts that I enjoyed attending at ACCU 2017.
 This blog summarises what I learned.
 
-## Video
-
-The video of this 90-minute session is not yet available, at the time of writing, but should appear soon on the [ACCU Conference YouTube channel](https://www.youtube.com/channel/UCJhay24LTpO1s4bIZxuIqKw).
-
 ## Feature scenarios
 
 We started the workshop with two examples of feature scenarios, written in what we later learned to be a language called _Gherkin_.
