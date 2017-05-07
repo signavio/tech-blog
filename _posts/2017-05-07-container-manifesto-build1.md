@@ -18,7 +18,7 @@ Even more so, when one shifts from pure containers to orchestrated services usin
 
 To share what I have learned in the four years of tinkering with Linux Containers (started with Docker 0.7 in 2012/2013), this blog-post will cover the first part of the Manifesto: Image Size and Layering.
 
-Most of points are targets with wiggle room like the size of a container image. 0 Byte would be the perfect size, but won't result in something useful. <br>
+Most of the points are targets with wiggle room like the size of a container image. 0 Byte would be the perfect size, but won't result in something useful. <br>
 I marked them **desirable** to indicate that they are a goal which one should thrive for, but you can start tinkering around ignoring it.<br>
 **BUT(!1!!)**, please keep in mind that you are in a danger zone leading to misery and pain in scenarios unlike your laptop or big workstation. Scenarios in which you want to interact with other containers or services.<br>
 I am advising you to honour the guidelines as soon as you can or at least be aware of the consequences. :)
@@ -32,7 +32,7 @@ One could create a container image to run `htop` like this:
 ```
 FROM ubuntu:14.04
 
-RUN apt-get update \
+RUN apt-get update
 RUN apt-get install -y htop
 CMD ["htop"]
 ```
@@ -41,11 +41,18 @@ But I guess we agree that this is a bit insane, as you use a full-fletched opera
 
 The big end goal is to run an empty user-land with a precompiled binary.
 
-To get this done in one go, use multi-staged builds (needs docker-engine >= 17.05).
-
 ```
 $ tar cv --files-from /dev/null | docker import - scratch
 sha256:864c85770a1d9e585b93a84f24607a0b1d0e87dfa0b9e000aef5c20925557f73
+$ FROM scratch
+
+COPY go-test  /
+ENTRYPOINT ["/go-test"]
+```
+
+To get this done in one go, use multi-staged builds (needs docker-engine >= 17.05).
+
+```
 $ git clone https://github.com/qnib/go-test.git ; cd go-test
 $ cat Dockerfile
 FROM qnib/uplain-golang
@@ -102,7 +109,7 @@ This bugger is only 1.5MB in size, easily downloaded by any device, even on slow
 **Take a breath** and make sure you inhale what just happened here:<br>
 By using multi-stage build, your building container image can be as big as you like, the resulting artifact (the binary, jar, ...) will just be copied over (`COPY --from=0`) in a subsequent step using a stripped down parent.
 
-A good starting point, with a decently striped down user-land, is Alpine Linux `docker pull alpine`. <br>
+A good starting point, with a decently striped down user-land, is Alpine Linux (`docker pull alpine`). <br>
 The base image has only 5MB, even though it is a full OS with package manager (`apk --no-cache add vim`) and alike.<br>
 Careful though, it is not based on glibc, which might cause some trouble - depending on the app.
 
@@ -171,10 +178,7 @@ The Dockerfile might look suspicious, because it repeats `apt-get update` and `a
 
 But this repetition only takes place at build-time, not to mention that the individual step will just install the content and (hopefully) removes the intermediate files used by the package manager; hence, the outcome should be the same - but in two different file-system layers.
 
-The benefit comes in when one reruns the build, while only changing the second step. The first one won't be repeated. A general rule I follow is to position the steps according to their expected change rate (stable stuff on top) and the duration (build time, download time) of the step.
-
-Furthermore when multiple images are build like that the download is sped up, because (hopefully) a lot of layers are shared.
-
+When building multiple images like that, the download is sped up, because (hopefully) a lot of layers are shared.
 This images:
 
 ```
@@ -198,6 +202,8 @@ RUN apt-get update \
 ```
 
 ... combined with the first image, result in three file-system layers (`nginx`, `postgres` and `openjre8`) and are going to be reused when downloading. If one would have use single-layer images each file-system layer is different and can not be reused.
+
+Furthermore caching the steps benefits when reruning the build, while only changing the second step. The first one won't be repeated. A general rule I follow is to position the steps according to their expected change rate (stable stuff on top) and the duration (build time, download time) of the step.
 
 ## Up Next
 
