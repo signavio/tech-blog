@@ -3,7 +3,7 @@ author: Christian Kniep
 layout: post
 title: "Container 'Build' Manifesto : Image Size & Layering"
 date: 2017-05-07
-tags: eng blog docker manifesto ConMan build
+tags: container manifesto, build
 ---
 
 **This post first apeared on [qnib.org](http://qnib.org/2017/05/07/container-manifesto-1-build/)**
