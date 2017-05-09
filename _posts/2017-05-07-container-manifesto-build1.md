@@ -16,7 +16,7 @@ From my experience it is way to easy to stick with the virtual machine mindset w
 It won't cause a problem when one gets his feet wet - until it does and begins to hunt you with subtle problem scenarios.<br>
 Even more so, when one shifts from pure containers to orchestrated services using Docker SWARM or Kubernetes.
 
-To share what I have learned in the four years of tinkering with Linux Containers (started with Docker 0.7 in 2012/2013), this blog-post will cover the first part of the Manifesto: Image Size and Layering.
+To share what I have learned in the four years of tinkering with Linux Containers (started with Docker 0.7 in 2013), this blog-post will cover the first part of the Manifesto: Image Size and Layering.
 
 Most of the points are targets with wiggle room like the size of a container image. 0 Byte would be the perfect size, but won't result in something useful. <br>
 I marked them **desirable** to indicate that they are a goal which one should thrive for, but you can start tinkering around ignoring it.<br>
@@ -228,3 +228,4 @@ And the runtime parts:
 * **Desirable** No Assumptions! (like IP addresses)
 * **Strict** Configuration via Environment / Secrets
 * **Strict** Unprivileged users
+* **Idea** Use read-only container file-system
