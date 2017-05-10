@@ -10,7 +10,7 @@ image:
 ---
 
 Natural language linters are command line tools that analyze written human language and check if the language complies with standard or custom writing rules.
-This blog posts explains why natural language linters are useful and provides an overview of state-of-the-art natural language linting technologies.
+This blog posts explains why natural language linters are useful and introduces two state-of-the-art natural language linting tools.
 
 ## Introduction to linters
 As a programmer, you are most likely used to static code analysis tools (also known as *linters*), which automatically check some qualitative aspects of your code. If you’re not a programmer, here’s an example:
