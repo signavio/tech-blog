@@ -9,9 +9,11 @@ image:
   alt: "Editing an essay - let the computer do the grunt work"
 ---
 
-As a programmer, you are most likely used to static code analysis tools (also known as *linters*), which automatically check some qualitative aspects of your code.
+Natural language linters are command line tools that analyze written human language and check if the language complies with standard or custom writing rules.
+This blog posts explains why natural language linters are useful and provides an overview of state-of-the-art natural language linting technologies.
 
-If you’re not a programmer, here’s an example:
+## Introduction to linters
+As a programmer, you are most likely used to static code analysis tools (also known as *linters*), which automatically check some qualitative aspects of your code. If you’re not a programmer, here’s an example:
 
 ![](../2017/linting.png)
 
@@ -30,12 +32,11 @@ Below you see a natural language linter that checks a semi-fictional job descrip
 
 ![](../2017/vale-lint.png)
 
-## Natural language linters solve real-life problems
-You might ask yourself why people need tools like natural language linters if basic language-checking functionality comes with most text processing apps. The answer is: configurability and testability.
+You might ask yourself why people need tools like natural language linters if basic language-checking functionality comes with most text processing apps. The answers are: configurability and testability.
 
-### Configurability
+## Configurability
 Natural language linters don’t only allow you to check text documents for compliance with a predefined set of rules; you can also define rules yourself.
-The snippet below is an excerpt of a configuration that makes the [Vale linter](https://github.com/ValeLint/vale) check if a text complies with [E-Prime](https://en.wikipedia.org/wiki/E-Prime), a subset of the English language that doesn't use any form of *to be*:
+The snippet below is an (incomplete) excerpt of a configuration that makes the [Vale linter](https://github.com/ValeLint/vale) check if a text complies with [E-Prime](https://en.wikipedia.org/wiki/E-Prime), a subset of the English language that doesn't use any form of *to be*:
 
 ```yml
 extends: existence
@@ -50,23 +51,23 @@ tokens:
   - is
   - isn't
   - are
-  ...
+  ...(more tokens here)
 ```
 
-Use cases for custom rules are, for example:
+For example, you can use custom rules to:
 
 * ensuring you removed all occurrences of outdated product names,
 * ensuring domain-specific terms are spelled correctly (it’s `JavaScript` and not `Java Script`),
 * ensuring the consistent use of language (`click the button` vs `click on the button`).
 
-### Automated testing
+## Automated testing
 Most linters can run on any popular desktop or server operating system and provide machine-readable output.
 This makes them great tools for automated testing.
-Setting up a system that continuously checks your [Markdown](https://daringfireball.net/projects/markdown/)-based website content against your configured linter rules requires little more than basic technical literacy.
+Setting up a system that continuously checks your [Markdown](https://daringfireball.net/projects/markdown/)-based website content against your configured linter rules only requires standard test automation skills.
 Still, a detailed explanation on how to do this might be worth its own blog post ;-)
 
 ## Technology overview
-While natural language linters are still a niche phenomena, a couple of them gained some traction during the last years.
+While natural language linters are still a niche phenomenon, a couple of them gained some traction during the last years.
 I had a closer look at two of them:
 * [write-good](https://github.com/btford/write-good), a Node.js module for natural language linting
 * [Vale](https://github.com/ValeLint/vale), a command line tool written in Go
