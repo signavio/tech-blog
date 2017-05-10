@@ -14,15 +14,16 @@ This blog posts explains why natural language linters are useful and introduces 
 
 ## Introduction to linters
 
-As a programmer, you are most likely used to static code analysis tools (also known as *linters*), which automatically check some qualitative aspects of your code. If you’re not a programmer, here’s an example:
+If you’re a programmer, you are most likely used to static code analysis tools (also known as *linters*), which automatically check some qualitative aspects of your code.
+Here’s an example of a linting error for a disallowed word `console`:
 
 ![](../2017/linting.png)
 
-Code linters are similar to the spell/grammar checker of text processing software (below you see Microsoft Word):
+Code linters are similar to the spelling and grammar checkers in text processing software (as in Microsoft Word, below):
 
 ![](../2017/ms_word_linting.png)
 
-The two language checkers differ from each other in the following aspects:
+The two language checkers differ from each other in two ways:
 
 * The code linter analyzes [formal language](https://en.wikipedia.org/wiki/Formal_language), such as a programming language, whereas the Microsoft Word feature analyzes [human (natural) language](https://en.wikipedia.org/wiki/Natural_language).
 * Most code linters use Unix-style open source technology that is plugged into an IDE or text editor.
@@ -40,8 +41,7 @@ You might ask yourself why people need tools like natural language linters if ba
 Natural language linters don’t only allow you to check text documents for compliance with a predefined set of rules; you can also define rules yourself.
 The snippet below is an (incomplete) excerpt of a configuration that makes the [Vale linter](https://github.com/ValeLint/vale) check if a text complies with [E-Prime](https://en.wikipedia.org/wiki/E-Prime), a subset of the English language that doesn't use any form of *to be*:
 
-```
-yml
+```yaml
 extends: existence
 message: "As a form of 'to be', '%s' doesn't comply with E-Prime."
 ignorecase: true
@@ -60,7 +60,7 @@ tokens:
 For example, you can use custom rules to ensure that:
 
 * you removed all occurrences of outdated product names,
-* domain-specific terms are spelled correctly (it’s `JavaScript` and not `Java Script`),
+* domain-specific terms are spelled correctly (it’s `JavaScript`, not `Java Script`),
 * you use language consistently (`click the button` vs `click on the button`).
 
 ## Automated testing
