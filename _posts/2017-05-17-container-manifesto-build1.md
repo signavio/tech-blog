@@ -6,10 +6,9 @@ tags: container manifesto, build
 layout: article
 ---
 
-*This is a guest post written by [Christian Kniep](http://qnib.org/about/) who presented at the [Signavio Tech MeetUp on 20 April 2017](https://www.meetup.com/de-DE/Signavio-Tech-Talks/events/237960063/) where Christian  introduced some guidelines for building and running containers.
-The post appeared first on [qnib.org](http://qnib.org/2017/05/07/container-manifesto-1-build/)*
-
-During the [April MeetUp](https://www.meetup.com/M-E-L-I-G-Berlin-Metrics-Events-Logs-Inventory-Glue/events/238948734/) I introduced some guidelines about how to build and run containers, the talk was recorded and is available on youtube:
+*This is a guest post by [Christian Kniep](http://qnib.org/about/) that first appeared on [qnib.org](http://qnib.org/2017/05/07/container-manifesto-1-build/).
+Christian presented at the [Signavio Tech MeetUp on 20 April 2017](https://www.meetup.com/de-DE/Signavio-Tech-Talks/events/237960063/), where he introduced some guidelines for building and running containers.
+The presentation was recorded and is available on YouTube:*
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/DPI1eAgts0w?ecver=1" frameborder="0" allowfullscreen></iframe>
 
