@@ -1,5 +1,5 @@
 ---
-title: "Container ‘Build’ manifesto: image size & layering"
+title: "Container manifesto: image size & layering"
 description: "Guidelines for building and running containers"
 author: Christian Kniep
 tags: container manifesto, build
