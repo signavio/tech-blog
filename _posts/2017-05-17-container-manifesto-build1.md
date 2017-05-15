@@ -12,14 +12,18 @@ The presentation was recorded and is available on YouTube:*
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/DPI1eAgts0w?ecver=1" frameborder="0" allowfullscreen></iframe>
 
-From my experience it is way to easy to stick with the virtual machine mindset when first starting with containers. It won’t cause a problem when one gets his feet wet - until it does and begins to hunt you with subtle problem scenarios. Even more so, when one shifts from pure containers to orchestrated services using Docker SWARM or Kubernetes.
+From my experience it is way too easy to stick with the virtual machine mindset when first starting with containers.
+It won’t cause a problem when one gets his feet wet - until it does and begins to hunt you with subtle problem scenarios.
+Even more so, when one shifts from pure containers to orchestrated services using Docker SWARM or Kubernetes.
 
-To share what I have learned in the four years of tinkering with Linux Containers (started with Docker 0.7 in 2013), this blog post will cover the first part of the Manifesto: [Image Size](#image-size) and [Layering](#layering).
+To share what I have learned in the four years of tinkering with Linux Containers (starting with Docker 0.7 in 2013), this blog post will cover the first parts of the Manifesto: image size and layering.
 
-Most of the points are targets with wiggle room like the size of a container image. 0 Byte would be the perfect size, but won’t result in something useful.
-I marked them **desirable** to indicate that they are a goal which one should thrive for, but you can start tinkering around ignoring it.
-**BUT(!1!!)**, please keep in mind that you are in a danger zone leading to misery and pain in scenarios, unlike your laptop or big workstation. Scenarios in which you want to interact with other containers or services.
-I am advising you to honour the guidelines as soon as you can or at least be aware of the consequences. :)
+Most of the points are targets with wiggle room like the size of a container image.
+0 Byte would be the perfect size, but won’t result in something useful.
+I marked them **desirable** to indicate that they are goals that you should aim for, but you can start tinkering around ignoring it.
+**BUT(!1!!)**, please keep in mind that you are in a danger zone leading to misery and pain in scenarios, unlike your laptop or big workstation.
+Scenarios in which you want to interact with other containers or services.
+I advise you to honour the guidelines as soon as you can or at least be aware of the consequences. :)
 
 ### [**Desirable**] Avoid Big Container Images
 
@@ -35,7 +39,7 @@ RUN apt-get install -y htop
 CMD ["htop"]
 ```
 
-But I guess we agree that this is a bit insane, as you use a full -fledged operating system (`ubuntu:14.04` is almost 200MB big) to run only the process `htop`.
+But I guess we agree that this is a bit insane, as you use a fully-fledged operating system (`ubuntu:14.04` is almost 200MB big) to run only the process `htop`.
 
 The big end goal is to run an empty user-land with a precompiled binary.
 
@@ -102,9 +106,10 @@ $ docker images |grep qnib/test
 qnib/test     latest      3893b9a2513b        About a minute ago   1.56MB
 ```
 
-This bugger is only 1.5MB in size, easily downloaded by any device, even on slow Internet connections.
+This little bugger is only 1.5MB in size, easily downloaded by any device, even on slow Internet connections.
 
-**Take a breath** and make sure you inhale what just happened here. By using multi-stage build, your building container image can be as big as you like, the resulting artifact (the binary, JAR, …) will just be copied over (`COPY --from=0`) in a subsequent step using a stripped down parent.
+**Take a breath** and make sure you inhale what just happened here.
+By using multi-stage build, your building container image can be as big as you like, the resulting artifact (the binary, JAR, …) will just be copied over (`COPY --from=0`) in a subsequent step using a stripped down parent.
 
 A good starting point, with a decently stripped down user-land, is Alpine Linux (`docker pull alpine`).
 The base image has only 5MB, even though it is a full OS with package manager (`apk --no-cache add vim`) and alike.
@@ -156,8 +161,8 @@ RUN echo "345" > /etc/myc.txt
 
 And this is also true, when pulling/pushing an image, as the layers are content addressed, the docker-engine will reuse the layers from the first image. In the example the layers are not big in size, but replace `echo 123` by a blob of 100MB.
 
-In a more real life example, it might make a lot of sense to group installations logically, so that they are reusable.
-My rule-of-thumb is to ask: are they independent or will a separat step increase the size of the resulting image?
+In a more real-life example, it might make a lot of sense to group installations logically, so that they are reusable.
+My rule-of-thumb is to ask: are they independent or will a separate step increase the size of the resulting image?
 
 ```
 FROM ubuntu:16.04
@@ -200,7 +205,9 @@ RUN apt-get update \
 
 … combined with the first image, result in three file-system layers (`nginx`, `postgres` and `openjre8`) and are going to be reused when downloading. If one would have use single-layer images each file-system layer is different and can not be reused.
 
-Furthermore caching the steps benefits when reruning the build, while only changing the second step. The first one won’t be repeated. A general rule I follow is to position the steps according to their expected change rate (stable stuff on top) and the duration (build time, download time) of the step.
+Furthermore caching the steps benefits when rerunning the build, while only changing the second step.
+The first one won’t be repeated.
+A general rule I follow is to position the steps according to their expected change rate (stable stuff on top) and the duration (build time, download time) of the step.
 
 ## Next Steps
 
