@@ -1,5 +1,5 @@
 ---
-title: "Embrace legacy with constant change"
+title: "Embrace legacy with constant change (video)"
 description: "Video of Philipp Giese’s presentation at Signavio Tech Talk #3"
 author: Peter Hilton
 tags: legacy, refactoring, how-to
