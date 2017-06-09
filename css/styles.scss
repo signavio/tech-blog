@@ -113,6 +113,9 @@ main {
 			}
 			.featured {
 				border-bottom: 1px solid $gray-light;
+				img {
+					vertical-align: top;
+				}
 			}
 			.content {
 				padding: 1.5em;
