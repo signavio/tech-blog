@@ -13,7 +13,8 @@ image:
 
 When you use [Sphinx](http://www.sphinx-doc.org/en/stable/) to document your software, you sometimes move files to a different location as part of a content refactoring.
 Then, you need to set up redirects that point from the old to the new location of a content piece.
-If you make your documentation available on one particular domain, the obvious way to handle redirects is to ask the system administrator to configure the redirects on web server side, for example in Apache [.httaccess](https://httpd.apache.org/docs/current/howto/htaccess.html) files.
+
+If you make your documentation available on one particular domain, the obvious way to handle redirects is to ask the system administrator to configure the redirects on web server side, for example in Apache [.htaccess](https://httpd.apache.org/docs/current/howto/htaccess.html) files.
 But in case you release the docs on multiple platforms or even have them deployed locally within a customer's internal network, you can reduce the organizational overhead by managing the redirects yourself, directly within your Sphinx project.
 This blog post explains how.
 
@@ -34,13 +35,13 @@ In this example, `<./new_url>` is the placeholder for the actual target URL that
 </html>
 ```
 
-Every time you make a refactoring that moves an entire file, place the and HTML file with the template snippet to the folder you moved the source file from.
+Every time you make a refactoring that moves an entire file, place the HTML file with the template snippet to the folder you moved the source file from and adjust the redirect target ( `<./new_url>`).
 Of course, the HTML file needs to have the same name as the compiled moved file.
 For example, if your source file was `folders.rst`, name the output file `folders.html`.
 
 ## Setup script in project configuration file
 By default, Sphinx won't process the redirect files (it only considers source files).
-That's why you need to write a couple of lines of Python code to move the redirect files to their correct place in the build directory.
+That's why you need to write a couple of lines of Python code to copy the redirect files to their correct place in the build directory.
 You can simply add the lines to your project's `conf.py` configuration file.
 
 Create a list that contains all redirect files:
@@ -51,7 +52,7 @@ redirect_files = ['explorer/basics/deleting_and_restoring.html']
 
 Alternatively, you could write a script that collects all paths to HTML files in your source directory.
 
-Now, define a function that moves all redirect files from the source directory to the equivalent position in the output directory.
+Now, define a function that copies all redirect files from the source directory to the equivalent position in the output directory.
 For this, you can conveniently make use of Sphinx's [application API](http://www.sphinx-doc.org/en/stable/extdev/appapi.html):
 
 ```python
