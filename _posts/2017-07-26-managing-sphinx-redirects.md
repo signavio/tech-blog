@@ -1,5 +1,5 @@
 ---
-title: "Managing legacy redirects in Sphinx"
+title: "Legacy redirects in Sphinx"
 description: "How to handle redirects directly in your Sphinx project"
 author: Timotheus Kampik
 tags: Sphinx, documentation, redirects
