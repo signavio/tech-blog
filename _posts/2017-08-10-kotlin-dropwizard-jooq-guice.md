@@ -9,13 +9,13 @@ layout: article
 In July I decided to take [Kotlin](https://kotlinlang.org/ "Official Kotlin website") out for a spin as I had read so many positive things about the language.
 I was also spurred on by the adoption of Kotlin as an official Android language.
 
-Kotlin came about from JetBrains in 2011 and is statically-typed programming language that runs on the JVM, and can also be compiled to JavaScript.
+Kotlin came about from JetBrains in 2011 and is a statically-typed programming language that runs on the JVM, and can also be compiled to JavaScript.
 It is even getting a [native compiler](https://blog.jetbrains.com/kotlin/2017/04/kotlinnative-tech-preview-kotlin-without-a-vm/ "Kotlin native compiler announcement").
 
 Coming from a Java background the interoperability with Java interested me; I was also looking for a more concise language with more modern features that could allow for fast prototyping, with a low learning curve.
 I have some experience with Scala but this felt too heavyweight, Python was also an option but in the end I needed to stay closer to the Java ecosystem for...reasons.
 I decided to give myself a few hours a week over the period of a month to see if Kotlin would win me over.
-The result was obviously pretty fast, I find it a joy to work in Kotlin.
+The result was obvious pretty fast: I find it a joy to work in Kotlin.
 
 ## Summarising interesting language features
 
@@ -24,7 +24,7 @@ You simply have a Kotlin source folder alongside your Java, IntelliJ will even c
 
 ![intellij convert](../2017/convertKotlin.png)
 
-Code can be expressed succinctly as a result of features such as data classes; default parameters for methods and constructors; reified generics; smart casts and type inference.
+Code can be expressed succinctly as a result of features such as data classes, default parameters for methods and constructors, reified generics, smart casts, and type inference.
 
 Better [null safety](https://kotlinlang.org/docs/reference/null-safety.html "Null safety kotlin documentation") can be achieved through using non null types.
 Working with potential nulls can also be written more succinctly through the safe call and elvis operators, for example:
@@ -36,7 +36,8 @@ Would be something like this in Java:
 ```java
 String country = person != null ? (person.getAddress() != null ? person.getAddress().getCountry() : "DE") : "DE";
 ```
-Of course you would probably never do this: it;s not very nice to your co workers, you would probably use nested null check if statements instead:
+Of course you would probably never do this; it's not very nice to your co workers.
+You would probably use nested null check if statements instead:
 ```java
 String country = "DE";
 if(person != null){
@@ -67,24 +68,24 @@ Map<String, Person> nameToPerson =
 
 Compared to:
 ```kotlin
-val nameToPerson = list.associateBy({ it.name }, { it.value })
+val nameToPerson = list.associateBy({ it.name }, { it })
 ```
 
-While researching I found an [excellent post comparingJava 8 stream equivalents](https://stackoverflow.com/documentation/kotlin/707/java-8-stream-equivalents#t=201607211216224974548).
+While researching I found an [excellent post comparing Java 8 stream equivalents](https://stackoverflow.com/documentation/kotlin/707/java-8-stream-equivalents#t=201607211216224974548) if you want a more detailed overview.
 
 Something about generics
 [Declaration-site variance](https://kotlinlang.org/docs/reference/generics.html#declaration-site-variance "kotlin documentation on declaration-site veriance")
 
-There are many other aspects I haven't mentioned, however the above was enough to make me want to get some hands on experience.
+There are many other aspects I haven't mentioned, however the above points were enough to make me want to get some hands on experience.
 
 ## Implementing a Dropwizard resource in Kotlin using jOOQ
 
 We have a web service implemented in Java using the [Dropwizard framework](http://www.dropwizard.io/1.1.2/docs/ "Dropwizard website") and interacting with PostgreSQL via [jOOQ](https://www.jooq.org/ "jooq website").
-I wanted to see if I could write our application code using Kotlin and so through I would try implementing a simple resource which can create a row in a database table.
+I wanted to see if I could write our application code using Kotlin and so thought I would try implementing a simple resource which can create a row in a database table.
 
 ### Enabling Kotlin for an existing Java project
 
-I work with IntelliJ as my IDE, using gradle as the build tool.
+I work with IntelliJ as my IDE, using Gradle as the build tool.
 
 To get started I just added some dependencies to my build.gradle:
 
@@ -126,7 +127,7 @@ data class PersonOutput @ConstructorProperties("id", "address") constructor (@Co
 data class Address(@Column(name = "c_country") val country : String)
 ```
 I included the imports here so that it is obvious that I am using Java annotations in Kotlin code.
-I like the fact that I can keep all these input and output objects in the same file without being resticted in our use of access modifiers.
+I like the fact that I can keep all these input and output objects in the same file without being restricted in the use of access modifiers.
 
 Now I have fewer files and less code (even despite using Lombok annotations the Java code wasn't as succinct as this).
 
@@ -140,7 +141,7 @@ I can use these classes in my existing Java resource if I want, in the exact sam
 		return new PersonOutput(UUID.randomUUID(), new Address("UK"));
 	}
 ```
-Here I am using all 3 of my Kotlin classes in Java, I simply has to import them as I would a normal Java class.
+Here I am using all 3 of my Kotlin classes in Java, I simply have to import them as I would a normal Java class.
 
 #### Enabling jackson to parse Kotlin objects
 
@@ -155,7 +156,8 @@ bootstrap.getObjectMapper().registerModule(new KotlinModule());
 Now I want to implement the resource in Kotlin, and I want it to actually do something.
 
 We are using jOOQ as our ORM and so the first thing I want to do is write a simple Dao.
-We already have dependency injection in our existing code using guice, and the jOOQ `DSLContext` is already available for injection. We need to somehow get it into our Dao, and actually it turns our to be very easy:
+We already have dependency injection in our existing code using guice, and the jOOQ `DSLContext` is already available for injection.
+We need to somehow get it into our Dao, and actually it turns our to be very easy:
 
 ```kotlin
 class PersonDao @Inject constructor(private val dslContext: DSLContext) {
@@ -224,6 +226,8 @@ You can again either use Kotlin libraries or use a mixture of Java and Kotlin.
 I have even written some tests using JUnit5.
 
 All I had to do was exactly what I had to do already for writing the tests in Java: simply add dependencies to my build.gradle for whichever test and assertion libraries I wanted to use, and use them!
+
+It really was so simple there is not point in an example here.
 
 ## Wrapping up
 
