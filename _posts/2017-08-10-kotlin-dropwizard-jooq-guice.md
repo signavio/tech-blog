@@ -236,3 +236,5 @@ Kotlin has lots of cool language features compared to Java.
 In my Dropwizard resource I didn't use too many of these features, however it was very easy to get a variety of Java frameworks and libraries to work with KOtlin (Dropwizard, jOOQ, guice, Jackson, JUnit5, AssertJ).
 
 It's trivial to call Java from Kotlin and vice versa.
+
+Given all this I would happily start implementing new features in Kotlin.
