@@ -73,9 +73,6 @@ val nameToPerson = list.associateBy({ it.name }, { it })
 
 While researching I found an [excellent post comparing Java 8 stream equivalents](https://stackoverflow.com/documentation/kotlin/707/java-8-stream-equivalents#t=201607211216224974548) if you want a more detailed overview.
 
-Something about generics
-[Declaration-site variance](https://kotlinlang.org/docs/reference/generics.html#declaration-site-variance "kotlin documentation on declaration-site veriance")
-
 There are many other aspects I haven't mentioned, however the above points were enough to make me want to get some hands on experience.
 
 ## Implementing a Dropwizard resource in Kotlin using jOOQ
