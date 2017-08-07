@@ -4,9 +4,13 @@ description: "Implementing a DropWizard resource in Kotlin"
 author: Kathleen Sharp
 tags: Kotlin, DropWizard, jOOQ
 layout: article
+image:
+  feature: /2017/kotlin.jpg
+  alt: Kotlin Island, Russia, August, 2015
 ---
+<a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px;" href="https://www.flickr.com/photos/dougtone/22049783033/in/photostream/" title="Doug Kerr flickr"><span style="display:inline-block;padding:2px 3px;"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-1px;fill:white;" viewBox="0 0 32 32"><title></title><path d="M20.8 18.1c0 2.7-2.2 4.8-4.8 4.8s-4.8-2.1-4.8-4.8c0-2.7 2.2-4.8 4.8-4.8 2.7.1 4.8 2.2 4.8 4.8zm11.2-7.4v14.9c0 2.3-1.9 4.3-4.3 4.3h-23.4c-2.4 0-4.3-1.9-4.3-4.3v-15c0-2.3 1.9-4.3 4.3-4.3h3.7l.8-2.3c.4-1.1 1.7-2 2.9-2h8.6c1.2 0 2.5.9 2.9 2l.8 2.4h3.7c2.4 0 4.3 1.9 4.3 4.3zm-8.6 7.5c0-4.1-3.3-7.5-7.5-7.5-4.1 0-7.5 3.4-7.5 7.5s3.3 7.5 7.5 7.5c4.2-.1 7.5-3.4 7.5-7.5z"></path></svg></span><span style="display:inline-block;padding:2px 3px;">Doug Kerr</span></a>
 
-In July, I decided to take [Kotlin](https://kotlinlang.org/ "Official Kotlin website") out for a spin as I had read so many positive things about the language.
+Recently, I decided to take [Kotlin](https://kotlinlang.org/ "Official Kotlin website") out for a spin as I had read so many positive things about the language.
 I was also spurred on by the adoption of Kotlin as an official Android language.
 
 Kotlin came about from JetBrains in 2011 and is a statically-typed programming language that runs on the JVM, and can also be compiled to JavaScript.
@@ -17,9 +21,9 @@ I have some experience with Scala but this felt too heavyweight, Python was also
 I decided to give myself a few hours a week over the period of a month to see if Kotlin would win me over.
 The result was obvious pretty fast: I find it a joy to work in Kotlin.
 
-## Summarising interesting language features
+## Interesting language features
 
-Interoperability with Java: you can dip your toe very gently into the Kotlin pool as it is trivial to call and use Java code in Kotlin and vice versa.
+Interoperability with Java: you can dip your toe gently into the Kotlin pool as it is trivial to call and use Java code in Kotlin and vice versa.
 You simply have a Kotlin source folder alongside your Java, IntelliJ will even convert Java code into Kotlin for you!
 
 ![intellij convert](../2017/convertKotlin.png)
@@ -110,7 +114,7 @@ Now we’re ready to write some code!
 
 Data classes are ideal for representing our JSON input and outputs. However, this means I need them to be parsed and mapped correctly to our database.
 
-We achieved this in Java without writing too much code by using Lombok, Jackson and javax annotations.
+We achieved this in Java without writing too much code by using Lombok, Jackson and Java Persistence API (JPA) annotations.
 
 It’s also quite straightforward with Kotlin:
 
@@ -120,13 +124,16 @@ import java.util.*
 import javax.persistence.Column
 
 data class PersonInput(@Column(name = "c_address") val address: Address)
-data class PersonOutput @ConstructorProperties("id", "address") constructor (@Column(name = "c_id") val id: UUID, @Column(name = "address") val address: Address)
+
+data class PersonOutput @ConstructorProperties("id", "address")
+    constructor (@Column(name = "c_id") val id: UUID, @Column(name = "address") val address: Address)
+
 data class Address(@Column(name = "c_country") val country : String)
 ```
 I included the imports here so that it is obvious that I am using Java annotations in Kotlin code.
 I like the fact that I can keep all these input and output objects in the same file without being restricted in the use of access modifiers.
 
-Now I have fewer files and less code. Even despite using Lombok annotations the Java code wasn’t as succinct as this.
+Now I have fewer files and less code. Despite using Lombok annotations the Java code wasn’t as succinct as this.
 
 I can use these classes in my existing Java resource if I want, in the exact same way I would use Java classes:
 ```java
@@ -228,7 +235,7 @@ It really was so simple there is not point in an example here.
 
 Kotlin has lots of cool language features compared to Java.
 
-In my Dropwizard resource I didn’t use too many of these features, however it was very easy to get a variety of Java frameworks and libraries to work with KOtlin (Dropwizard, jOOQ, guice, Jackson, JUnit5, AssertJ).
+In my Dropwizard resource I didn’t use too many of these features, however it was very easy to get a variety of Java frameworks and libraries to work with Kotlin (Dropwizard, jOOQ, guice, Jackson, JUnit5, AssertJ).
 
 It’s trivial to call Java from Kotlin and vice versa.
 
