@@ -31,28 +31,21 @@ The physical light ended up not working, so our clever developers ended up creat
 ###### Slacknavio
 
 
-###### Fast Frictonless Fun
+###### Fast Frictionless Fun
 
 This group focused on making a mobile version of our Workflow Editor for Android. The main challenge for this group was making things lighter and faster than the desktop version, with comments and share capabilities as well as a way to check in on project details while on the go.
 
 
 ###### Alexa
 
-This project focused on an actual user-case that involves integrating Alexa with our Workflow Accelerator. Say that a company's social media team wants to allow employees to send out tweets, but is unsure how to run a quality control process that would prevent any gaffes that might embarrass the company. Using Workflow Accelerator, you would be able to integrate it with Alexa. Simply dictate the tweet to Alexa, who will compare the text of the tweet to its library of acceptable syntax and phrasing. If the tweet is approved, the Workflow Accelerator will send an email to the social media team alerting them to the tweet and allowing them to either approve it or reject it.
+Note.js, other processes, Alexa
+
+This project focused on an actual use-case that involves integrating Alexa with our Workflow Accelerator. Say that a company's social media team wants to allow employees to send out tweets, but is unsure how to run a quality control process that would prevent any gaffes that might embarrass the company. Using Workflow Accelerator, you would be able to integrate it with Alexa. Simply dictate the tweet to Alexa, who will compare the text of the tweet to its library of acceptable syntax and phrasing. If the tweet is approved, the Workflow Accelerator will send an email to the social media team alerting them to the tweet and allowing them to either approve it or reject it.
 
 If Alexa determines the tweet is not acceptable, it will reject it and ask the user to try again.
 
+While Alexa will approve or reject the tweet, the social media team is ultimately responsible for the editing and posting of the tweet, who can then approve or reject the tweet, even if Alexa has already approved it.
 
+The point of this project is to show the potential of our Workflow Accelerator when it comes to orchestrating different services and processing inputs with a set of other services (ie, Alexa).
 
-Particular solution, use-case--shows potential of accelerator when it comes to orchestrating different services and Alexa inputs and processing inputs with a set of other services
-Shows power of workflow accelerator that makes this orchestration possible from a business perspective
-Use it with all the different stakeholders, hand it over to developers
-Note.js use to integrate with a few lines of codes
-Actual use case: tweet approver
-Say something like “Alexa, tweet” then dictate tweet
-The system automatically runs a check--grammar, political-correctness, etc. (it compares it to a library via a process) (ie, “instead of using ‘cripple’ try ‘person with a limp’”)
-Does not need a lot of coding
-It gives you feedback
-It will reject your tweet if your phrasing is bad
-If approved, it is handed over to social media team, which can approve or reject
-The tweeter will get feedback from Alexa, but social media does editing and approval--they get an email from Alexa
+It will allow all the different stakeholders to offer their input, and then hand it over to the developers to code a solution that will use the Workflow Accelerator as a process interface.  The chief concern is an easy to use integration that does not require a lot of coding to customize to a customer's needs. 
