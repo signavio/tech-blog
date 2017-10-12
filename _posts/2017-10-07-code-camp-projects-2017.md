@@ -1,7 +1,7 @@
 ---
 title: "Code Camp Projects 2017"
 description: ""
-tags: code camp
+tags: code camp, hackathon, off-site
 author: Rachel Stiles
 layout: article
 image:
@@ -19,11 +19,12 @@ This year, we had 10 groups working on a variety of projects, from a Slackbot in
 **Note** These are simply projects our engineers worked on for challenge and fun--they may never actually make it into production.
 
 
-##A better Shape Menu
+## A better Shape Menu
 
 When the Editor first launched, the menu was revolutionary. It was easy to use, it allowed the user to see all tool options in a clear way, and it was a pleasure to navigate.
 As with all good ideas, the design was eventually adopted industry-wide, and is now not so remarkable.
-This group looked at the menu and though--how can we improve this? How can we create a new menu that is every bit as intuitive and astounding as the original version was when it first released?
+This group looked at the menu and though--how can we improve this?
+How can we create a new menu that is every bit as intuitive and astounding as the original version was when it first released?
 
 The solution they came up with includes bigger icons, a less crammed menu, and adding a touch function.
 The menu this group designed also has two modes--the quick mode, which has bigger icons and a more user-friendly menu designed with touch screens in mind; and what they call the rocket mode, which text-based and designed with modeling speed in mind.
@@ -35,12 +36,12 @@ At Signavio, we have a monthly tradition called Mix & Match Lunch where we rando
 It's a way to ensure we know everyone we're working with, even if we don't see them every day.
 This app is a way to extend that tradition to the entire week, maintaining our company culture even as we grow.
 
-Mix Me is a progressive web app, utilizing REST and Note.js.
+Mix Me is a progressive web app, utilizing React and Node.js.
 A user logs onto the Mix Me webpage, enters their Signavio email and is randomly paired up with a group of four other colleagues, a random restaurant near Signavio HQ and a suggested meeting place.
 
 ## SWAccelerator Talk - Alexa + Workflow Accelerator
 
-This project focused on an actual use-case that involves integrating Alexa with our Workflow Accelerator, utilizing Note.js.
+This project focused on an actual use-case that involves integrating Alexa with our Workflow Accelerator, utilizing Node.js.
 
 Say that a company's social media team wants to allow employees to send out tweets, but is unsure how to run a quality control process that would prevent any gaffes that might embarrass the company.
 Using Workflow Accelerator, you would be able to integrate it with Alexa.
@@ -64,9 +65,6 @@ The resulting app is a mobile version of our Workflow Editor, minus the workflow
 This group focused on making the app as light and fast as possible, ensure it is optimized for mobile use.
 Users can comment, share snapshots of process diagram models, make notes and similar tasks, which makes this mobile app a sort of one stop shop for info about any process models you may be creating.
 
-Mobile app--dashboard for comments, page views, menu for people to browse folders for the editor
-Mobile editor with feed for comments and a snapshot of the models--but not the actual models themselves--just like a one stop shop for info about it
-Android for now
 
 ## Quiet-o-matic 5000
 
