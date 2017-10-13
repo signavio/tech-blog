@@ -104,7 +104,7 @@ That's where this system comes into play. How it works is that as soon as a bug 
 The system tells use the name of the engineer who is most likely to know how to fix it. The goal is to locate and fix bugs before users can even notice them.
 
 
-##Confluence BPMN Diagram Plugin
+## Confluence BPMN Diagram Plugin
 
 This is a plugin that allows the user to integrate Confluence with our Signavio suite.
 It displays diagrams alongside the standard Confluence content, while also embedding the decision assistant (see below).
@@ -112,7 +112,7 @@ It displays diagrams alongside the standard Confluence content, while also embed
 ![](../2017/insert-hub-macro.gif)
 
 
-##Gmail Signature Updates
+## Gmail Signature Updates
 
 Keeping the company email signatures up to date is always a challenge, especially when the company is growing as quickly as Signavio.
 At the moment, our process is to have the Marketing team send us emails with new signature formats every few weeks.
