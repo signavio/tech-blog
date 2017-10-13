@@ -83,16 +83,17 @@ Sometimes, when using Signavio, a user wants to check something small--conversat
 That's where the Slacknavio bot comes in.
 This is a Slack bot that allows users to pull basic information from Workflow Accelerator or Collaboration Hub instantly.
 
-Created with [Go] (https://golang.org/), the Slacknavio bot can post updates about new diagrams in Collaboration Hub, new personal tasks assigned to users in Workflow Accelerator, notify users of new comments in conversation threads they are included in, as well as search the Signavio repository and share daily status updates on things such as workflows and cases.
+Created with [Go] (https://golang.org/), the Slacknavio bot can post updates about new diagrams in Collaboration Hub, new personal tasks assigned to users in Workflow Accelerator as well as notify users of new comments in conversation threads they are included in.
 
 ## Workflow4Slack
 
 Let's say you want to more easily track what is going on in Workflow Accelerator, but you don't want to wait for your colleagues to get the email notifications.
-This project integrates Slack with Workflow Accelerator to notify users when changes have been made in their workspace.
+This project integrates Slack with Workflow Accelerator to allow users to complete simple tasks (such as filling in forms and notifying colleagues of changes) all within Slack, without the need to log into Workflow Accelerator.
 
 Want to notify a user that they've been assigned a new task? Workflow4Slack will ping them.
 Made changes to a process and need some feedback from your colleagues?
 You can send them a notification from Workflow Accelerator via Slack.
+Need to fill in forms for user tasks but don't want to log into Workflow Accelerator? You can do it entirely via Slack.
 It's a good option for those times when email simply takes too long.
 
 ## Oops, did I do that?
