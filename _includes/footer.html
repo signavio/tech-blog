@@ -14,12 +14,33 @@ src="https://code.jquery.com/jquery-3.1.1.min.js"
 integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
 crossorigin="anonymous"></script>
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-<script type="text/javascript">
-	$('.grid').masonry({
-		itemSelector: '.grid-item',
-		columnWidth: '.grid-item-sizer',
-		percentPosition: true,
-		gutter: '.grid-item-margin'
-	});
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+<script>
+$(document).ready(function () {
+	WebFontConfig = {
+		google: {
+			families: ['Open Sans']
+		},
+		active: function() {
+			$('#archive').imagesLoaded(function(){
+				$('.grid').masonry({
+					itemSelector: '.grid-item',
+					columnWidth: '.grid-item-sizer',
+					percentPosition: true,
+					gutter: '.grid-item-margin'
+				});
+			});
+		}
+	};
+	(function() {
+		var wf = document.createElement('script');
+		wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+			'://ajax.googleapis.com/ajax/libs/webfont/1.4.2/webfont.js';
+		wf.type = 'text/javascript';
+		wf.async = 'true';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(wf, s);
+	})();
+});
 </script>
 {% include ga.html %}
