@@ -1,11 +1,11 @@
 ---
 title: "Code Camp Projects 2017"
-description: ""
+description: "10 projects from our annual internal hackathon"
 tags: code camp, hackathon, off-site
 author: Rachel Stiles
 layout: article
 image:
-  feature: /2017/code-camp.jpg
+  feature: /2017/code-camp-projects.jpg
   alt: "Signavio co-CTO Willi Tscheschner kicking off Code Camp 2017"
 ---
 
