@@ -1,0 +1,252 @@
+<html>
+  <head>
+    <style>
+      ul {
+        list-style-type: none;
+      }
+      ul li {
+        padding:10px;
+        display: inline
+      }
+      li span {
+        width:25px;
+        height:25px;
+        margin-right:10px;
+        display: inline-block;
+        border: 1px solid gray;
+        border-radius: 2px;
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
+  </head>
+  <body>
+    <canvas id="lineChart" width="1500" height="500"></canvas>
+    <div id="legend"> </div>
+    <script>
+      var ctx = document.getElementById('lineChart').getContext('2d');
+
+      var data = {
+      labels: [
+       2009,
+       2010,
+       2011,
+       2012,
+       2013,
+       2014,
+       2015,
+       2016,
+       2017
+      ],
+      datasets: [{
+        label: "Back End Engineer",
+        backgroundColor: "rgba(135,8,72,0.01)",
+        borderColor: "rgba(135,8,72,1)",
+        data: [
+          1,
+          2,
+          3,
+          5,
+          6,
+          7,
+          9,
+          11,
+          13
+        ]
+      }, {
+        label: "Front End Engineer",
+        backgroundColor: "rgba(51,51,51,0.2)",
+        borderColor: "rgba(51,51,51, 1)",
+        data: [
+          1,
+          1,
+          2,
+          3,
+          4,
+          6,
+          8,
+          10,
+          12
+        ]
+      },{
+        label: "Support Engineer",
+        backgroundColor: "rgba(127,127,127,0.2)",
+        borderColor: "rgba(127,127,127,1)",
+        data: [
+          0,
+          0,
+          0,
+          2,
+          2,
+          3,
+          5,
+          7,
+          8
+        ]
+      },{
+        label: "Team Lead",
+        backgroundColor: "rgba(29,110,117,0.2)",
+        borderColor: "rgba(29,110,117,1)",
+        data: [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          4,
+          5
+        ]
+      }, {
+        label: "Department Manager",
+        backgroundColor: "rgba(207,227,229,0.2)",
+        borderColor: "rgba(207,227,229,1)",
+        data: [
+          0,
+          0,
+          0,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      }, {
+        label: "Product Manager",
+        backgroundColor: "rgba(250,242,170,0.2)",
+        borderColor: "rgba(250,242,170,1)",
+        data: [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          4,
+          5
+        ]
+      }, {
+        label: "Technical Writer",
+        backgroundColor: "rgba(245,15,15,0.2)",
+        borderColor: "rgba(245,15,15,1)",
+        data: [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          2
+        ]
+      }, {
+        label: "Agile Coach",
+        backgroundColor: "rgba(219,230,128,0.2)",
+        borderColor: "rgba(219,230,128,1)",
+        data: [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          2
+        ]
+      }, {
+        label: "UX Designer",
+        backgroundColor: "rgba(97,174,242,0.2)",
+        borderColor: "rgba(97,174,242,1)",
+        data: [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      }, {
+        label: "QA Engineer",
+        backgroundColor: "rgba(250,225,0,0.2)",
+        borderColor: "rgba(250,225,0,1)",
+        data: [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          2
+        ]
+      }, {
+        label: "Product Designer",
+        backgroundColor: "rgba(250,225,0,0.2)",
+        borderColor: "rgba(250,225,0,1)",
+        data: [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1
+        ]
+      }, {
+        label: "Release Manager",
+        backgroundColor: "rgba(240,173,38,0.2)",
+        borderColor: "rgba(240,173,38,1)",
+        data: [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1
+        ]
+      }, {
+        label: "System Administrator",
+        backgroundColor: "rgba(245,183,176,0.2)",
+        borderColor: "rgba(245,183,176,1)",
+        data: [
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          3
+        ]
+      }]
+      };
+
+      var options = {
+        bezierCurve: false,
+        datasetFill: false,
+      };
+
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: data,
+        options: options
+      });
+      // document.getElementById('legend').innerHTML = myChart.generateLegend();
+
+    </script>
+  </body>
+</html>
