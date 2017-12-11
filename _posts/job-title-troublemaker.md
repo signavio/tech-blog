@@ -1,5 +1,5 @@
 ---
-title: "Job Title: Troublemaker"
+title: "What does a Scrum master do?"
 description: "My job as an Agile coach"
 tags: internal, company roles
 author: Adiya Mohr
