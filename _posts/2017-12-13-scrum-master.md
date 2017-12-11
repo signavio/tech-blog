@@ -1,5 +1,5 @@
 ---
-title: "What does a Scrum master do?"
+title: "What does a Scrum master __really__ do?"
 description: "My job as an Agile coach"
 tags: internal, company roles
 author: Adiya Mohr
