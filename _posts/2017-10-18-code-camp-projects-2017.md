@@ -51,7 +51,7 @@ Simply dictate the tweet to Alexa, who will compare the text of the tweet to its
 
 If the tweet is approved, Workflow Accelerator will send an email to the social media team alerting them to the tweet and allowing them to either approve it or reject it.
 If Alexa determines the tweet is not acceptable, it will reject it and ask the user to try again
-Additionally, Alexa provides feedback on how the tweet can be improved. To achieve this, the team integrated Workflow Accelerator with [Alex] (http://alexjs.com).
+Additionally, Alexa provides feedback on how the tweet can be improved. To achieve this, the team integrated Workflow Accelerator with [Alex](http://alexjs.com).
 
 While Alexa serves as a filter for content, the ultimate authority that approves or disapproves tweets is the company's social media team.
 
@@ -71,7 +71,7 @@ Like many tech companies, Signavio has an open-plan office.
 While we do our best to be respectful of each other, sometimes things can get a little loud.
 
 The solution our engineers came up with is a traffic light that alerts the room when things are getting a little loud.
-Using Raspberry Pi and a microphone, hooked up to a physical light and using a program our devs wrote to make it all talk to each other.
+Using Raspberry Pi and a microphone, hooked up to a physical light and using a program our developers wrote to make it all talk to each other.
 The program is set to detect a certain volume level, and to announce (via a green, yellow or red light) when changes in that level are detected.
 
 Helpfully, the app also tracks and graphs noise levels over time, allowing the admin to see what the noisiest times of the day are and what causes certain spikes in noise.
@@ -83,7 +83,7 @@ Sometimes, when using Signavio, a user wants to check something small--conversat
 That's where the Slacknavio bot comes in.
 This is a Slack bot that allows users to pull basic information from Workflow Accelerator or Collaboration Hub instantly.
 
-Created with [Go] (https://golang.org/), the Slacknavio bot can post updates about new diagrams in Collaboration Hub, new personal tasks assigned to users in Workflow Accelerator as well as notify users of new comments in conversation threads they are included in.
+Created with [Go](https://golang.org/), the Slacknavio bot can post updates about new diagrams in Collaboration Hub, new personal tasks assigned to users in Workflow Accelerator as well as notify users of new comments in conversation threads they are included in.
 
 ## Workflow4Slack
 
@@ -101,7 +101,7 @@ It's a good option for those times when email simply takes too long.
 When a bug is discovered, it can sometimes be a challenge to locate where exactly it is in the code.
 When you're collaborating with many people on a team, it can also be a bit tricky to find a solution, because it's not always easy to figure out how the bug happened or what caused it or if it was caused by a change someone else made.
 
-That's where this system comes into play. How it works is that as soon as a bug occurs, the developers and support engineers get an automatic notification and can track the exact place in the code where the bug has occured.
+That's where this system comes into play. How it works is that as soon as a bug occurs, the developers and support engineers get an automatic notification and can track the exact place in the code where the bug has occurred.
 The system tells use the name of the engineer who is most likely to know how to fix it. The goal is to locate and fix bugs before users can even notice them.
 
 
