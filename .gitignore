@@ -2,3 +2,4 @@ _site
 .jekyll-metadata
 *.sublime-workspace
 .idea
+_gems
