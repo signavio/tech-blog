@@ -51,8 +51,8 @@ We realized that we cannot fix all errors in all files in one pull request.
 And since we didn't enforce type checking before we would also not loose any confidence in our code by turning it off initially.
 
 After that we had a new mandatory pull request check that would now be applied to all new pull requests.
-At this point we added a new rule to our development Process "In every file you touch, add the [`// @flow`](https://flow.org/en/docs/usage/#toc-prepare-your-code-for-flow) pragma again".
-With this kind of "fix what you touch" rule we already fixed over 16.000 lint errors over the course of two years so we knew that it worked (even though its a long term road to success).
+At this point we added a new rule to our development Process 'In every file you touch, add the [`// @flow`](https://flow.org/en/docs/usage/#toc-prepare-your-code-for-flow) pragma again'.
+With this kind of 'fix what you touch' rule we already fixed over 16.000 lint errors over the course of two years so we knew that it worked (even though its a long term road to success).
 After a day we realized that something was not quite right.
 
 ### [Flow](https://flow.org) isn't so good a reporting uncertainty
@@ -69,7 +69,7 @@ Here are the two types of files that should have that pragma form the beginning.
 
 The second point is obvious once you encounter the problem.
 When [Flow](https://flow.org) encounters any file without [`// @flow`](https://flow.org/en/docs/usage/#toc-prepare-your-code-for-flow) at the top it just stops because form there on it cannot make any proper assumptions anymore.
-So having all `index.js` files marked as "please proceed flow" is a rather smart thing to do.
+So having all `index.js` files marked as 'please proceed flow' is a rather smart thing to do.
 
 The pull request that activated all `index.js` already was not so much fun.
 We had to fix all false positives from earlier pull requests.
