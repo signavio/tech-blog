@@ -4,17 +4,23 @@
 
 If `sudo gem install bundler` fails with:
 
-  ERROR:  While executing gem ... (TypeError)
-      no implicit conversion of nil into String
+> ERROR:  While executing gem ... (TypeError)
+> no implicit conversion of nil into String
 
 … then `sudo gem update --system`
 
 If `bundle install'` fails with:
 
-  An error occurred while installing nokogiri (1.6.8.1), and Bundler cannot continue.
-  Make sure that `gem install nokogiri -v '1.6.8.1'` succeeds before bundling.
+> An error occurred while installing nokogiri (1.8.3), and Bundler cannot continue.
+> Make sure that `gem install nokogiri -v '1.8.3'` succeeds before bundling.
 
 … then `bundle config build.nokogiri --use-system-libraries` and retry.
+
+If installing nokogiri fails with:
+
+> ERROR: cannot discover where libxml2 is located on your system. please make sure `pkg-config` is installed.
+
+… then: `sudo gem install nokogiri -v '1.8.3' -- --with-xml2-include=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/libxml2 --use-system-libraries`
 
 
 ## Ubuntu
