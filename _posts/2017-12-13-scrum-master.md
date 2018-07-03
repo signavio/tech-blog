@@ -1,6 +1,6 @@
 ---
 title: "What does a Scrum master <i>really</i> do?"
-description: "My journey as a Scrum master"
+description: "My journey as a Scrum master, from first steps to really understanding the role"
 tags: Scrum, company roles, agile
 author: Adiya Mohr
 layout: article
