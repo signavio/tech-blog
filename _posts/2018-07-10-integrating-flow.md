@@ -4,6 +4,9 @@ description: "Lessons learned on our journey towards type safety"
 author: Philipp Giese
 tags: React, Flow, Mono-Repo
 layout: article
+image:
+  feature: /2018/river.jpg
+  alt: A river has a complex flow
 ---
 
 For over two years our team has followed the development of the flow ecosystem very closely.
@@ -107,3 +110,5 @@ This is also great, because this way you know that you don't have any obvious er
 This is probably true in any case.
 When you're developing a library you want to enable your users to have type safety for the components you export.
 When you have mono-repo setup you want to make sure that all packages can access their shared type information.
+
+<a style="background-color:#555;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@nathananderson?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" rel="noopener noreferrer" title="Nathan Anderson’s photos"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-1px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M20.8 18.1c0 2.7-2.2 4.8-4.8 4.8s-4.8-2.1-4.8-4.8c0-2.7 2.2-4.8 4.8-4.8 2.7.1 4.8 2.2 4.8 4.8zm11.2-7.4v14.9c0 2.3-1.9 4.3-4.3 4.3h-23.4c-2.4 0-4.3-1.9-4.3-4.3v-15c0-2.3 1.9-4.3 4.3-4.3h3.7l.8-2.3c.4-1.1 1.7-2 2.9-2h8.6c1.2 0 2.5.9 2.9 2l.8 2.4h3.7c2.4 0 4.3 1.9 4.3 4.3zm-8.6 7.5c0-4.1-3.3-7.5-7.5-7.5-4.1 0-7.5 3.4-7.5 7.5s3.3 7.5 7.5 7.5c4.2-.1 7.5-3.4 7.5-7.5z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Nathan Anderson</span></a>
