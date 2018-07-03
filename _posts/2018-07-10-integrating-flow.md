@@ -1,5 +1,5 @@
 ---
-title: "Integrating flow type support into an existing project"
+title: "Integrating Flow type into a large JavaScript project"
 description: "Lessons learned on our journey towards type safety"
 author: Philipp Giese
 tags: React, Flow, Mono-Repo
