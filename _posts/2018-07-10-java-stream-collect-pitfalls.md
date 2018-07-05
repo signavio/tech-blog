@@ -1,7 +1,7 @@
 ---
 title: "Java 8 stream collect to Map pitfalls"
 description: "Pitfalls when rewriting for-loops with java streams and collect to Map"
-tags: java, java8, stream, for, loop, map, hashmap, collect
+tags: java, java8, stream, for, loop, map, hashmap, collect, exception, null
 author: Nils Faupel
 layout: article
 ---
