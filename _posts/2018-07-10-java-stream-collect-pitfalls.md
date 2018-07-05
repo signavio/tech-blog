@@ -9,7 +9,7 @@ layout: article
 # Adding items from a list to a map
 
 Let's assume you have a `List` of `Person`s with ID and name and you want to create a `Map` from ID to the name.
-This is a common use case if youfrequently want to access the name by the users ID without iterating over the whole list over and over again.
+This is a common use case if you frequently want to access the name by the user's ID without iterating over the whole list over and over again.
 
 ```java
 public Class Person {
@@ -52,7 +52,7 @@ Map<Integer, String> idToName = persons.stream()
         .collect(Collectors.toMap(Person::getId, Person::getName));
 ```
 
-We get an `IllegalStateException` saying we have a duplicate key (what is true), but the message does not contain the duplicated key which is `1`.
+We get an `IllegalStateException` saying we have a duplicate key (which is true), but the message does not contain the duplicated key which is `1`.
 It describes the value for the duplicated key that is already in the map, which is `"alpha"`.
 If you don't know that the message contains the value and not the key, this can get really confusing when you are searching for that key to resolve the problem.
 
@@ -74,11 +74,11 @@ Exception in thread "main" java.lang.IllegalStateException: Duplicate key alpha
 ```
 
 So where does this Exception come from?
-If you look into the documentation [Collectos#toMap()] (https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#toMap-java.util.function.Function-java.util.function.Function-) you will find the following hint:
+If you look into the documentation [Collectors#toMap()] (https://docs.oracle.com/javase/8/docs/api/java/util/stream/Collectors.html#toMap-java.util.function.Function-java.util.function.Function-) you will find the following hint:
 > If the mapped keys contains duplicates (according to Object.equals(Object)), an IllegalStateException is thrown when the collection operation is performed.
 > If the mapped keys may have duplicates, use toMap(Function, Function, BinaryOperator) instead.
 
-So the right way to implement the for-loops behavior overwriting an existing value in the `Map` would be:
+So the right way to implement the for-loop's behavior overwriting an existing value in the `Map` would be:
 
 ```java
 Map<Integer, Person> idToName = persons.stream()
@@ -90,7 +90,7 @@ This will replace the existing value in the `Map` with the new value added if th
 ## Always be careful with `null`
 
 So this should do the same as the for-loop, right? Well, not quite.
-Let's see what happens when one of our Persons name is `null`.
+Let's see what happens when one of our Person's name is `null`.
 
 ```java
 Person a = new Person(1, null);
