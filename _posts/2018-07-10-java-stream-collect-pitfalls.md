@@ -100,7 +100,7 @@ Map<Integer, String> idToName = persons.stream()
         .collect(Collectors.toMap(Person::getId, Person::getName, (existingValue, newValue) -> newValue));
 ```
 
-We get a `NullPointerException` and this time there is not hint for that behavior in the documentation.
+We get a `NullPointerException` and this time there is no hint for that behavior in the documentation.
 
 ```java
 Exception in thread "main" java.lang.NullPointerException
