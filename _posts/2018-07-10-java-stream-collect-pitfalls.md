@@ -9,11 +9,11 @@ image:
   alt: A pile of maps - unrelated to the Java Map
 ---
 
-# Adding items from a `List` to a `Map`
-
 Java 8 is around for a while now and has introduced the [JAVA 8 stream API](https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html) making it easy to apply functions on every item of a stream.
-Also the well known collection implementations can be handled as a stream resulting in less code written to apply the same functionallity comapred to a for-loop approach.
+Also the well known collection implementations can be handled as a stream resulting in less code written to apply the same functionality compared to a for-loop approach.
 We will have a look on how to rewrite a simple for-loop to use the Java 8 stream API instead and explain two problems with it which can easily occur.
+
+# Adding items from a `List` to a `Map`
 
 Let's assume you have a `List` of `Person` objects with ID and name and you want to create a `Map` from ID to the name.
 This is a common use case if you frequently want to access the name by the user's ID without iterating over the whole list over and over again.
