@@ -2,7 +2,7 @@
 
 GitHub will show a warning on the repository’s home page if outdated dependencies are a security vulnerability.
 
-To update dependencies, run `bundle update`.
+To update dependencies, run `bundle update`, then commit and push the changes go `Gemfile.lock`.
 
 
 # Troubleshooting local Jekyll installation
