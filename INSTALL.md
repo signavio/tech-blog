@@ -1,3 +1,10 @@
+# Updating dependencies
+
+GitHub will show a warning on the repository’s home page if outdated dependencies are a security vulnerability.
+
+To update dependencies, run `bundle update`.
+
+
 # Troubleshooting local Jekyll installation
 
 ## macOS
