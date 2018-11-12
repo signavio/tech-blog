@@ -11,31 +11,43 @@ image:
 
 While modern web frontends describe already almost every tiny detail of a user interface through rules of CSS in company with bandwidth saving SVG graphics and webfonts, it was not that long ago, that thousands of little raster images helped out to bring designs to life to a wide span of browsers.
 
-Over the lifespan of a web application, this accumulates to a huge set of images easily. It immediately becomes legacy at the point of dropping support for certain old browsers and then cannot be transformed quickly. Even if there is in a long term perspective no way around tackling the cause, slight optimizations that work with the shotgun approach to at least reduce pain are always welcome.
+Over the lifespan of a web application, this accumulates to a huge set of images easily. It immediately becomes legacy at the point of dropping support for certain old browsers and then cannot be transformed quickly. Even if there is in a long term perspective no way around tackling the cause, slight optimizations that work with the shotgun approach are always welcome.
 
-Making use of state-of-the-art image compression while keeping full compatibility to traditional image decoders counts into that bucket and a big part of Signavio’s codebase should serve as an real world example to form my first blog post.
+Making use of state-of-the-art image compression while keeping full compatibility to traditional image decoders counts into that bucket and is the method that is going to shape my first blog post, taking some bigger portion of Signavio’s codebase as real world example.
 
 # The situation given
 
-* almost only gif + PNG
-* thousands of image files
-* created from various editors, no information on quality
-* some gif animations
-* traditionally no color management strategy, no matter which profile might be embedded, sRGB would be expected
+After checking out the repo I performed a search to get a feeling which files I should have a look onto.
+
+```
+# find any PNG file, case-insensitive, count lines of the output
+$ find . -iname '*.png' -type f | wc -l
+```
+
+Ok, there are around **2800 PNGs** and close to **700 GIFs**, but nearly no JPGs. Let's get an impression of how many space this consumes in bytes.
+
+```
+# find any PNG file, case-insensitive, print total byte size
+$ find . -iname '*.png' -type f -ls | awk '{sum += $7} END {print sum}'
+```
+
+PNGs are around **14.8 MB**, GIFs need another **0.75 MB** on top. The average PNG file is 5,4 KB, the average GIF 1,2 KB. But don’t be tricked by the numbers, there are a lot GIFs, that are just some pixels and this way only need some dozens of bytes, so on the other hand, there are definitely some bigger loader animation GIFs or PNG sprites.
+
+I said it already, GIF animation is used, it needs to be preserved if in place. The images come from various places, what means various encoders and people where involved over time, some of them probably cared about the size, some of them maybe also about generating spec compliant output, most likely none of them about color profiles, as these where long time ignored by browsers and a mistake would have not even been visible.
 
 # What are the low hanging fruits?
 
-* ZopfliPNG [Details about ZopfliPNG](https://github.com/google/zopfli/blob/master/README.zopflipng)
-  * uses Zopfli compression while being compliant with Deflate
-  * compares several strategies for choosing scanline filter codes
-  * chooses a suitable color type to losslessly encode the image
-  * removes unimportant chunks for the typical web use like metadata
-  * optionally alters the hidden colors of fully transparent pixels
-  * optionally converts 16-bit color channels to 8-bit
-* gifsicle [Details of gifsicle](http://www.lcdf.org/gifsicle/)
-  * stores only the changed portion of each frame in animations
-  * removes redundant colors
-  * only uses local color tables if it absolutely has to
+[Google's Web Fundamentals](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization) are good read to learn about image optimization. After googling around, I made a choice to use these tools:
+
+## ZopfliPNG
+
+In the [GitHub repository of Google's Zopfli](https://github.com/google/zopfli/blob/master/README.zopflipng) gzip/deflate compressor, there is also a tool hidden, that recompresses data within PNGs keeping compliance with Deflate. It also does some other optimizations, like removing metadata, leaving out color information for fully transparent pixels etc. but always with producing the same final result.
+
+## Gifsicle
+
+[Gifsicle](http://www.lcdf.org/gifsicle/) is almost cross-plattform available and is like a very advanced GIF editor, that runs in a shell. It optimizes via compression as far as possible, but also allows for several minification strategies, like storing only the changed portion of each frame in animations, remove redundant colors and only embed color tables that are really required.
+
+Both tools are open source and free for (commercial) use.
 
 # Working environment
 
