@@ -129,11 +129,12 @@ Now is eventually the moment to hit the magic button. Alter the number behind `-
 $ find . -iname '*.gif' -type f -print0 | xargs -0 -P4 -I{} gifsicle --batch --optimize=3 {}
 ```
 
-It isn't very verbose, as `xargs` runs a subshell per file. For me it took a minute or two to run through the 673 files.
+It isn't very verbose, as `xargs` runs a subshell per file. For me it took a minute or two to run through the 673 files. It reported some errors in regard to _irregular_ files, which I am going to have a look at later in the article.
 
 # Optimize all PNGs
 
-_batch-zopflipng.sh_ (expecting ZopfliPNG available via PATH + function export to subshell)
+ZopfliPNG is a little more kind of a quick & dirty tool, compression takes longer as the optimization of GIFs and to really let it run as batch job, it needs some script assistance. Here is what I put together and finally worked well.
+
 ```
 #!/bin/bash
 # License CC-0: https://creativecommons.org/publicdomain/zero/1.0/
@@ -172,19 +173,34 @@ end_time=$(date +%s)
 echo "execution time was $(expr $end_time - $start_time)s."
 ```
 
+It basically creates a temporary file and hands over to ZopfliPNG. There is a little strange behavior, that it does not accept to directly override the file, but also only writes the new file if final filesize is smaller than the original PNG, producing an empty tempfile otherwise. That's why the script only writes back, if the tempfile is not empty.
+
+This hole procedure is wrapped into a function to use one local variable (file handle) per thread, what enables `xargs` again to do it's job for parallelization. ZopfliPNG itself seems to run single-threaded only. Again I use `-P4` to use 4 cores.
+
+Please be aware, that you probably run into errors when running the script in alternative shells, the shell needs to have support for exporting a function to a subshell, the `#!/bin/bash` is on purpose to make that happen. The script expects `zopflipng` in your PATH.
+
+Get the script running with pipelining a list of files to it:
+```
+$ find . -iname '*.png' -type f | ~/your/path/to/batch-zopflipng.sh
+```
+
+![Running ZopfliPNG in parallel in WSL Ubuntu Shell, 4 files at a time on a CPU with 8 virtual cores](../2018/image-compression-zopflipng.png)
+
+While keeping working in the meantime, in my case the script took around 32 minutes to process all 2823 PNGs.
+
+# The moment of truth
+
+[include chart image]
+
+Discuss outcome, list numbers and savings, duration
+
+If you read carefully, you may notice, that even if I realized, that there are only 35-60% unique files it is just easier to simply treat them all as unique files comparing to tracking all the locations to write back duplicates.
+
 # Fix errors
 
 ```
 $ sudo apt-get install imagemagick imagemagick-doc
 ```
-
-# The moment of truth
-
-[show screenshot of cpu load]
-
-Discuss outcome, list numbers and savings, duration
-
-If you read carefully, you may notice, that even if I realized, that there are only 35-60% unique files it is just easier to simply treat them all as unique files comparing to tracking all the locations to write back duplicates.
 
 # About the author
 
