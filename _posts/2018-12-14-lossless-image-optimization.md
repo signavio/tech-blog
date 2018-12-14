@@ -190,17 +190,47 @@ While keeping working in the meantime, in my case the script took around 32 minu
 
 # The moment of truth
 
-[include chart image]
+Ok, so let's see whether this little journey finally pays off, strictly speaking for my particular use case:
 
-Discuss outcome, list numbers and savings, duration
+![Comparison chart of total file sizes before and after running through optimization](../2018/image-compression-chart.png)
+
+* 98% (2762 of 2823) of the PNGs where actually affected by a better compression
+* PNGs shrinked in total from 14.77 to 9.53 Mbytes ~ 35% saved
+* all of the GIFs where changed (lets me assume that gifsicle had found something to optimize)
+* GIFs shrinked in in total from 771 to 480 KB ~38% saved
 
 If you read carefully, you may notice, that even if I realized, that there are only 35-60% unique files it is just easier to simply treat them all as unique files comparing to tracking all the locations to write back duplicates.
 
+It turned out, that the relative savings in size are quite linear distributed, means it does not make a big difference to calculate on unique files only or include them all.
+
+```
+GIF bytes total: 491765 (0,28 MB - 37,7% saved)
+GIF bytes unique: 195734 (0,09 MB - 33,7% saved)
+PNG bytes total: 9996745 (5,08 MB - 34,7% saved)
+PNG bytes unique: 6767325 (3,41 MB - 34,6% saved)
+```
+
 # Fix errors
+
+An exciting finding comes with 3 errors gifsicle reported, in the fashion of
+
+```
+gifsicle:./menu-large.gif: file not in GIF format
+```
+
+A quick check with `file --mime-type menu-large.gif` revealed, that it is actually a png with a wrong extension. It seems to never causing a problem being automatically decoded the right way by the browsers. To actually turn them into real GIFs, we can use the ImageMagick converter.
 
 ```
 $ sudo apt-get install imagemagick imagemagick-doc
 ```
+
+After installing, just use `convert` to decode the problematic image that can have nearly every image format one can think of and pass the decoded image directly into gifsicle to meet our high compression standard:
+
+```
+$ convert menu-large.gif GIF:- | gifsicle --optimize=3 > menu-large.gif
+```
+
+That was quick! And is the lucky end of my first Tech Blog post.
 
 # About the author
 
