@@ -24,7 +24,7 @@ After checking out the repo I performed a search to get a feeling of which files
 $ find . -iname '*.png' -type f | wc -l
 ```
 
-Ok, there are around **2800 PNGs** and close to **700 GIFs**, but nearly no JPGs. Let's get an impression of how much space this consumes in bytes.
+Ok, there are around **2800 PNGs** and close to **700 GIFs**, but nearly no JPGs. Let’s get an impression of how much space this consumes in bytes.
 
 ```
 # find any PNG file, case-insensitive, print total byte size
@@ -37,7 +37,7 @@ I said it already, if GIF animation is used, it needs to be preserved if in plac
 
 # What is the low hanging fruit?
 
-[Google's Web Fundamentals](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization) is a good read to start learning about image optimization. After also Googling around, I made a choice to use these tools:
+[Google’s Web Fundamentals](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization) is a good read to start learning about image optimization. After also Googling around, I made a choice to use these tools:
 
 **ZopfliPNG**: In the GZIP/Deflate compressor, another tool is hidden, that recompresses data within PNGs keeping compliance with Deflate. It also does some other optimizations, like removing metadata, leaving out color information for fully transparent pixels etc. but always producing the same final result.
 
@@ -80,6 +80,14 @@ ZopfliPNG, a Portable Network Graphics (PNG) image optimizer.
 Usage: zopflipng [options]... infile.png outfile.png
     zopflipng [options]... --prefix=[fileprefix] [files.png]...
 […]
+```
+
+# Working on Mac?
+
+You probably prefer to just use brew to setup everything needed here instead of compiling by yourself. This is all you will need with `imagemagick` being optional for image conversion.
+
+```
+$ brew install zopfli gifsicle imagemagick
 ```
 
 # Measure the outcome
@@ -238,9 +246,9 @@ I am Sebastian, working already for a couple of years at Signavio as a designer 
 
 # Resources
 
-* [Google's Web Fundamentals - Image optimization](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization)
-* [Google's Web Fundamentals - Automating image optimization](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/automating-image-optimization/)
-* [GitHub repository for Google's Zopfli](https://github.com/google/zopfli)
+* [Google’s Web Fundamentals - Image optimization](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization)
+* [Google’s Web Fundamentals - Automating image optimization](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/automating-image-optimization/)
+* [GitHub repository for Google’s Zopfli](https://github.com/google/zopfli)
 * [Gifsicle Man page](https://www.lcdf.org/gifsicle/man.html)
 * [How to install Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 
