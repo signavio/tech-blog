@@ -84,7 +84,7 @@ Usage: zopflipng [options]... infile.png outfile.png
 
 # Working on Mac?
 
-You probably prefer to just use brew to setup everything needed here instead of compiling by yourself. This is all you will need with `imagemagick` being optional for image conversion.
+You probably prefer to just use [Homebrew](https://brew.sh/) to set up everything needed here instead of compiling by yourself. This is all you will need, with `imagemagick` being optional for image conversion.
 
 ```
 $ brew install zopfli gifsicle imagemagick
