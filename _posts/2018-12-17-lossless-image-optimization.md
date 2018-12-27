@@ -37,7 +37,7 @@ I said it already, if GIF animation is used, it needs to be preserved if in plac
 
 # What is the low hanging fruit?
 
-[Google’s Web Fundamentals](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization) is a good read to start learning about image optimization. After also Googling around, I made a choice to use these tools:
+[Google’s Web Fundamentals](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/image-optimization) is a good read to start learning about image optimization. After also googling around, I made a choice to use these tools:
 
 **ZopfliPNG**: In the GZIP/Deflate compressor, another tool is hidden, that recompresses data within PNGs keeping compliance with Deflate. It also does some other optimizations, like removing metadata, leaving out color information for fully transparent pixels etc. but always producing the same final result.
 
@@ -94,7 +94,7 @@ $ brew install zopfli gifsicle imagemagick
 
 Even if you not intend to write a blog post about your bandwidth savings, you probably always want to know where you started and what you achieved, like in any advertising sales show on TV comparing before and after side-by-side.
 
-This line offers a speedy way to scan through all subfolders for matching files and count the bytes they consume. `-iname` matches case-insensitive, `type f` lists only files in the results, `-ls` makes `find` also list the file size, what saves us from accessing all matched files for that information twice. AWK adds the numbers together from the column 7, that is the file size in bytes. On a SSD, it took just 1-2 seconds for my scenario.
+This line offers a speedy way to scan through all subfolders for matching files and count the bytes they consume. `-iname` matches case-insensitive, `type f` lists only files in the results, `-ls` makes `find` also list the file size, what saves us from accessing all matched files for that information twice. AWK adds the numbers together from the column 7, that is the file size in bytes. On an SSD, it took just 1-2 seconds for my scenario.
 
 ```
 $ find . -iname '*.png' -type f -ls | awk '{sum += $7} END {print sum}'
