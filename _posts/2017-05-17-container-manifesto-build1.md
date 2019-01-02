@@ -74,7 +74,7 @@ FROM scratch
 
 COPY --from=0 /usr/local/src/github.com/qnib/go-test/go-test  /
 ENTRYPOINT ["/go-test"]
-$ docker build -t qnib/go-test                                                                                                                           git:(master|)
+$ docker build -t qnib/go-test
 > docker build 'qnib/go-test'
 Sending build context to Docker daemon  1.985MB
 Step 1/8 : FROM qnib/uplain-golang
@@ -142,7 +142,7 @@ This might be hip again, when we are looking into squashing builds!
 
 The downside is, that the files `my{a..e}` are not reusable in other images - only if the exact outcome is provided.
 
-Let’s imaging the following…
+Let’s imagine the following…
 
 ```
 FROM alpine:3.5
@@ -186,7 +186,7 @@ The Dockerfile might look suspicious, because it repeats `apt-get update` and `a
 But this repetition only takes place at build-time, not to mention that the individual step will just install the content and (hopefully) removes the intermediate files used by the package manager; hence, the outcome should be the same - but in two different file-system layers.
 
 When building multiple images like that, the download is sped up, because (hopefully) a lot of layers are shared.
-This images:
+These images:
 
 ```
 FROM ubuntu:16.04
