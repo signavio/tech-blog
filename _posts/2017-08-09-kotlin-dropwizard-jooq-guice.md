@@ -155,7 +155,7 @@ The only thing I need to do in Java is to add a module to my Jackson `ObjectMapp
 bootstrap.getObjectMapper().registerModule(new KotlinModule());
 ```
 
-### Implmenting a resource in Kotlin
+### Implementing a resource in Kotlin
 
 Now I want to implement the resource in Kotlin, and I want it to actually do something.
 
