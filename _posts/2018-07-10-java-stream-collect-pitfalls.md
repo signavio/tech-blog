@@ -19,7 +19,7 @@ Let's assume you have a `List` of `Person` objects with ID and name and you want
 This is a common use case if you frequently want to access the name by the user's ID without iterating over the whole list over and over again.
 
 ```java
-public Class Person {
+public class Person {
     private int id;
     private String name;
     //getters and setters omitted for simplicity
