@@ -39,7 +39,7 @@ Also, Hyperledger is backed by well-known industry giants like SAP and IBM, and 
 Here are the steps to execute BPMN 2.0 XML diagrams on Hyperledger Fabric, using the open source tool *Caterpillar*. First, we need to set up the hyperledger network.
 
 
-### Dependencies required for this demo
+### Prerequisites for this demo
 
 - [Go](https://golang.org/dl/) (version 1.11.1)
 - [Docker](https://www.docker.com/) (version 17.06.2-ce or greater)
@@ -193,11 +193,11 @@ Now we have successfully set up the local hyperledger network. Next step is to s
 
 ### Starting the Caterpillar Engine
 
-Open a new terminal and run this docker image. ```docker immage```
-This starts the caterpillar core at port 3000 and the execution panel at http:localhost:4200. 
+Open a new terminal and run this docker image. ```docker immage``` We use a customised version of the Caterpillar v1 engine.
+Now the caterpillar engine has started. The execution panel, which lets us to interact with the engine, is now available at `http:localhost:4200`. 
 
 ### Deploying the smart contract.
-Go to the execution panel at http:localhost:4200 to interact with the caterpillar engine. Here you can either upload a BPMN diagram or model a diagram using the modeler provided. On click of Save the engine starts compiling the diagram to smart contract and the contract details are logged on the console.
+Go to the execution panel at `http:localhost:4200`. Here you can either upload a BPMN diagram or model a diagram using the modeler provided. It is important for the BPMN diagram to have proper element documentation as specified in [Caterpillar](https://github.com/orlenyslp/Caterpillar). On click of Save the engine starts compiling the diagram to smart contract and the contract details are logged on the console.
 
 Next, we will install the web3 dependency and use this library to deploy the smart contract.
 
