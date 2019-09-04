@@ -1,7 +1,7 @@
 ---
 title: "BPX 4 Hyperledger"
 description: "How to use the Caterpillar engine to execute business processes on Hyperledger Fabric"
-author: Gowtham Moham, Timotheus Kampik
+author: Gowtham Mohan, Timotheus Kampik
 tags: Blockchain, Hyperledger, Ethereum, Business Process Execution
 layout: article
 image:
