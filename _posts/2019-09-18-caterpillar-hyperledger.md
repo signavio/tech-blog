@@ -198,7 +198,7 @@ Open a new terminal and run this docker image. ```docker immage``` We use a cust
 Now the caterpillar engine has started. The execution panel, which lets us to interact with the engine, is now available at `http:localhost:4200`. 
 
 ### Deploying the smart contract.
-Go to the execution panel at `http:localhost:4200`. Here you can either upload a BPMN diagram or model a diagram using the modeler provided. It is important for the BPMN diagram to have proper element documentation as specified in [Caterpillar v1 documentation](http://ceur-ws.org/Vol-1920/BPM_2017_paper_199.pdf). On click of Save the engine starts compiling the diagram to smart contract and the contract details are logged on the console.
+Go to the execution panel at `http:localhost:4200`. Here you can either upload a BPMN diagram or model a diagram using the modeler provided. It is important for the BPMN diagram to have proper element documentation as specified in [Caterpillar v1 documentation](http://ceur-ws.org/Vol-1920/BPM_2017_paper_199.pdf). To use the sample BPMN diagram given above use this [SampleBPMN](https://github.com/signavio/Caterpillar/blob/fabric/SampleBPMN.bpmn). Save this in a file and upload it to the execution panel. Once the diagram is loaded specify this global variables in the element documentation. ``` uint userID; bool applicantEligible = false; ``` . On click of Save the engine starts compiling the diagram to smart contract and the contract details are logged on the console.
 
 Next, we will install the web3 dependency and use this library to deploy the smart contract.
 
