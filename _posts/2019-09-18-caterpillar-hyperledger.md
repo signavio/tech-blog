@@ -194,11 +194,11 @@ Now we have successfully set up the local hyperledger network. Next step is to s
 
 ### Starting the Caterpillar Engine
 
-Open a new terminal and run this docker image. ```docker immage``` We use a customised version of the Caterpillar v1 engine.
-Now the caterpillar engine has started. The execution panel, which lets us to interact with the engine, is now available at `http:localhost:4200`. 
+Open a new terminal and run this docker image. ```docker run --rm -it -p 3200:3200 -p 3000:3000 -p 8090:8090 gowthammohan/caterpillarmodified``` We use a customised version of the Caterpillar v1 engine.
+Now the caterpillar engine has started. The execution panel, which lets us to interact with the engine, is now available at `http:localhost:3200`. 
 
 ### Deploying the smart contract.
-Go to the execution panel at `http:localhost:4200`. Here you can either upload a BPMN diagram or model a diagram using the modeler provided. It is important for the BPMN diagram to have proper element documentation as specified in [Caterpillar v1 documentation](http://ceur-ws.org/Vol-1920/BPM_2017_paper_199.pdf). To use the sample BPMN diagram given above use this [SampleBPMN](https://github.com/signavio/Caterpillar/blob/fabric/SampleBPMN.bpmn). Save this BPMN 2.0 xml in a file and upload it to the execution panel. Once the diagram is loaded specify this global variables in the element documentation. 
+Go to the execution panel at `http:localhost:3200`. Here you can either upload a BPMN diagram or model a diagram using the modeler provided. It is important for the BPMN diagram to have proper element documentation as specified in [Caterpillar v1 documentation](http://ceur-ws.org/Vol-1920/BPM_2017_paper_199.pdf). To use the sample BPMN diagram given above use this [SampleBPMN](https://github.com/signavio/Caterpillar/blob/fabric/SampleBPMN.bpmn). Save this BPMN 2.0 xml in a file and upload it to the execution panel. Once the diagram is loaded specify this global variables in the element documentation. 
 ``` 
 uint userID; 
 bool applicantEligible = false; 
