@@ -17,7 +17,9 @@ One of the research results is the [Caterpillar](https://github.com/orlenyslp/Ca
 This means, Caterpillar allows business users to specify smart contracts graphically as flowchart-like *BPMN* diagrams; now, you don't need to be a coder to write smart contracts!
 
 ****************
-TODO Gowtham: Add screenshot of BPMN diagram here that can actually be deployed as a smart contract
+A Sample BPMN diagram which can be deployed as smart contract.
+
+![alt sample](https://github.com/signavio/tech-blog/blob/caterpillar-hyperledger/assets/img/BPMNSampleDIagram.png)
 ****************
 
 
