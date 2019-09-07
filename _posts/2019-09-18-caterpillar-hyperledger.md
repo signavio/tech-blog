@@ -20,7 +20,7 @@ This means, Caterpillar allows business users to specify smart contracts graphic
 <p align="center">A sample BPMN diagram that can be deployed as smart contract</p>
 
 ## Why Hyperledger Fabric matters
-However, by default, Caterpillar integrates with Ethereum (and the Ethereum [Ganache client](https://www.trufflesuite.com/ganache)), which is problematic because Ethereum is typically not considered suitable for Enterprise use cases:
+By default, Caterpillar integrates with Ethereum (and the Ethereum [Ganache client](https://www.trufflesuite.com/ganache)), which is problematic because Ethereum is typically not considered suitable for Enterprise use cases:
 
 * Ethereum's transaction costs and price fluctuations add unwanted volatility to the business environment.
 * The association with *snake oil* schemes and ICOs, as well as the unchecked influence of one individual project lead decrease the willingness of serious enterprises to belief in the long-term sustainability of the ecosystem.
@@ -94,12 +94,12 @@ git checkout release-0.1
 ```
 
 
-Now navigate back to your fabric-samples folder.  Here we will use first-network to launch the network.
+Now navigate back to your fabric-samples folder.  Here we will use the *first-network* example to launch the network.
 ```
 cd $GOPATH/src/github.com/hyperledger/fabric-samples/first-network
 ```
 
-Update the `docker-compose-cli.yaml` with the volumes to include the fabric-chaincode-evm.
+Update the `docker-compose-cli.yaml` and include ``fabric-chaincode-evm`` in the list of *volumes*.
 
 ```
   cli:
@@ -134,6 +134,12 @@ export CORE_PEER_LOCALMSPID="Org1MSP"
 export CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
 ```
 
+Clone the Hyperledger EVM chain code project on the Docker VM:
+
+```
+git clone https://github.com/hyperledger/fabric-chaincode-evm.git
+```
+
 Next, install the EVM chain code on all the peers:
 ```
 peer chaincode install -n evmcc -l golang -v 0 -p github.com/hyperledger/fabric-chaincode-evm/evmcc
@@ -153,10 +159,9 @@ exit
 You are now ready to setup Fab3.
 
 
-### Setup Fab3
+### Set up Fab3
 
-
-Execute the following to set certain environment variables required for setting up Fab3.
+**Open a new terminal window** and execute the following to set certain environment variables required for setting up Fab3.
 
 ```
 export FABPROXY_CONFIG=${GOPATH}/src/github.com/hyperledger/fabric-chaincode-evm/examples/first-network-sdk-config.yaml # Path to a compatible Fabric SDK Go config file
@@ -189,12 +194,12 @@ Now we have successfully set up the local Hyperledger network. The next step is 
 
 ### Starting the Caterpillar Engine
 
-Open a new terminal and run the Caterpillar docker image with ```docker run --rm -it -p 3200:3200 -p 3000:3000 -p 8090:8090 gowthammohan/caterpillarmodified``.
+Open a new terminal and run the Caterpillar docker image with ``docker run --rm -it -p 3200:3200 -p 3000:3000 -p 8090:8090 gowthammohan/caterpillarmodified``.
 Note that we provide and use a customized version of the Caterpillar v1 engine.
-After the caterpillar engine has started, the execution panel, which lets us to interact with the engine, is now available at `http://localhost:3200`. 
+After the caterpillar engine has started, the execution panel, which lets us to interact with the engine, is now available at ``http://localhost:3200``.
 
 ### Deploying the smart contract.
-Go to the execution panel at `http://localhost:3200`.
+Go to the execution panel at ``http://localhost:3200``.
 Here you can either upload a BPMN diagram or model a diagram using the modeler provided.
 It is important for the BPMN diagram to have proper element documentation as specified in [Caterpillar v1 documentation](http://ceur-ws.org/Vol-1920/BPM_2017_paper_199.pdf).
 To use the sample BPMN diagram given above use this [SampleBPMN](https://github.com/signavio/Caterpillar/blob/fabric/SampleBPMN.bpmn).
