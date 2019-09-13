@@ -9,7 +9,7 @@ image:
   alt: "Web"
 ---
 
-In this blog post, we show how to execute BPMN 2.0 XML diagrams on Hyperledger Fabric, using the open source tool *Caterpillar*.
+In this blog post, we show how to execute BPMN 2.0 XML diagrams on Hyperledger Fabric, using the open source tool *Caterpillar* and the *BPMN-Sol* compiler.
 
 ## BPX on the Blockchain with Caterpillar
 The intersection of blockchain technology and business process management has recently received increased attention by the academic community.
@@ -31,7 +31,7 @@ This makes cryptocurrency features and transaction costs obsolete.
 Also, Hyperledger is backed by well-known industry giants like SAP and IBM, and managed by the Linux Foundation, which provides a comparably high degree of institutional trust.
 
 ## Getting it running
-The following instructions explain how to execute BPMN 2.0 XML diagrams on Hyperledger Fabric, using the open source tool *Caterpillar*. First, we need to set up the hyperledger network.
+The following instructions explain how to execute BPMN 2.0 XML diagrams on Hyperledger Fabric, using the open source tool *Caterpillar*. It is also possible to compile the BMPN 2.0 XML using the [BPMN-Sol compiler](https://github.com/signavio/BPMN-Sol) and deploy to Hyperledger. Both the methods are provided below.
 
 
 ### Prerequisites for this demo
@@ -192,13 +192,14 @@ You should see output like the following:
 ```
 Now we have successfully set up the local Hyperledger network. The next step is to start the Caterpillar engine. 
 
-### Starting the Caterpillar Engine
+### Method 1:Caterpillar engine
+### Usage
 
 Open a new terminal and run the Caterpillar docker image with ``docker run --rm -it -p 3200:3200 -p 3000:3000 -p 8090:8090 gowthammohan/caterpillarmodified``.
 Note that we provide and use a customized version of the Caterpillar v1 engine.
 After the caterpillar engine has started, the execution panel, which lets us to interact with the engine, is now available at ``http://localhost:3200``.
 
-### Deploying the smart contract.
+
 Go to the execution panel at ``http://localhost:3200``.
 Here you can either upload a BPMN diagram or model a diagram using the modeler provided.
 It is important for the BPMN diagram to have proper element documentation as specified in [Caterpillar v1 documentation](http://ceur-ws.org/Vol-1920/BPM_2017_paper_199.pdf).
@@ -211,7 +212,31 @@ bool applicantEligible = false;
 ``` 
 On click of **Save** the engine starts compiling the diagram to a smart contract (chain code) and the contract details are logged on the console.
 
-Next, we will install the web3 dependency and use this library to deploy the smart contract.
+
+### Method 2: Using the BPMN-Sol compiler
+### Usage
+
+Clone this repository [BPMN-Sol compiler](https://github.com/signavio/BPMN-Sol) to your machine and `cd` into the project directory and run `npm install` to install the dependencies. In the `index.ts` file there is a sample xml object which can be compiled to smart contract.
+```
+const xml = {
+  bpmn:
+    '<?xml version="1.0" encoding="UTF-8"?>\n<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn">\n  <bpmn:process id="Process_0" name="Process_0" isExecutable="false">\n    <bpmn:startEvent id="StartEvent_1">\n      <bpmn:outgoing>SequenceFlow_005ctt4</bpmn:outgoing>\n    </bpmn:startEvent>\n    <bpmn:task id="Task_1hm78g6" name="a">\n      <bpmn:incoming>SequenceFlow_005ctt4</bpmn:incoming>\n      <bpmn:outgoing>SequenceFlow_06osrd7</bpmn:outgoing>\n    </bpmn:task>\n    <bpmn:sequenceFlow id="SequenceFlow_005ctt4" sourceRef="StartEvent_1" targetRef="Task_1hm78g6" />\n    <bpmn:endEvent id="EndEvent_1rfz6w8">\n      <bpmn:incoming>SequenceFlow_06osrd7</bpmn:incoming>\n    </bpmn:endEvent>\n    <bpmn:sequenceFlow id="SequenceFlow_06osrd7" sourceRef="Task_1hm78g6" targetRef="EndEvent_1rfz6w8" />\n  </bpmn:process>\n  <bpmndi:BPMNDiagram id="BPMNDiagram_1">\n    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_0">\n      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">\n        <dc:Bounds x="173" y="102" width="36" height="36" />\n      </bpmndi:BPMNShape>\n      <bpmndi:BPMNShape id="Task_1hm78g6_di" bpmnElement="Task_1hm78g6">\n        <dc:Bounds x="275" y="80" width="100" height="80" />\n      </bpmndi:BPMNShape>\n      <bpmndi:BPMNEdge id="SequenceFlow_005ctt4_di" bpmnElement="SequenceFlow_005ctt4">\n        <di:waypoint xsi:type="dc:Point" x="209" y="120" />\n        <di:waypoint xsi:type="dc:Point" x="275" y="120" />\n        <bpmndi:BPMNLabel>\n          <dc:Bounds x="242" y="98" width="0" height="13" />\n        </bpmndi:BPMNLabel>\n      </bpmndi:BPMNEdge>\n      <bpmndi:BPMNShape id="EndEvent_1rfz6w8_di" bpmnElement="EndEvent_1rfz6w8">\n        <dc:Bounds x="427" y="102" width="36" height="36" />\n        <bpmndi:BPMNLabel>\n          <dc:Bounds x="445" y="141" width="0" height="13" />\n        </bpmndi:BPMNLabel>\n      </bpmndi:BPMNShape>\n      <bpmndi:BPMNEdge id="SequenceFlow_06osrd7_di" bpmnElement="SequenceFlow_06osrd7">\n        <di:waypoint xsi:type="dc:Point" x="375" y="120" />\n        <di:waypoint xsi:type="dc:Point" x="427" y="120" />\n        <bpmndi:BPMNLabel>\n          <dc:Bounds x="401" y="98" width="0" height="13" />\n        </bpmndi:BPMNLabel>\n      </bpmndi:BPMNEdge>\n    </bpmndi:BPMNPlane>\n  </bpmndi:BPMNDiagram>\n</bpmn:definitions>\n',
+  name: "Process_0"
+};
+```
+You can also add your xml file however it has to be in the above format.(An xml object with the xml value as the string and the name of the contract). Now add the following code in index.ts to log the contract details in the terminal.
+```
+const contract = compile(xml).then(contract => {
+   console.log(contract);
+})
+```
+Run `npm run build` and `npm start`.
+The compile function returns the Solidity code, Bytecode and ABI value which are essential for deploying the smart contract to hyperledger.
+
+
+### Deploying the smart contract.
+
+We will install the web3 dependency and use this library to deploy the smart contract.
 
 To install the same version of `web3`, open a new terminal and run:
 
@@ -246,13 +271,13 @@ Assign this account as ``defaultAccount``:
 
 ```web3.eth.defaultAccount = web3.eth.accounts[0]```
 
-The terminal that has the caterpillar opened returns the byteCode value and the interface value. Assign the interface value to ABI.
+From the values obtained through either method 1 or method 2 assign the Bytecode and ABI values.
 
-```ABI = interface```
+```ABI = ABI value```
 
 Next, assign the long evm complied byte code:  
 
-ByteCode = `608060405234801561001057600080fd5b506..........9899`
+ByteCode = `Bytecode value`
 
 
 Assign the contract with web3 using the contract's ABI.
