@@ -54,10 +54,13 @@ docker rm $(docker ps -a -q)
 docker rmi $(docker images -q) -f
 ```
 
-Make sure to set GOPATH to your *go* installation:
+Make sure to set GOPATH to your *go* installation and that your path variable is updated accordingly:
 ```
 export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 ```
+
+Create the path ``$GOPATH/src/github.com/hyperledger/``
 
 ### Get Fabric Samples and download Fabric images
 
@@ -94,7 +97,7 @@ git checkout release-0.1
 ```
 
 
-Now, navigate back to your fabric-samples folder.  Here we will use the *first-network* example to launch the network.
+Now, navigate back to your ``fabric-samples`` folder.  Here we will use the *first-network* example to launch the network.
 ```
 cd $GOPATH/src/github.com/hyperledger/fabric-samples/first-network
 ```
@@ -278,9 +281,11 @@ From the values obtained through either method 1 or method 2 assign the Bytecode
 
 ```ABI = ABI value```
 
-Next, assign the long evm complied byte code:  
+Next, assign the long EVM complied byte code:  
 
-ByteCode = `Bytecode value`
+```
+ByteCode = 'Bytecode value'
+```
 
 
 Assign the contract with web3 using the contract's ABI.
