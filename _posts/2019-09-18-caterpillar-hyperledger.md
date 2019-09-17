@@ -137,12 +137,6 @@ export CORE_PEER_LOCALMSPID="Org1MSP"
 export CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
 ```
 
-Clone the Hyperledger EVM chain code project on the Docker VM:
-
-```
-git clone https://github.com/hyperledger/fabric-chaincode-evm.git
-```
-
 Next, install the EVM chain code on all the peers:
 ```
 peer chaincode install -n evmcc -l golang -v 0 -p github.com/hyperledger/fabric-chaincode-evm/evmcc
@@ -181,11 +175,11 @@ cd $GOPATH/src/github.com/hyperledger/fabric-chaincode-evm/
 ```
 Run the following to build the fab proxy:
 ```
-go build -o fab3 ./fabproxy/cmd
+make fab3
 ```
 You can then run the proxy:
 ```
-./fab3
+bin/fab3
 ```
 
 This will start Fab3 at `http://localhost:8545`.
