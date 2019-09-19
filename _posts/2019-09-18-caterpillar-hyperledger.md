@@ -9,7 +9,7 @@ image:
   alt: "Web"
 ---
 
-In this blog post, we show how to execute BPMN 2.0 XML diagrams on Hyperledger Fabric, using the *Caterpillar* engine or our newly create *BPMN-Sol* compiler (which is in turn based on the BPMN 2.0 XML to Solidity compiler of Caterpillar).
+In this blog post, we show how to execute BPMN 2.0 XML diagrams on Hyperledger Fabric, using the *Caterpillar* engine or our newly created *[BPMN-Sol](https://www.npmjs.com/package/bpmn-sol/v/0.0.3)* compiler (which is in turn based on the BPMN 2.0 XML to Solidity compiler of Caterpillar).
 
 ## BPX on the Blockchain with Caterpillar
 The intersection of blockchain technology and business process management has recently received increased attention by the academic community.
@@ -76,15 +76,16 @@ cd fabric-samples
 git checkout release-1.4
 ```
 
-Now run the following command:
+Now run the following command: </n>
 ```
 curl -sSL http://bit.ly/2ysbOFE | bash -s
 
 ```
+This will install all the binaries which are required to setup the Hyperledger network locally. </n>
 
 ### Mount the EVM chain code and start the network
 
-Clone the `fabric-chaincode-evm` repo in your GOPATH directory.
+Clone the [fabric-chaincode-evm](https://github.com/hyperledger/fabric-chaincode-evm) repo in your GOPATH directory.
 ```
 cd $GOPATH/src/github.com/hyperledger/
 git clone https://github.com/hyperledger/fabric-chaincode-evm
@@ -211,11 +212,9 @@ On click of **Save** the engine starts compiling the diagram to a smart contract
 
 ### Method 2: Using the BPMN-Sol compiler
 
-Clone the repository [BPMN-Sol compiler](https://github.com/signavio/BPMN-Sol) to your machine and `cd` into the project directory.
+Open your node project and install the package `bpmn-sol` using the command ``` npm i bpmn-sol ```. You can require the package using ``` const compiler = require('bpmn-sol) ```.
 Run `npm install` to install the dependencies.
-In the `index.ts` file you find a sample XML object that can be compiled to a smart contract.
-Alternatively, you can add your own BPMN file.
-Note that the JavaScript object needs to contain the keys ``bpmn`` with the BPMN XML file as its value and ``name`` with the name of the smart contract as its value.
+The BPMN 2.0 xml can be converted to solidity using the compile() function. The xml to be passed should be an object with the xml value and a name for the smart contract. It has to be in below format.
 
 ```
 const xml = {
@@ -223,15 +222,15 @@ const xml = {
    name: 'sampleContract' }
 ```
 
-Now, add the following code to ``index.ts`` to log the contract details to the terminal.
+When this object is passed to the compile() function it returns an object with three values Solidity code,ByteCode, ABI. </n>
+For example </n>
 
 ```
-const contract = compile(xml).then(contract => {
-   console.log(contract);
+const contract = compiler.compile(xml).then(contract => {
+ console.log(contract);
 })
 ```
-Run `npm run build` and `npm start`.
-The compile function returns the Solidity code, Bytecode and ABI value, which are essential for deploying the smart contract to Hyperledger.
+This logs the output object. </n>
 
 
 ### Deploying the smart contract.
