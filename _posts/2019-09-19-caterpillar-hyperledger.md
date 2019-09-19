@@ -76,12 +76,12 @@ cd fabric-samples
 git checkout release-1.4
 ```
 
-Now run the following command: </n>
+Now run the following command:
 ```
 curl -sSL http://bit.ly/2ysbOFE | bash -s
 
 ```
-This will install all the binaries which are required to setup the Hyperledger network locally. </n>
+This will install all the binaries which are required to setup the Hyperledger network locally.
 
 ### Mount the EVM chain code and start the network
 
@@ -212,13 +212,14 @@ On click of **Save** the engine starts compiling the diagram to a smart contract
 
 ### Method 2: Using the BPMN-Sol compiler
 
-Open your node project and install the package `bpmn-sol` using the command ``` npm i bpmn-sol ```.</n>
-You can require the package using
-``` 
+Open your node project and install the package `bpmn-sol` using the command ``` npm i bpmn-sol ```.  
+You can require the package as follows:
+
+```
 const compiler = require('bpmn-sol) 
 ```
 
-The BPMN 2.0 xml can be converted to solidity using the compile() function. The xml to be passed should be an object with the xml value and a name for the smart contract. It has to be in below format.
+The BPMN 2.0 XML can be converted to solidity using the compile() function. The XML to be passed should be an object with the XML value and a name for the smart contract. It has to be in below format.
 
 ```
 const xml = {
@@ -226,15 +227,16 @@ const xml = {
    name: 'sampleContract' }
 ```
 
-When this object is passed to the compile() function it returns an object with three values Solidity code,ByteCode, ABI. </n>
-For example </n>
+**Note:** You also find the example XML (properly formatted) [here in the *BPMN-Sol*](https://github.com/signavio/BPMN-Sol/blob/master/example.bpmn) repository.
+
+When this object is passed to the compile() function it returns an object with three values for Solidity code, ByteCode and ABI:
 
 ```
 const contract = compiler.compile(xml).then(contract => {
  console.log(contract);
 })
 ```
-This logs the output object. </n>
+This logs the output object.
 
 
 ### Deploying the smart contract.
@@ -255,19 +257,20 @@ node
 
 Assign Web3 library and use *fab3* running in the previous terminal as the provider.
 
-```
+```JavaScript
 Web3 = require('web3')
 web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'))
 ```
 
 Check to see your account information:
 
-```
+```JavaScript
 web3.eth.accounts
 ```
 
 You should see something like this which is similar to an Ethereum account:
-```
+
+```JavaScript
 [ '0x2c045d4565e31cef1f6cd7368c3436a79f1cea4f' ]
 ```
 Assign this account as ``defaultAccount``:
@@ -276,33 +279,36 @@ Assign this account as ``defaultAccount``:
 
 From the values obtained through either method 1 or method 2 assign the Bytecode and ABI values.
 
-```ABI = ABI value```
+```JavaScript
+ABI = <ABI value>
+```
 
 Next, assign the long EVM complied byte code:  
 
-```
-ByteCode = 'Bytecode value'
+```JavaScript
+ByteCode = '<Bytecode value>'
 ```
 
 
 Assign the contract with web3 using the contract's ABI.
-```
+
+```JavaScript
 Contract = web3.eth.contract(ABI)
 ```
 
 Next, deploy the contract using the contract byte code:
 
-```
+```JavaScript
 deployedContract = Contract.new([], { data: ByteCode })
 ```
 
 You can get the contract address by using the transaction hash of the deployed contract:
 
-```
+```JavaScript
 web3.eth.getTransactionReceipt(deployedContract.transactionHash)
 ```
 
-Now, the BPMN 2.0 XML diagram has been successfuly deployed to the Hyperledger network.
+Now, the BPMN 2.0 XML diagram has been successfully deployed to the Hyperledger network.
 
 ## Conclusion
 As we have shown in this blog post, executing BPMN diagrams on Hyperledger Fabric is relatively straight-forward after making minor adjustments to Caterpillar.
@@ -310,8 +316,9 @@ Still, we think that more work is necessary to allow for the business user-frien
 
 * **Test-driven chain code specification**  
   Considering the software development best practice of *test driven* development, process modelers should be able to specify test cases that describe the target behavior directly in their modeling environment.
-* **Continuous integration**
+* **Continuous integration**  
   The process of chain code modeling, testing and deployment should be supported by continuous integration pipelines.
 
+*Image credits:*
 
 <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@clintadair?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Clint Adair"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Clint Adair</span></a>
