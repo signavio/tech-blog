@@ -91,10 +91,10 @@ cd $GOPATH/src/github.com/hyperledger/
 git clone https://github.com/hyperledger/fabric-chaincode-evm
 ```
 
-Checkout `release-0.1`
+Checkout `release-0.3`
 ```
 cd fabric-chaincode-evm
-git checkout release-0.1
+git checkout release-0.3
 ```
 
 
