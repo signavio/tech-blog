@@ -212,8 +212,12 @@ On click of **Save** the engine starts compiling the diagram to a smart contract
 
 ### Method 2: Using the BPMN-Sol compiler
 
-Open your node project and install the package `bpmn-sol` using the command ``` npm i bpmn-sol ```. You can require the package using ``` const compiler = require('bpmn-sol) ```.
-Run `npm install` to install the dependencies.
+Open your node project and install the package `bpmn-sol` using the command ``` npm i bpmn-sol ```.</n>
+You can require the package using
+``` 
+const compiler = require('bpmn-sol) 
+```
+
 The BPMN 2.0 xml can be converted to solidity using the compile() function. The xml to be passed should be an object with the xml value and a name for the smart contract. It has to be in below format.
 
 ```
