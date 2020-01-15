@@ -1,0 +1,31 @@
+version: 2.1
+
+jobs:
+  trigger_rebuild:
+    docker:
+      - image: circleci/node:latest
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: Set git name & email
+          command: |
+            git config --global user.name "Workflow Bot" && 
+            git config --global user.email "wolf.pack@signavio.com"
+      - run:
+          name: Commit to trigger rebuild
+          command: |
+            git commit --allow-empty -m "[skip ci] Rebuild blog"
+            git push origin master
+
+workflows:
+  nightly_pipeline:
+    # triggers:
+    #   - schedule:
+    #       cron: "0 6 * * *"
+    #       filters:
+    #         branches:
+    #           only:
+    #             - master
+    jobs:
+      - trigger_rebuild
