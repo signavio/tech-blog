@@ -3,3 +3,4 @@ _site
 *.sublime-workspace
 .idea
 _gems
+*.iml
